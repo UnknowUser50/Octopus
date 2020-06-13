@@ -69,3 +69,39 @@ My github : https://github.com/UnknowUser50/
 /________________\	
 
 --> I am not responsible for your actions, this script uses pentest or information application, accessing or scanning a system that does not belong to you is punishable.
+
+
+#-------------------------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------------------------------------#
+
+New version 1.1 ==> New design
+
+Two new Nmap's modules : 
+----> Trace scan
+----> Os detection
+
+----> Wireshark
+#You can now use WireShark in Network Information
+
+----> Legion / Sparta
+Dependubg on your version, you can use Legion or Sparta
+(Legion for Kali 2020) AND (Sparta for inferior)
+
+----> New Main module ! Manual / Documentation 
+If you don't know how does one of the script/application work, you can see his manual.
+If one of the manual doesn't appear, use the following commande : 
+<name-for-man> --help/-h 
+
+        /\
+       /  \
+      /    \
+     /   |  \
+    /    |   \
+   /     |    \ 
+  /            \
+ /       .      \
+/________________\	
+
+--> I am not responsible for your actions, this script uses pentest or information application, accessing or scanning a system that does not belong to you is punishable.
+
