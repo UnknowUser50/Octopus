@@ -93,7 +93,7 @@ If one of the manual doesn't appear, use the following commande :
 <name-for-man> --help/-h 
 
 
-Rectification for 1.1.1 : somes bugs
+Rectification for 1.1.1 : some bugs
 
 
 
