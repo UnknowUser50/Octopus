@@ -11,25 +11,56 @@ printf "\n"
 
 echo -e -n "\e[32m[\e[33m+\e[32m] Enter current user : \e[0m"
 read current_user
+echo -e "\e[33m----------------------------------------\e[0m"
 sleep 1
 printf "\e[32m[\e[33m*\e[32m] System update, please wait ... \e[0m\n"
 sudo apt-get update &>/dev/null
+echo -ne -e '\e[32m#####               (33%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m###########         (66%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m################## (100%)\r\e[0m\n'
+sleep 1
+printf "\e[32m[\e[33m!\e[32m] System update complete...\e[0m\n"
+echo -e "\e[33m----------------------------------------\e[0m"
 
 # Checking dependencies
 printf "\e[32m[\e[33m*\e[32m] I requiere git ... dowloading\e[0m\n"
-sudo apt-get install git
-sleep 3
-printf "\e[32m[\e[33m*\e[32m] Git installed ! \e[0m\n"
+sudo apt-get install -y git &>/dev/null
+echo -ne -e '\e[32m#####               (33%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m###########         (66%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m################## (100%)\r\e[0m\n'
+sleep 1
+printf "\e[32m[\e[33m!\e[32m] Git installed ! \e[0m\n"
+echo -e "\e[33m----------------------------------------\e[0m"
+sleep 2
 
 printf "\e[32m[\e[33m*\e[32m] I requiere Wireshark ... dowloading\e[0m\n"
-sudo apt-get install wireshark
-sleep 3
-printf "\e[32m[\e[33m*\e[32m] Wireshark installed ! \e[0m\n"
+sudo apt-get install -y wireshark &>/dev/null
+echo -ne -e '\e[32m#####               (33%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m##########          (66%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m################## (100%)\r\e[0m\n'
+sleep 1
+printf "\e[32m[\e[33m!\e[32m] Wireshark installed ! \e[0m\n"
+echo -e "\e[33m----------------------------------------\e[0m"
+sleep 2
 
 printf "\e[32m[\e[33m*\e[32m] I requiere UFW ... downloading\e[0m\n"
-sudo apt-get install ufw
-sleep 3
-printf "\e[32m[\e[33m*\e[32m] UFW installed ! \e[0m\n\n"
+sudo apt-get install -y ufw &>/dev/null
+echo -ne -e '\e[32m#####               (33%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m##########          (66%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m################## (100%)\r\e[0m\n'
+sleep 1
+printf "\e[32m[\e[33m!\e[32m] UFW installed ! \e[0m\n"
+echo -e "\e[33m----------------------------------------\e[0m"
+sleep 1
+printf "\n"
 
 # Making directories 
 if [ -d /$current_user/Octopus/Network-Infos ]; then
