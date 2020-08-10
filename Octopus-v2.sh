@@ -267,9 +267,9 @@ read choix1
 		fi
 
 	elif [ $choix1 == $quit ]; then
-	printf "\e[31m [+] Leaving Octopus ... \e[0m\n"
+	printf "\e[31m [+] Back to main menu ... \e[0m\n"
 	sleep 2
-	exit
+	mainmenu
 
 	elif [ -z $choix1 ]; then
 	printf "\e[31m [+] You must choose at least one module ! \e[0m\n"
@@ -304,7 +304,7 @@ printf "\E[34m {8}-- Use ZenMap (Graphical Nmap)                   \n\E[0m"
 printf "\E[34m {9}-- Use Linux FireWall UFW                        \n\E[0m"
 printf "\E[34m {10}-- Lunch aircrack-ng                            \n\E[0m"
 printf "                                                               \n"
-printf "\E[34m {99}- Leave Octopus                                 \n\E[0m"
+printf "\E[34m {99}- Back                                 \n\E[0m"
 printf "                                                               \n"
 printf "\E[34m ###########################################         \n\E[0m"
 printf "                                                               \n"
@@ -350,9 +350,9 @@ printf "\e[36m [+] Starting UFW-Firewall ... \e[0m\n"
 	mainmenu
 
 elif [ $choix2 == $ex ]; then
-printf "\e[31m [+] Leaving Octopus ... \e[0m\n"
+printf "\e[31m [+] Back to main menu ... \e[0m\n"
 sleep 1
-exit
+mainmenu
 
 elif [ -z $choix2 ]; then
 printf "\e[31m [+] You may choose at least one module ...\e[0m\n"
@@ -418,20 +418,14 @@ printf "\E[34m {110}-- Canon devices scan                      \n\E[0m"
 printf "\E[34m {111]-- DNS fuzzing attack                      \n\E[0m"
 printf "\E[34m {112}-- List all device 			       \n\E[0m"
 printf "                                                 \n"
-printf "\E[34m {999}-- Leave Octopus                           \n\E[0m"
+printf "\E[34m {999}-- Back                           \n\E[0m"
 printf "                                                 \n"
 printf "\E[34m ############################################### \n\E[0m"
 printf "                                                 \n"
 echo -e -n "\E[36m [+] Choose Nmap's modules : \E[0m"
 read nnmap
 
-if [ ! "/$current_user/Octopus-v2/Network-Scan/Nmap" ]; then
-mkdir Nmap-results/ &>/dev/null
-elif [ ! -d "/$current_user/Octopus-v2/Network-Scan/Nmap" ]; then
-printf "\e[31m [+] Already exists ! \e[0m\n" &>/dev/null
-fi
-
-cd Nmap-results &>/dev/null
+cd Network-Scan/
 
 if [ $nnmap == $fs ]; then
 echo -e -n "\e[36m [+] Nmap set to furtive scan, target : \e[0m"
@@ -544,18 +538,18 @@ sleep 2
 mainmenu 
 
 elif [ $nnmap == $la ]; then
-echo -e -n "\e[36m [+] Nmap set to listing device, enter an IP range : "
+echo -e -n "\e[36m [+] Nmap set to listing device, enter an IP range : \e[0m"
 read ip
-sudo nmap -sL $ip && sudo nmap -sL $ip > Listing.txt
+sudo nmap -sL $ip | grep -v "for $ip*" && sudo nmap -sL $ip | grep -v "for $ip*" > Listing.txt 
 sudo chown $current_user Listing.txt
 printf "\e[36m [+] Done !\e[0m"
 sleep 2
 mainmenu
 
 elif [ $nnmap == $ex ]; then
-printf "\e[31m [+] Leave Octopus ... \e[0m\n"
+printf "\e[31m [+] Back to network-scan module ... \e[0m\n"
 sleep 1
-exit
+network-scan
 
 elif [ -z $nnmap ]; then
 printf "\e[31m [+] You may choose at least one module ... \e[0m\n"
@@ -598,7 +592,7 @@ printf "\E[34m {14}-- Use Dirbuster (Graphical GoBus.)               \n\E[0m"
 printf "\E[34m {15}-- Use Sparta/Legion                              \n\E[0m"
 printf "\E[34m {16}-- Use basic SQL injection                        \n\E[0m"
 printf "                                                             \n"
-printf "\E[34m {99}-- Leave Octopus                                  \n\E[0m"
+printf "\E[34m {99}-- Back                                  \n\E[0m"
 printf "                                                             \n"
 printf "\E[34m ##################################################### \n\E[0m"
 printf "                                                             \n"
@@ -676,9 +670,9 @@ sleep 2
 mainmenu
 
 elif [ $choix3 == $ex ]; then
-printf "\e[31m [+] Leave Octopus ... \e[0m\n"
+printf "\e[31m [+] Back to main menu ... \e[0m\n"
 sleep 1
-exit
+mainmenu
 
 elif [ -z $choix3 ]; then
 printf "\e[31m [+] You may choose at least one module ! \e[0m\n"
@@ -710,9 +704,9 @@ printf "\E[34m #################################################### \n"
 printf " \n"
 printf "\E[34m {0}-- SSH connexion \e[0m\n"
 printf "\E[34m {1}-- Netcat connexion \e[0m\n"
-printf "\e[34m {2}-- Opening & listening port with Netcat \e[0mn"
+printf "\e[34m {2}-- Opening & listening port with Netcat \e[0m"
 printf " \n"
-printf "\E[34m {9}-- Leave Octopus \n"
+printf "\E[34m {9}-- Back \n"
 printf "\n"
 printf "\e[34m #################################################### \n"
 printf "\n"
@@ -773,9 +767,9 @@ printf "\e[34m [+] End of listening, return to menu ... \e[0m\n"
 mainmenu
 
 elif [ $connexion == $ex ]; then
-printf "\e[31m [+] Leave Octopus ... \e[0m\n"
+printf "\e[31m [+] Back to main menu ... \e[0m\n"
 sleep 2
-exit
+mainmenu
 
 elif [ -z $connexion ]; then
 printf "\e[31 [+] You may choose at least one module ! \e[0m\n"
@@ -881,9 +875,9 @@ sudo man nikto
 mainmenu
 
 elif [ $mannu == $ex ]; then
-printf "\e[31mi [+] Leave Octopus ... \e[0m\n"
+printf "\e[31mi [+] Back to main menu ... \e[0m\n"
 sleep 3
-exit
+mainmenu
 
 elif [ -z $mannu ]; then
 printf "\e[31m[+] You may choose at least one module ! \e[0m\n"
