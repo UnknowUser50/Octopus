@@ -4,7 +4,7 @@
 #
 # @Coded by : UnknowUser50
 #
-# @Version : v1.0 (reedited --> 1.2.0 )
+# @Version : v1.1 (reedited --> 1.2.0 )
 #
 # @Multi-ToolBox --> Network, Webscan, connexion
 #
@@ -16,6 +16,13 @@
 
 requirements() {
 
+# Run this script as sudo or end 
+if [[ $UID != 0 ]]; then
+	printf "\e[33m[\e[31m!\e[33m] Please, run this script as \e[31msudo\e[33m:\n"
+	printf "\e[33m[\e[31m!\e[33m] sudo $0 $*\n"
+	# Exit error code
+	exit 1
+fi	
 #command -v zenmap > /dev/null 2>&1 || { echo >&2 "I requiere ZenMap but it's not installed. Install it."; exit 1; }
 command -v wireshark > /dev/null 2>&1 || { echo >&2 "I requiere WireShark but it's not installed. Install it."; exit 1; }
 #command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not installed. Install it."; exit 1; }
@@ -82,7 +89,7 @@ printf "\E[34M            \___/ \___|\__\___/| .__/ \__,_|___/              \n"
 printf "\E[34m                               | |                            \n"
 printf "\E[34m                               |_|                            \n"
 printf "                                                                    \n"
-printf "\e[101m\e[1;77m          By UnknowUser50 || version 1.2.0 || 2020            \n\e[0m"
+printf "\e[101m\e[1;77m          By UnknowUser50 || version 1.1.1 || 2020            \n\e[0m"
 echo "                                                                       "
 echo "                                                                       "
 echo "                                                                       "
