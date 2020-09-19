@@ -202,6 +202,8 @@ read choix1
 	echo -e -n "\E[36m [+] Enter a domain name : \E[0m"
 	read domain
 	nslookup $domain && nslookup $domain > domain.txt
+	printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Infos/domain.txt\e[0m"
+	sleep 2
 	sudo chown $current_user domain.txt
 	printf "\e[36m [+] Done ! \e[0m\n"
 	sleep 2
@@ -211,6 +213,8 @@ read choix1
 	echo -e -n "\e[36m [+] Enter a domain name/IP : \e[0m"
 	read dn_ip
 	dig $dn_ip && dig $dn_ip > dig.txt
+	printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Infos/dig.txt\e[0m"
+	sleep 2
 	sudo chown $current_user dig.txt
 	printf "\e[36m [+] Done ! \e[0m\n"
 	sleep 2
@@ -220,6 +224,8 @@ read choix1
 	echo -e -n "\e[36m [+] Enter an IP address : \e[0m"
 	read ip
 	whois $ip && whois $ip > whois.txt
+	printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Infos/whois.txt\e[0m"
+	sleep 2
 	sudo chown $current_user whois.txt
 	printf "\e[36m [+] Done ! \e[0m\n"
 	sleep 2
@@ -229,6 +235,8 @@ read choix1
 	echo -e -n "\e[36m [+] Enter a domain name/IP : \e[0m"
 	read trc_dn_ip
 	traceroute $trc_dn_ip && traceroute $trc_dn_ip > traceroute.txt
+	printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Infos/traceroute.txt\e[0m"
+	sleep 2
 	sudo chown $current_user traceroute.txt
 	printf "\e[36m [+] Done ! \e[0m\n"
 	sleep 2
@@ -271,7 +279,7 @@ read choix1
 		mainmenu
 
 		elif [ -z $writter ]; then
-		printf "\e[31m [+] You must choose at least 1 module ! \e[0m\n"
+		printf "\e[31m [+] You must choose at least 1 editor ! \e[0m\n"
 		mainmenu
 		fi
 
@@ -355,6 +363,7 @@ elif [ $choix2 == $ufw ]; then
 printf "\e[36m [+] Starting UFW-Firewall ... \e[0m\n"
 	sudo apt-get install ufw &>/dev/null
 	sudo ufw enable
+	printf "\e[36m[+] UFW is now activated \e[0m"
 	sleep 2
 	mainmenu
 
@@ -440,6 +449,8 @@ if [ $nnmap == $fs ]; then
 echo -e -n "\e[36m [+] Nmap set to furtive scan, target : \e[0m"
 read ip
 sudo nmap -sS $ip && sudo nmap -sS $ip > Furtive.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/Furtive.txt\e[0m"
+sleep 2
 sudo chown $current_user Furtive.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -449,6 +460,8 @@ elif [ $nnmap == $ps ]; then
 echo -e -n "\e[36m [+] Nmap set to ports scan, target : \e[0m"
 read ip
 sudo nmap -p 1-1000 $ip && sudo nmap -p 1-1000 $ip > Ports.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/Ports.txt\e[0m"
+sleep 2
 sudo chown $current_user Ports.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -458,6 +471,8 @@ elif [ $nnmap == $ts ]; then
 echo -e -n "\e[36m [+] Nmap set to TCP scan, target : \e[0m"
 read ip
 sudo nmap -sT $ip && sudo nmap -sT $ip > TCP.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Infos/TCP.txt\e[0m"
+sleep 2
 sudo chown $current_user TCP.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -467,6 +482,8 @@ elif [ $nnmap == $us ]; then
 echo -e -n "\e[36m [+] Nmap set to UDP scan, target : \e[0m"
 read ip
 sudo nmap -sU $ip && sudo nmap -sU $ip > UDP.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/UDP.txt\e[0m"
+sleep 2
 sudo chown $current_user UDP.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -476,6 +493,8 @@ elif [ $nnmap == $as ]; then
 echo -e -n "\e[36m [+] Nmap et to aggressive scan, target : \e[0m"
 read ip
 sudo nmap -A $ip && sudo nmap -A $ip > aggressive.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/aggressive.txt\e[0m"
+sleep 2
 sudo chown $current_user aggressive.txt
 printf "\e[36m [+] Done !\e[0m\n"
 sleep 2
@@ -485,6 +504,8 @@ elif [ $nnmap == $fls ]; then
 echo -e -n "\e[36m [+] Nmap set to Flags scan, target : \e[0m"
 read ip
 sudo nmap --script-banner $ip && sudo nmap --script banner $ip > flags.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/flags.txt\e[0m"
+sleep 2
 sudo chown $current_user flags.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -494,6 +515,8 @@ elif [ $nnmap == $vs ]; then
 echo -e -n "\e[36m [+] Nmap set to vuln scan, target : \e[0m"
 read ip
 sudo nmap --script-vuln $ip && sudo nmap --script vuln $ip > vuln.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/vuln.txt\e[0m"
+sleep 2
 sudo chown $current_user vuln.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -503,6 +526,8 @@ elif [ $nnmap == $trace ]; then
 echo -e -n "\e[36m [+] Nmap set to trace scan, target : \e[0m"
 read ip
 sudo nmap --script-trace $ip && sudo nmap --script-trace $ip > trace.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/trace.txt\e[0m"
+sleep 2
 sudo chown $current_user trace.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -514,6 +539,8 @@ read os
 echo -e -n "\e[36m [+] Now select the target \e[0m"
 read ip
 sudo nmap --max-os-tries $os $ip && sudo nmap --max-os-tries $os $ip > OS.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/OS.txt\e[0m"
+sleep 2
 sudo chown $current_user OS.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -523,6 +550,8 @@ elif [ $nnmap == $dos ]; then
 echo -e -n "\e[36m [+] Nmap set to Avahi DOS detection, enter the target : \e[0m"
 read ip
 sudo nmap --script=broadcast-avahi-dos $ip && sudo nmap --script=broadcast-avahi-dos $ip > DOS.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/DOS.txt\e[0m"
+sleep 2
 sudo chow $current_user DOS.txt
 printf "\e[36m [+] Done ! e[0m\n"
 sleep 2
@@ -532,6 +561,8 @@ elif [ $nnmap == $bjnp ]; then
 echo -e -n "\e[36m [+] Nmap set to Canon device detection, enter the target : \e[0m"
 read ip
 sudo nmap --script broadcast-bjnp-discover $ip && sudo nmap --script broadcast-bjnp-discover $ip > Canon-device.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/Canon-device.txt\e[0m"
+sleep 2
 sudo chown $current_user Canon-device.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -540,7 +571,9 @@ mainmenu
 elif [ $nnmap == $fuzz ]; then
 echo -e -n "\e[36m [+] Nmap set to DNS fuzzing attack, enter the target : \e[0m"
 read ip 
-sudo nmap -sU --script dns-fuzz $ip && sudo nmap -sU --script dns-fuzz $ip > DNS-attack.txt 
+sudo nmap -sU --script dns-fuzz $ip && sudo nmap -sU --script dns-fuzz $ip > DNS-attack.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/DNS-attack.txt\e[0m"
+sleep 2
 sudo chown $current_user DNS-attack.txt
 printf "\e[36m [+] Done ! \e[0m"
 sleep 2
@@ -549,7 +582,9 @@ mainmenu
 elif [ $nnmap == $la ]; then
 echo -e -n "\e[36m [+] Nmap set to listing device, enter an IP range : \e[0m"
 read ip
-sudo nmap -sL $ip | grep -v "for $ip*" && sudo nmap -sL $ip | grep -v "for $ip*" > Listing.txt 
+sudo nmap -sL $ip | grep -v "for $ip*" && sudo nmap -sL $ip | grep -v "for $ip*" > Listing.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Network-Scan/Listing.txt\e[0m"
+sleep 2
 sudo chown $current_user Listing.txt
 printf "\e[36m [+] Done !\e[0m"
 sleep 2
@@ -613,7 +648,8 @@ echo -e -n "\e[36m [+] Starting nikto, target(IP/URL) : \e[0m"
 read url_ip
 nikto -h $url_ip && nikto -h $url_ip > nikto_results.txt
 sudo chown $current_user nikto-results.txt
-sleep 1
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Web-Scan/nikto_results.txt\e[0m"
+sleep 2
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
 mainmenu
@@ -638,6 +674,8 @@ read url
 echo -e -n "\e[36m [+] Choose the path of your wordlist : \e[0m"
 read wl
 sudo gobuster --url $url --wordlist $wl && sudo gobuster --url $url --wordlist $wl > gobuster.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Web-Scan/gobuster.txt\e[0m"
+sleep 2
 sudo chown $current_user gobuster.txt
 printf "\e[36m [+] Done ! \e[0m\n"
 sleep 2
@@ -674,6 +712,8 @@ printf "\e[36m [+] For the moment, it is a test module, it will be improved late
 echo -e -n "\e[36m [+] Enter the url of the target : \e[0m"
 read targt
 sudo sqlmap --$target --dbs && sudo sqlmap --$target --dbs > sql-results.txt
+printf "\e[36m[+] Your results have been saved here : \e[33m/home/$current_user/Octopus/Web-Scan/sql-results.txt\e[0m"
+sleep 2
 printf "\e[36m [+] Done !\e[0m\n"
 sleep 2
 mainmenu
