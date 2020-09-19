@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Run this script as sudo or end 
+if [[ $UID != 0 ]]; then
+	printf "\e[33m[\e[31m!\e[33m] Please, run this script as \e[31msudo\e[33m:\n"
+	printf "\e[33m[\e[31m!\e[33m] sudo $0 $*\n"
+	# Exit error code
+	exit 1
+fi	
 date=$(date +%c)
 clear
 printf "\e[33m _           _        _ _             \n"
