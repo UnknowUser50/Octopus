@@ -37,9 +37,9 @@ if [ -d /home/$current_user/Backup-Octopus ]; then
 printf "\e[31m[\e[33m!\e[31m]\e[0m A backup directory already exist, the script will only moove file ... \e[0m\n"
 cd /home/$current_user/Octopus/ &>/dev/null
 
-# Moove external files
+# Moove old files to a backup directory
 cd /home/$current_user/Octopus/ &>/dev/null
-mv *.txt /home/$current_user/Backup-Octopus/
+mv *.txt /home/$current_user/Backup-Octopus/ &>/dev/null
 sleep 1
 printf "\e[32m[\e[33m*\e[32m] External file(s) saved ...\e[0m\n"
 sleep 1
