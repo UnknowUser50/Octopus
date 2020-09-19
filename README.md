@@ -4,7 +4,8 @@
 
 ## Presentation
   Octopus is a script writting in bash. I decide to develop a script for all poeple who are new to computer security 
-  to make it easier for them.
+  to make it easier for them. Each script output/results will also be written to a text file.
+  **Octopus using existing tools, it only takes their use. These tools do not belong to me and I do not give them the rights.** 
   Today, Octopus has 3 analysis modules and one for connection. The modules are as follow :
 
 **Main modules**
@@ -76,3 +77,8 @@
 * SSH for **S**ecure **SH**ell is a secure communication protocol. With Octopus, you just need to enter the session name and the IP address to which you want to establish
 an SSH connection :
 > ssh root@127.0.0.1 
+
+# DISCLAMER ! 
+Octopus is a tool reserved for **professional** or **educational** use ! Under no circumstances should it be used for the purpose of harming others or a system that does
+not belong to you. As a reminder, **any intrusion or attempted intrusion is punishable by law !**
+I am no way responsible for your actions, thank you for your understanding.
