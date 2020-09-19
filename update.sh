@@ -12,6 +12,13 @@ read current_user
 banner() {
 
 clear
+# Run this script as sudo or end 
+if [[ $UID != 0 ]]; then
+	printf "\e[33m[\e[31m!\e[33m] Please, run this script as \e[31msudo\e[33m:\n"
+	printf "\e[33m[\e[31m!\e[33m] sudo $0 $*\n"
+	# Exit error code
+	exit 1
+fi	
 printf "\e[32m            _                   _       _         \n"
 printf "\e[32m           | |                 | |     | |        \n"
 printf "\e[32m  ___   ___| |_ _   _ _ __   __| | __ _| |_ ___   \n"
