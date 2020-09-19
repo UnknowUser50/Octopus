@@ -82,3 +82,7 @@ an SSH connection :
 Octopus is a tool reserved for **professional** or **educational** use ! Under no circumstances should it be used for the purpose of harming others or a system that does
 not belong to you. As a reminder, **any intrusion or attempted intrusion is punishable by law !**
 I am no way responsible for your actions, thank you for your understanding.
+
+![End-Logo](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f91279e6-bcd2-45ab-aa9a-da8370953c52/d9tq84i-6d0948dd-39cb-4eb8-b75c-9f74a840b5f6.jpg/v1/fill/w_1280,h_906,q_75,strp/cthulhu_by_disse86_d9tq84i-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD05MDYiLCJwYXRoIjoiXC9mXC9mOTEyNzllNi1iY2QyLTQ1YWItYWE5YS1kYTgzNzA5NTNjNTJcL2Q5dHE4NGktNmQwOTQ4ZGQtMzljYi00ZWI4LWI3NWMtOWY3NGE4NDBiNWY2LmpwZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Kt57uYz80HS98KDALFgpsMrfagw42c4IysmRXGHfwmog)
+Image 1 : Andrée Wallin
+Image 2 : Disse86
