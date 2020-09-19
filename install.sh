@@ -87,8 +87,8 @@ if [ -d /home/$current_user/Octopus/Network-Infos ]; then
 printf "\e[31m[\e[33m!\e[31m] Directory \e[33m'Network-Infos'\e[31m already exist ! \e[0m\n"
 else
 printf "\e[32m[\e[33m*\e[32m] Making of \e[33m'Network-Infos'\e[32m ... \e[0m\n"
-cd /home/$current_user/Octopus/
-sudo mkdir Network-Infos/ 
+cd /home/$current_user/Octopus/ &>/dev/null
+sudo mkdir Network-Infos/ &>/dev/null
 sleep 1
 printf "\e[32m[\e[33m!\e[32m] Done at $date \e[0m\n"
 fi
@@ -97,8 +97,8 @@ if [ -d /home/$current_user/Octopus/Network-Scan ]; then
 printf "\e[31m[\e[33m!\e[31m] Directory \e[33m'Network-Scan'\e[31m already exist ! \e[0m\n"
 else
 printf "\e[32m[\e[33m*\e[32m] Making of \e[33m'Network-Scan'\e[32m ...\e[0m\n"
-cd /home/$current_user/Octopus/
-sudo mkdir Network-Scan/ 
+cd /home/$current_user/Octopus/ &>/dev/null
+sudo mkdir Network-Scan/ &>/dev/null
 sleep 1
 printf "\e[32m[\e[33m!\e[32m] Done at $date \e[0m\n"
 fi
@@ -107,8 +107,8 @@ if [ -d /home/$current_user/Octopus/Web-Scan ]; then
 printf "\e[31m[\e[33m!\e[31m] Directory \e[33m'Web-Scan'\e[31m already exist ! \e[0m\n"
 else
 printf "\e[32m[\e[33m*\e[32m] Making of \e[33m'Web-Scan'\e[32m ...\e[0m\n"
-cd /home/$current_user/Octopus/
-sudo mkdir Web-Scan/
+cd /home/$current_user/Octopus/ &>/dev/null
+sudo mkdir Web-Scan/ &>/dev/null
 sleep 1
 printf "\e[32m[\e[33m!\e[32m] Done at $date \e[0m\n"
 fi
