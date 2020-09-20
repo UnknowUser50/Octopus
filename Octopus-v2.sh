@@ -25,7 +25,7 @@ if [[ $UID != 0 ]]; then
 fi	
 #command -v zenmap > /dev/null 2>&1 || { echo >&2 "I requiere ZenMap but it's not installed. Install it."; exit 1; }
 command -v wireshark > /dev/null 2>&1 || { echo >&2 "I requiere WireShark but it's not installed. Install it."; exit 1; }
-#command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not installed. Install it."; exit 1; }
+command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not installed. Install it."; exit 1; }
 
 }
 
@@ -89,7 +89,7 @@ printf "\E[34M            \___/ \___|\__\___/| .__/ \__,_|___/              \n"
 printf "\E[34m                               | |                            \n"
 printf "\E[34m                               |_|                            \n"
 printf "                                                                    \n"
-printf "\e[101m\e[1;77m          By UnknowUser50 || version 1.1.1 || 2020            \n\e[0m"
+printf "\e[34m          By UnknowUser50 || version 1.1.1 || 2020            \n\e[0m"
 echo "                                                                       "
 echo "                                                                       "
 echo "                                                                       "
