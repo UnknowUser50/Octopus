@@ -735,7 +735,8 @@ other-connexion() {
 # Other-connexion Var
 ssh=0
 nc=1
-op_nc=3
+op_nc=2
+mc_ch=3
 ex=9
 
 clear
@@ -753,6 +754,7 @@ printf " \n"
 printf "\E[34m {0}-- SSH connexion \e[0m\n"
 printf "\E[34m {1}-- Netcat connexion \e[0m\n"
 printf "\e[34m {2}-- Opening & listening port with Netcat \e[0m"
+printf "\e[34m {3}-- Macchanger - Mac address changer randomly \e[0m"
 printf " \n"
 printf "\E[34m {9}-- Back \n"
 printf "\n"
@@ -812,6 +814,20 @@ printf "\e[31m [+] WARNING ; WHEN LISTENING TO THE PORT, DO NOT CLOSE THE TAB OR
 sleep 5 
 nc -l $open_port
 printf "\e[34m [+] End of listening, return to menu ... \e[0m\n"
+mainmenu
+
+elif [ $connexion == $mc_ch ]; then
+echo -e -n "\e[34m [+] On which card do you want to change the MAC address ? \e[0m"
+read wifi_card
+echo -e -n "\e[34m [+] MAC address change frequency :\e[0m "
+read time
+printf "\e[34m [+] Start of macchanger, log file have been created at \e[32m/home/$current_user/Octopus/MAC_logs.txt\e[0m\n"
+cd /home/$current_user/Octopus &>/dev/null
+touch MAC_logs.txt 
+sleep 1
+sudo macchanger -r $wifi_card >> /home/$current_user/Octopus/MAC_logs.txt
+sleep $time
+sleep 1
 mainmenu
 
 elif [ $connexion == $ex ]; then
