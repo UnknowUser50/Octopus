@@ -45,7 +45,7 @@ printf "\e[32m[\e[33m!\e[32m] Git installed ! \e[0m\n"
 echo -e "\e[33m----------------------------------------\e[0m"
 sleep 2
 
-printf"\e[32m[\e[33m*\e[32m] I requiere macchanger ... downloading\e[0m"
+printf "\e[32m[\e[33m*\e[32m] I requiere macchanger ... downloading\e[0m\n"
 sudo apt-get install -y macchanger &>/dev/null
 echo -ne -e '\e[32m#####               (33%)\r\e[0m'
 sleep 1
