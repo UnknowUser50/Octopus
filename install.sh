@@ -45,6 +45,18 @@ printf "\e[32m[\e[33m!\e[32m] Git installed ! \e[0m\n"
 echo -e "\e[33m----------------------------------------\e[0m"
 sleep 2
 
+printf"\e[32m[\e[33m*\e[32m] I requiere macchanger ... downloading\e[0m"
+sudo apt-get install -y macchanger &>/dev/null
+echo -ne -e '\e[32m#####               (33%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m###########         (66%)\r\e[0m'
+sleep 1
+echo -ne -e '\e[32m################## (100%)\r\e[0m\n'
+sleep 1
+printf "\e[32m[\e[33m!\e[32m] Macchanger installed ! \e[0m\n"
+echo -e "\e[33m----------------------------------------\e[0m"
+sleep 2
+
 printf "\e[32m[\e[33m*\e[32m] I requiere Wireshark ... dowloading\e[0m\n"
 sudo apt-get install -y wireshark &>/dev/null
 echo -ne -e '\e[32m#####               (33%)\r\e[0m'
