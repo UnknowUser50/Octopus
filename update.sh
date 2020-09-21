@@ -1,4 +1,5 @@
 #!/bin/bash
+daate=$(date +%c)
 
 preface() {
 
@@ -41,14 +42,14 @@ cd /home/$current_user/Octopus/ &>/dev/null
 cd /home/$current_user/Octopus/ &>/dev/null
 mv *.txt /home/$current_user/Backup-Octopus/ &>/dev/null
 sleep 1
-printf "\e[32m[\e[33m*\e[32m] External file(s) saved ...\e[0m\n"
+printf "\e[32m[\e[33m*\e[32m] External file(s) saved in \e[33m/home/$current_user/Backup-Octopus/\e[32m...\e[0m\n"
 sleep 1
 
 # Moove file(s) of Network-Infos
 if [ -d /home/$current_user/Octopus/Network-Infos ]; then
 cd Network-Infos/ &>/dev/null
 mv * /home/$current_user/Backup-Octopus/Network-Infos/ &>/dev/null
-printf "\e[32m[\e[33m*\e[32m] File(s) of Network-infos are saved ...\n"
+printf "\e[32m[\e[33m*\e[32m] File(s) of Network-infos are saved at \e[33m$date\e[32m...\n"
 cd && cd /home/$current_user/Octopus/ &>/dev/null
 else
 printf "\e[31m[\e[33m!\e[31m] Unknow directory or non-existant ...\n"
@@ -60,7 +61,7 @@ fi
 if [ -d /home/$current_user/Backup-Octopus/Network-Scan ]; then
 cd Network-Scan/ &>/dev/null
 mv * /home/$current_user/Backup-Octopus/Network-Scan/ &>/dev/null
-printf "\e[32m[\e[33m*\e[32m] File(s) of Network-Scan are saved ...\n"
+printf "\e[32m[\e[33m*\e[32m] File(s) of Network-Scan are saved at \e[33m$date\e[32m...\n"
 cd && cd /home/$current_user/Octopus/ &>/dev/null
 else
 printf "\e[31m[\e[33m!\e[31m] Unknow directory or non-existant ...\n"
@@ -72,7 +73,7 @@ fi
 if [ -d /home/$current_user/Backup-Octopus/Web-Scan ]; then
 cd Web-Scan/ &>/dev/null
 mv * /home/$current_user/Backup-Octopus/Web-Scan/ &>/dev/null 
-printf "\e[32m[\e[33m*\e[32m] File(s) of Web-Scan are saved ... \n"
+printf "\e[32m[\e[33m*\e[32m] File(s) of Web-Scan are saved at \e[33m$date\e[32m... \n"
 cd
 else
 printf "\e[31m[\e533m!\e[31m] Unknow directory or non-existant ...\n"
@@ -122,7 +123,7 @@ git clone https://github.com/UnknowUser50/Octopus &>/dev/null
 cd /home/$current_user/Octopus/ &>/dev/null
 chmod 755 * 
 if [ -d /home/$current_user/Octopus ]; then
-printf "\e[32m[+] Update is complete ! \e[0m\n"
+printf "\e[32m[+] Update is complete : \e[33m$date\e[32m \e[0m\n"
 exit
 else
 printf "\e[31m[\e[33m!\e(31m] Downloading error, please restart the script ... \e[0m\n"
