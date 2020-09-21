@@ -2,6 +2,40 @@
 # Octopus script
 <br/>
 
+* ## Requirements 
+
+  * Nmap
+  * ZenMap
+  * WireShark
+  * Gobuster/ Dirbuster
+  * wget ( for Zenmap Installation)
+
+For the module connection, SSH services **must be enabled**
+
+> systemctl start ssh
+
+* ## Installation
+
+> sudo apt update
+
+> sudo ./install.sh
+
+> sudo ./Octopus-v2.sh
+
+It is advisable to update Octopus regularly, **at least once a week**. Just run update script :
+
+> sudo ./update
+
+## Compatible operating system
+
+* Linux :
+  * Debian
+  * Ubuntu
+  * Kali 
+  * Parrot
+
+Warning, if you use a system other than Kali Linux, **remember to check if the packages** necessary for the proper functioning of Octopus are installed.  
+
 ## Presentation
   Octopus is a script writting in bash. I decide to develop a script for all poeple who are new to computer security 
   to make it easier for them. Each script output/results will also be written to a text file.
