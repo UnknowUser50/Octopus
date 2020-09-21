@@ -20,14 +20,14 @@ if [[ $UID != 0 ]]; then
 	# Exit error code
 	exit 1
 fi	
-printf "\e[32m            _                   _       _         \n"
-printf "\e[32m           | |                 | |     | |        \n"
-printf "\e[32m  ___   ___| |_ _   _ _ __   __| | __ _| |_ ___   \n"
-printf "\e[32m / _ \ / __| __| | | | '_ \ / _' |/ _' | __/ _ \  \n"
-printf "\e[32m| (_) | (__| |_| |_| | |_) | (_| | (_| | ||  __/  \n"
-printf "\e[32m \___/ \___|\__|\__,_| .__/ \__,_|\__,_|\__\___|  \n"
-printf "\e[32m                     | |                          \n"
-printf "\e[32m                     |_|                          \n"
+printf "\e[33m            _                   _       _         \n"
+printf "\e[33m           | |                 | |     | |        \n"
+printf "\e[33m  ___   ___| |_ _   _ _ __   __| | __ _| |_ ___   \n"
+printf "\e[33m / _ \ / __| __| | | | '_ \ / _' |/ _' | __/ _ \  \n"
+printf "\e[33m| (_) | (__| |_| |_| | |_) | (_| | (_| | ||  __/  \n"
+printf "\e[33m \___/ \___|\__|\__,_| .__/ \__,_|\__,_|\__\___|  \n"
+printf "\e[33m                     | |                          \n"
+printf "\e[33m                     |_|                          \n"
 printf "\n"
 
 }
@@ -49,7 +49,7 @@ sleep 1
 if [ -d /home/$current_user/Octopus/Network-Infos ]; then
 cd Network-Infos/ &>/dev/null
 mv * /home/$current_user/Backup-Octopus/Network-Infos/ &>/dev/null
-printf "\e[32m[\e[33m*\e[32m] File(s) of Network-infos are saved at \e[33m$date\e[32m...\n"
+printf "\e[32m[\e[33m*\e[32m] File(s) of Network-infos are saved at \e[33m$daate\e[32m...\n"
 cd && cd /home/$current_user/Octopus/ &>/dev/null
 else
 printf "\e[31m[\e[33m!\e[31m] Unknow directory or non-existant ...\n"
@@ -61,7 +61,7 @@ fi
 if [ -d /home/$current_user/Backup-Octopus/Network-Scan ]; then
 cd Network-Scan/ &>/dev/null
 mv * /home/$current_user/Backup-Octopus/Network-Scan/ &>/dev/null
-printf "\e[32m[\e[33m*\e[32m] File(s) of Network-Scan are saved at \e[33m$date\e[32m...\n"
+printf "\e[32m[\e[33m*\e[32m] File(s) of Network-Scan are saved at \e[33m$daate\e[32m...\n"
 cd && cd /home/$current_user/Octopus/ &>/dev/null
 else
 printf "\e[31m[\e[33m!\e[31m] Unknow directory or non-existant ...\n"
@@ -73,7 +73,7 @@ fi
 if [ -d /home/$current_user/Backup-Octopus/Web-Scan ]; then
 cd Web-Scan/ &>/dev/null
 mv * /home/$current_user/Backup-Octopus/Web-Scan/ &>/dev/null 
-printf "\e[32m[\e[33m*\e[32m] File(s) of Web-Scan are saved at \e[33m$date\e[32m... \n"
+printf "\e[32m[\e[33m*\e[32m] File(s) of Web-Scan are saved at \e[33m$daate\e[32m... \n"
 cd
 else
 printf "\e[31m[\e533m!\e[31m] Unknow directory or non-existant ...\n"
@@ -123,7 +123,7 @@ git clone https://github.com/UnknowUser50/Octopus &>/dev/null
 cd /home/$current_user/Octopus/ &>/dev/null
 chmod 755 * 
 if [ -d /home/$current_user/Octopus ]; then
-printf "\e[32m[+] Update is complete : \e[33m$date\e[32m \e[0m\n"
+printf "\e[32m[+] Update is complete : \e[33m$daate\e[32m \e[0m\n"
 exit
 else
 printf "\e[31m[\e[33m!\e(31m] Downloading error, please restart the script ... \e[0m\n"
