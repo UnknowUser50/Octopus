@@ -16,6 +16,8 @@ For the module connection, SSH services **must be enabled**
 
 * ## Installation
 
+> git clone https://github.com/UnknowUser50/Octopus
+
 > sudo apt update
 
 > sudo ./install.sh
