@@ -16,9 +16,13 @@ For the module connection, SSH services **must be enabled**
 
 * ## Installation
 
+> sudo apt update 
+
 > git clone https://github.com/UnknowUser50/Octopus
 
-> sudo apt update
+> cd Octopus/
+
+> sudo chmod 755 * 
 
 > sudo ./install.sh
 
