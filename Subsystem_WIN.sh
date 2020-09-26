@@ -26,6 +26,7 @@ hostname=$(hostname)
 bannerscreen() {
 
 clear
+printf "\n"
 printf "$BLUE     .=====================================================.                     \n"
 printf "$BLUE     ||                                                   ||                     \n"
 printf "$BLUE     ||$RED   _   $RED    _--'$GREEN'--_                                $BLUE||           \n"
@@ -38,8 +39,28 @@ printf "$BLUE     ||    $BLUE_    |  _--'$YELLOW'--_| $RESETCOLOR            |  
 printf "$BLUE     ||    $BLUE  ' --''                 $RESETCOLOR    '--'              $BLUE||                \n"
 printf "$BLUE     ||                                                   ||                     \n"
 printf "$BLUE     .=====================================================.                     \n"
+printf "\n"
+echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
+read current_user
 sleep 10
 
 }
 
+global_conf() {
+
+# Editing .bashrc
+nmap_WIN=`sudo cat .bashrc | grep -o "alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"'"`
+nmap_WIN &>/dev/null
+if [[ $? = 0 ]]; then
+  printf "$BLUE [$GREEN!$BLUE] Configurations are already made $RESETCOLOR\n"
+  sleep 1
+else
+  sudo "alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"' >> /home/$current_user/.bashrc 
+  printf " $BLUE [$GREEN!$BLUE] Configurations carried out ! $RESETCOLOR\"
+  sleep 1
+fi  
+
+}
+
 bannerscreen
+global_conf
