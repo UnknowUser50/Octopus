@@ -4,7 +4,7 @@ daate=$(date +%c)
 export BLUE='\033[1;94m'
 export GREEN='\033[1;92m'
 export RED='\033[1;91m'
-export YELLOw='\033[1;93m'
+export YELLOW='\033[1;93m'
 export RESETCOLOR='\033[1;00m'
 
 preface() {
@@ -129,7 +129,7 @@ git clone https://github.com/UnknowUser50/Octopus &>/dev/null
 cd /home/$current_user/Octopus/ &>/dev/null
 chmod 755 * 
 if [ -d /home/$current_user/Octopus ]; then
-printf "$BLUE[$GREEN+$BLUE] $GREENUpdate is complete : $BLUE$daate\e[0m\n"
+printf "$BLUE[$GREEN+$BLUE] $GREEN Update is complete : $BLUE$daate\e[0m\n"
 exit
 else
 printf "$RED[$YELLOW!$RED] Downloading error, please restart the script ... \e[0m\n"
