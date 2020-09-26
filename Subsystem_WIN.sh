@@ -22,7 +22,7 @@ export RESETCOLOR='\033[1;00m'
 # Informations :
 sys_name=$(uname -a | grep "Linux *" | cut -d# -f1)
 hostname=$(hostname)
-date=$(date +c%)
+date=$(date +%c)
 
 __ROOT() {
 
@@ -58,18 +58,18 @@ sleep 10
 
 global_conf() {
 
-printf "$BLUE [$GREEN*$BLUE] Starting SSH on subsystem ... $RESETCOLOR\n"
+printf "$BLUE [$GREEN*$BLUE] Starting SSH on subsystem ... $RESETCOLOR \n"
 sudo /etc/init.d/ssh start &>/dev/null
-printf "$BLUE [$GREEN*$BLUE] SSH service started at : $GREEN$date $RESETCOLOR\n"
+printf "$BLUE [$GREEN*$BLUE] SSH service started at : $GREEN$date $RESETCOLOR \n"
 sleep 1
 
-printf "$BLUE [$GREEN*$BLUE] Installing NMAP for you :) $RESETCOLOR\n"
+printf "$BLUE [$GREEN*$BLUE] Installing NMAP for you :) $RESETCOLOR \n"
 sudo apt install nmap &>/dev/nul
 if [[ -e /bin/nmap ]]; then
-  printf "$BLUE [$GREEN!$BLUE] Nmap was already installed $RESETCOLOR\n"
+  printf "$BLUE [$GREEN!$BLUE] Nmap was already installed $RESETCOLOR \n"
   sleep 1
 else
-  printf "$BLUE [$GREEN!$BLUE] Nmap is now installed $RESETCOLOR\n"
+  printf "$BLUE [$GREEN!$BLUE] Nmap is now installed $RESETCOLOR \n"
   sleep 1
 fi  
 
