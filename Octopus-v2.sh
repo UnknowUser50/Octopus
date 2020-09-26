@@ -108,8 +108,6 @@ printf "$BLUE          $GREEN[$BLUE Date $GREEN]$BLUE : $date		   \n"
 printf "                                                                    \n"
 printf "$GREEN          By UnknowUser50 || version 1.2.0 || 2020            \n\e[0m"
 echo "                                                                       "
-echo "                                                                       "
-echo "                                                                       "
 
 }
 
