@@ -19,7 +19,7 @@ export BLUE='\033[1;94m'
 export GREEN='\033[1;92m'
 export RED='\033[1;91m'
 export YELLOW='\033[1;93m'
-export RESETCOLOR='\033[1;00'
+export RESETCOLOR='\033[1;00m'
 
 requirements() {
 
@@ -129,7 +129,7 @@ printf "$GREEN {1000}-- $BLUE Network information                        \E[0m  
 printf "$GREEN {1001}-- $BLUE Network scanning                           \E[0m      \n"
 printf "$GREEN {1010}-- $BLUE Web scanning                               \E[0m      \n"
 printf "$GREEN {1011}-- $BLUE Others connexion                           \E[0m      \n"
-printf "$$GREEN {1100}-- $BLUE Manual/Documentation                       \E[0m      \n"
+printf "$GREEN {1100}-- $BLUE Manual/Documentation                       \E[0m      \n"
 printf "$BLUE                                                     \E[0m      \n"
 printf "$RED {1111}-- Exit Octopus                               \E[0m      \n"
 printf "                                                                      \n"
