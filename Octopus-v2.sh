@@ -25,6 +25,7 @@ IP=`wget -qO- https://api.myip.com | tr -d '{}"' | cut -d ',' -f 1 | cut -d ':' 
 sys_name=$(uname -a | grep "Linux *" | cut -d# -f1)
 hostname=$(hostname)
 date=$(date +%c)
+country=`wget -qO- https://api.myip.com/ | tr -d '{}"' | cut -d "," -f 2 |cut -d ":" -f2`
 
 requirements() {
 
@@ -102,6 +103,7 @@ printf "$BLUE                               | |                            \n"
 printf "$BLUE                               |_|                            \n"
 printf "$BLUE								   \n"
 printf "$BLUE          $GREEN[$BLUE Your IP $GREEN]$BLUE : $IP            \n"
+printf "$BLUE	       $GREEN[$BLUE Country $GREEN]$BLUE : $country       \n"
 printf "$BLUE          $GREEN[$BLUE Systeme name $GREEN]$BLUE : $sys_name \n"
 printf "$BLUE          $GREEN[$BLUE Host name $GREEN]$BLUE : $hostname    \n"
 printf "$BLUE          $GREEN[$BLUE Date $GREEN]$BLUE : $date		   \n"
