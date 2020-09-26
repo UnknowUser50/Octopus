@@ -132,5 +132,5 @@ printf "$BLUE[$GREEN!$BLUE] Done at $date \e[0m\n"
 fi
 
 sleep 2
-printf "$BLUE[$GREEN+$BLUE] Installation complete ! \e[0m\n\n"
+printf "$BLUE[$GREEN+$BLUE] $GREENInstallation complete ! \e[0m\n\n"
 
