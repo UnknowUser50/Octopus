@@ -72,7 +72,7 @@ clear
 printf "$BLUE                            ___                               \n"
 printf "$BLUE                         .-'   ''.                            \n"
 printf "$BLUE                        /         \                           \n"
-printf "$BLUE                       |         ;                           \n"
+printf "$BLUE                        |         |                           \n"
 printf "$BLUE                        |         |           ___.--,         \n"
 printf "$BLUE               _.._     |0) ~ (0) |    _.---''__.-( (_.       \n"
 printf "$BLUE        __.--''_.. '.__.\    '--. \_.-' ,.--''     ''''       \n"
