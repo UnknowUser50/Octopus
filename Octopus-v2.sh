@@ -20,6 +20,11 @@ export GREEN='\033[1;92m'
 export RED='\033[1;91m'
 export YELLOW='\033[1;93m'
 export RESETCOLOR='\033[1;00m'
+# Informations
+IP=(wget -qO- https://api.myip.com | tr -d '{}"' | cut -d ',' -f 1 | cut -d ':' -f 2)
+sys_name=$(uname -a | grep "Linux *" | cut -d# -f1)
+hostname=$(hostname)
+date=$(date +%c)
 
 requirements() {
 
@@ -78,10 +83,10 @@ printf "$BLUE               _.._     |0) ~ (0) |    _.---''__.-( (_.       \n"
 printf "$BLUE        __.--''_.. '.__.\    '--. \_.-' ,.--''     ''''       \n"
 printf "$BLUE       ( ,.--''   ',__ /./;   ;, '.__.''    __                \n"
 printf "$BLUE       _') )  .---.__.' / |   |\   \__..--''  '''--.,_        \n"
-printf "$BLUE      '---' .'.''-._.-''_./  /\ '.  \ _.-~~~''''~~~-._'-.__.' \n"
-printf "$BLUE            | |  .' _.-' |  |  \  \  '.               '~---'  \n"
-printf "$BLUE             \ \/ .'     \  \   '. '-._)                      \n"
-printf "$BLUE              \/ /        \  \    '=.__'~-.                   \n"
+printf "$BLUE      '---' .'.''-._.-''_./  /\ '.  \ _.-~~~''''~~~-._'-.__.' 	$GREEN[$BLUEYour IP$GREEN]$BLUE : $IP\n"
+printf "$BLUE            | |  .' _.-' |  |  \  \  '.               '~---'  	$GREEN[$BLUESysteme name$GREEN]$BLUE : $sys_name\n"
+printf "$BLUE             \ \/ .'     \  \   '. '-._)                      	$GREEN[$BLUEHost name$GREEN]$BLUE : $hostname\n"
+printf "$BLUE              \/ /        \  \    '=.__'~-.                   	$GREEN[$BLUEDate]$BLUE : $date\n"
 printf "$BLUE              / /\         ') )    / / '''.'\                 \n"
 printf "$BLUE        , _.-'.'\ \        / /    ( (     / /                 \n"
 printf "$BLUE         '--~'   ) )    .-'.'      '.'.  | (                  \n"
