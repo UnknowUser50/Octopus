@@ -152,7 +152,7 @@ elif [[ $reponse ==  $oc ]]; then
 elif [[ $reponse == $doc ]]; then
 	documentation
 elif [[ $reponse == $ex ]]; then
-	printf "\e[31m [+] Leaving Octopus ... \e[0m\n"
+	printf "$RED [+] Leaving Octopus ... \e[0m\n"
 	sleep 2
 exit
 elif [[ -z $reponse ]]; then
