@@ -55,7 +55,7 @@ if [[ $? = 0 ]]; then
   printf "$BLUE [$GREEN!$BLUE] Configurations are already made $RESETCOLOR\n"
   sleep 1
 else
-  sudo "alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"' >> /home/$current_user/.bashrc 
+  sudo alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"' >> /home/$current_user/.bashrc 
   printf " $BLUE [$GREEN!$BLUE] Configurations carried out ! $RESETCOLOR\"
   sleep 1
 fi  
