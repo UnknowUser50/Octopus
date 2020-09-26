@@ -33,8 +33,8 @@ printf "$BLUE     ||$RED   _   $RED    _--'$GREEN'--_                           
 printf "$BLUE     ||$RED     ' $RED--''   |$GREEN    |  $RESETCOLOR .--.           |    ||      $BLUE||           \n" 
 printf "$BLUE     ||$RED   ' .  $RED_|     |$GREEN    | $RESETCOLOR |    |          |    ||      $BLUE||           \n"
 printf "$BLUE     ||$RED   _    $RED|  _--'$GREEN'--_| $RESETCOLOR |----| |.-  .-i |.-. ||      $BLUE||           \n"
-printf "$BLUE     ||    ' $BLUE --''   |$YELLOW    |  |$RESETCOLOR   |  |   |  | |  |         $BLUE||         \n"
-printf "$BLUE     ||   ' $BLUE. _|     |$YELLOW    |  |$RESETCOLOR   |  |    '-( |  | ()      $BLUE||         \n"
+printf "$BLUE     ||    ' $BLUE --''   |$YELLOW    |  |$RESETCOLOR   |   |  |  | |  |         $BLUE||         \n"
+printf "$BLUE     ||   ' $BLUE. _|     |$YELLOW    |  |$RESETCOLOR   |   |   '-( |  | ()      $BLUE||         \n"
 printf "$BLUE     ||    $BLUE_    |  _--'$YELLOW'--_| $RESETCOLOR            |  |              $BLUE||         \n"
 printf "$BLUE     ||    $BLUE  ' --''                 $RESETCOLOR    '--'              $BLUE||                \n"
 printf "$BLUE     ||                                                   ||                     \n"
@@ -46,21 +46,4 @@ sleep 10
 
 }
 
-global_conf() {
-
-# Editing .bashrc
-nmap_WIN=(sudo cat .bashrc | grep -o "alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"'")
-nmap_WIN &>/dev/null
-if [[ $? = 0 ]]; then
-  printf "$BLUE [$GREEN!$BLUE] Configurations are already made $RESETCOLOR\n"
-  sleep 1
-else
-  sudo alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"' >> /home/$current_user/.bashrc 
-  printf " $BLUE [$GREEN!$BLUE] Configurations carried out ! $RESETCOLOR\n"
-  sleep 1
-fi  
-
-}
-
 bannerscreen
-global_conf
