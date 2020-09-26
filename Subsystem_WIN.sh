@@ -48,3 +48,7 @@ printf "$BLUE     ||   $BLUE  ' --''                      `--'              ||  
 printf "$BLUE     ||                                                   ||                     \n"
 printf "$BLUE     `=====================================================`                     \n"
 sleep 10
+
+}
+
+bannerscreen
