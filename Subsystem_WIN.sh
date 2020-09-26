@@ -23,13 +23,13 @@ export RESETCOLOR='\033[1;00m'
 sys_name=$(uname -a | grep "Linux *" | cut -d# -f1)
 hostname=$(hostname)
 
-run_as_root() {
+root() {
   
-  if [[ $UID != 0 ]]; then
-	printf "$YELLOW[$RED!$YELLOW] Please, run this script as $REdsudo$RESETCOLOR\n"
-	printf "$YELLOW[$RED!$YELLOW] sudo $0 $*\n"
-	# Exit error code
-	exit 1
+if [[ $UID != 0 ]]; then
+printf "$YELLOW[$RED!$YELLOW] Please, run this script as $REdsudo$RESETCOLOR\n"
+printf "$YELLOW[$RED!$YELLOW] sudo $0 $*\n"
+# Exit error code
+exit 1
  
 }
 
