@@ -135,7 +135,7 @@ printf "$RED {1111}-- Exit Octopus                               \E[0m      \n"
 printf "                                                                      \n"
 printf "$BLUE ################################################### \E[0m      \n"
 printf "                                                                      \n"
-echo -e -n "$RED Octopus@Manual$BLUE:~$RESETCOLOR# "
+echo -e -n "$RED Octopus@MainMenu$BLUE:~$RESETCOLOR# "
 read reponse
 
 if [[ $reponse == $ni ]]; then
@@ -202,7 +202,7 @@ printf "$RED {99}-- Back                                          \n\E[0m"
 printf "                                                           \n"
 printf "$BLUE #################################################### \n\E[0m"
 printf "                                                           \n"
-echo -e -n "$RED Octopus@Manual$BLUE:~$RESETCOLOR# "
+echo -e -n "$RED Octopus@Net-Infos$BLUE:~$RESETCOLOR# "
 read choix1
 
 	if [ $choix1 == $nls ]; then
@@ -332,7 +332,7 @@ printf "                                                               \n"
 printf "$BLUE ###########################################         \n\E[0m"
 printf "                                                               \n"
 printf "                                                               \n"
-echo -e -n "$RED Octopus@Manual$BLUE:~$RESETCOLOR# "
+echo -e -n "$RED Octopus@Net-Scan$BLUE:~$RESETCOLOR# "
 read choix2
 
 if [ $choix2 == $nse ]; then
@@ -446,7 +446,7 @@ printf "$RED {999}-- Back                           \n\E[0m"
 printf "                                                 \n"
 printf "$BLUE ############################################### \n\E[0m"
 printf "                                                 \n"
-echo -e -n "$RED Octopus@Manual$BLUE:~$RESETCOLOR# "
+echo -e -n "$RED Octopus@Nmap-Scan$BLUE:~$RESETCOLOR# "
 read nnmap
 
 cd Network-Scan/
@@ -646,7 +646,7 @@ printf "$RED {99}-- Back                                  \n\E[0m"
 printf "                                                             \n"
 printf "\E[34m ##################################################### \n\E[0m"
 printf "                                                             \n"
-echo -e -n "$RED Octopus@Manual$BLUE:~$RESETCOLOR# "
+echo -e -n "$RED Octopus@Web-Scan$BLUE:~$RESETCOLOR# "
 read choix3
 
 if [ $choix3 == $nikto ]; then
@@ -788,7 +788,7 @@ printf "$RED {9}-- Back \n"
 printf "\n"
 printf "$BLUE #################################################### \n"
 printf "\n"
-echo -e -n "$RED Octopus@Manual$BLUE:~$RESETCOLOR# "
+echo -e -n "$RED Octopus@Connection$BLUE:~$RESETCOLOR# "
 read connexion
 
 if [ $connexion == $ssh ]; then
