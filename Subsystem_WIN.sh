@@ -32,9 +32,9 @@ printf "$BLUE     ||     ' $RED--''   |$GREEN    |   .--.           |    ||     
 printf "$BLUE     ||   ' . $RED_|     |$GREEN    |  |    |          |    ||      ||           \n"
 printf "$BLUE     ||   _    $RED|  _--'$GREEN'--_|  |----| |.-  .-i |.-. ||      ||           \n"
 printf "$BLUE     ||     ' $BLUE--''   |$YELLOW    |  |    | |   |  | |  |         ||         \n"
-printf "$BLUE     ||   ' $BLUE. _|     |$YELLOW    |  |    | |    `-( |  | ()      ||         \n"
+printf "$BLUE     ||   ' $BLUE. _|     |$YELLOW    |  |    | |    '-( |  | ()      ||         \n"
 printf "$BLUE     ||   $BLUE_    |  _--'$YELLOW'--_|             |  |              ||         \n"
-printf "$BLUE     ||   $BLUE  ' --''                      `--'              ||                \n"
+printf "$BLUE     ||   $BLUE  ' --''                      '--'              ||                \n"
 printf "$BLUE     ||                                                   ||                     \n"
 printf "$BLUE     `=====================================================`                     \n"
 sleep 10
