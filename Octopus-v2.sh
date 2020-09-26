@@ -135,7 +135,7 @@ printf "$RED {1111}-- Exit Octopus                               \E[0m      \n"
 printf "                                                                      \n"
 printf $BLUE ################################################### \E[0m      \n"
 printf "                                                                      \n"
-echo -e -n "$BLUE [$GREEN+$BLUE] Choose the main module : $RESETCOLOR"
+echo -e -n " $RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read reponse
 
 if [[ $reponse == $ni ]]; then
@@ -202,7 +202,7 @@ printf "$RED {99}-- Back                                          \n\E[0m"
 printf "                                                           \n"
 printf "$BLUE #################################################### \n\E[0m"
 printf "                                                           \n"
-echo -e -n "$BLUE [$GREEN+$BLUE] Choose a module : \e[0m"
+echo -e -n " $RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read choix1
 
 	if [ $choix1 == $nls ]; then
@@ -332,7 +332,7 @@ printf "                                                               \n"
 printf "$BLUE ###########################################         \n\E[0m"
 printf "                                                               \n"
 printf "                                                               \n"
-echo -e -n "$BLUE [$GREEN+$BLUE] Choose a module : \E[0m"
+echo -e -n " $RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read choix2
 
 if [ $choix2 == $nse ]; then
@@ -446,7 +446,7 @@ printf "$RED {999}-- Back                           \n\E[0m"
 printf "                                                 \n"
 printf "$BLUE ############################################### \n\E[0m"
 printf "                                                 \n"
-echo -e -n "$BLUE [$GREEN+$BLUE] Choose Nmap's modules : \E[0m"
+echo -e -n " $RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read nnmap
 
 cd Network-Scan/
@@ -646,7 +646,7 @@ printf "$RED {99}-- Back                                  \n\E[0m"
 printf "                                                             \n"
 printf "\E[34m ##################################################### \n\E[0m"
 printf "                                                             \n"
-echo -e -n "$BLUE [$GREEN+$BLUE] Choose a module : \E[0m"
+echo -e -n " $RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read choix3
 
 if [ $choix3 == $nikto ]; then
@@ -788,7 +788,7 @@ printf "$RED {9}-- Back \n"
 printf "\n"
 printf "$BLUE #################################################### \n"
 printf "\n"
-echo -e -n "$BLUE [$GREEN+$BLUE] Choose your connexion : "
+echo -e -n " $RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read connexion
 
 if [ $connexion == $ssh ]; then
@@ -914,7 +914,7 @@ printf "$GREEN {8}-- $BLUE Man nikto                                            
 printf "                                                                     \n"
 printf "$RED {99}-- Leave Octopus                                          \n"
 printf "                                                                     \n"
-echo -e -n " $REDOctopus@Manual$BLUE:~$RESETCOLOR# "
+echo -e -n " $RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read mannu
 
 if [ $mannu == $manns ]; then
