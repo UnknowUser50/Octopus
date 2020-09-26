@@ -49,7 +49,7 @@ sleep 10
 global_conf() {
 
 # Editing .bashrc
-nmap_WIN=`sudo cat .bashrc | grep -o "alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"'"`
+nmap_WIN=(sudo cat .bashrc | grep -o "alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"'")
 nmap_WIN &>/dev/null
 if [[ $? = 0 ]]; then
   printf "$BLUE [$GREEN!$BLUE] Configurations are already made $RESETCOLOR\n"
