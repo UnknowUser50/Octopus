@@ -43,7 +43,7 @@ command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not inst
 
 preface() {
 sudo apt-get update &>/dev/null
-echo -e -n "$BLUE[$GREEN+$BLUE] Enter current user : $RESETCOLOR"
+echo -e -n "$BLUE          [$GREEN+$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 # Making directory Network-Infos/
 if [ -d "/$current_user/Octopus/Network-Infos" ]; then
