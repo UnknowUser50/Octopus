@@ -72,7 +72,7 @@ sleep 1
 echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Wireshark installed ! \e[0m\n"
-echo -e "$GRENN----------------------------------------\e[0m"
+echo -e "$GREEN----------------------------------------\e[0m"
 sleep 2
 
 printf "$BLUE[$GREEN*$BLUE] I requiere Alien ... downloading\e[0m\n"
