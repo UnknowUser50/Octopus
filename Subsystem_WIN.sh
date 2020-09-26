@@ -22,6 +22,16 @@ export RESETCOLOR='\033[1;00m'
 # Informations :
 sys_name=$(uname -a | grep "Linux *" | cut -d# -f1)
 hostname=$(hostname)
+date=$(date +c%)
+
+__ROOT() {
+
+if [[ $UID != 0 ]]; then
+	printf "$YELLOW[$RED!$YELLOW] Please, run this script as sudo $RESETCOLOR\n"
+	exit 1
+fi	
+
+}
 
 bannerscreen() {
 
@@ -43,6 +53,25 @@ printf "\n"
 echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 sleep 10
+
+}
+
+global_conf() {
+
+printf "$BLUE [$GREEN*$BLUE] Starting SSH on subsystem ... $RESETCOLOR\n"
+sudo /etc/init.d/ssh start &>/dev/null
+printf "$BLUE [$GREEN*$BLUE] SSH service started at : $GREEN$date $RESETCOLOR\n"
+sleep 1
+
+printf "$BLUE [$GREEN*$BLUE] Installing NMAP for you :) $RESETCOLOR\n"
+sudo apt install nmap &>/dev/nul
+if [[ -e /bin/nmap ]]; then
+  printf "$BLUE [$GREEN!$BLUE] Nmap was already installed $RESETCOLOR\n"
+  sleep 1
+else
+  printf "$BLUE [$GREEN!$BLUE] Nmap is now installed $RESETCOLOR\n"
+  sleep 1
+fi  
 
 }
 
