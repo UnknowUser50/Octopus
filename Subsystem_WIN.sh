@@ -75,4 +75,7 @@ fi
 
 }
 
+__ROOT
 bannerscreen
+global_conf
+
