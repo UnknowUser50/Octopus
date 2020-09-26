@@ -106,7 +106,7 @@ printf "$BLUE          $GREEN[$BLUE Systeme name $GREEN]$BLUE : $sys_name \n"
 printf "$BLUE          $GREEN[$BLUE Host name $GREEN]$BLUE : $hostname    \n"
 printf "$BLUE          $GREEN[$BLUE Date $GREEN]$BLUE : $date		   \n"
 printf "                                                                    \n"
-printf "$GREEN         $RED{ By UnknowUser50 || version 1.2.0 || 2020 $RED}           \n\e[0m"
+printf "         $RED{ \033[1;92mBy UnknowUser50 || version 1.2.0 || 2020 $RED}           \n\e[0m"
 echo "                                                                       "
 
 }
