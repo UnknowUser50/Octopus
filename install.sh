@@ -41,11 +41,11 @@ echo -e "$GREEN----------------------------------------\e[0m"
 # Checking dependencies
 printf "$BLUE[$GREEN*$BLUE] I requiere git ... dowloading\e[0m\n"
 sudo apt-get install -y git &>/dev/null
-echo -ne -e '$BLUE#####               (33%)\r\e[0m'
+echo -ne -e '$BLUE #####               (33%)\r\e[0m'
 sleep 1
-echo -ne -e '$BLUE###########         (66%)\r\e[0m'
+echo -ne -e '$BLUE ###########         (66%)\r\e[0m'
 sleep 1
-echo -ne -e '$BLUE################## (100%)\r\e[0m\n'
+echo -ne -e '$BLUE ################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Git installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
@@ -53,11 +53,11 @@ sleep 2
 
 printf "$BLUE[$GREEN*$BLUE] I requiere macchanger ... downloading\e[0m\n"
 sudo apt-get install -y macchanger &>/dev/null
-echo -ne -e '$GREEN#####               (33%)\r\e[0m'
+echo -ne -e '$GREEN #####               (33%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN###########         (66%)\r\e[0m'
+echo -ne -e '$GREEN ###########         (66%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN################## (100%)\r\e[0m\n'
+echo -ne -e '$GREEN ################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Macchanger installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
@@ -65,11 +65,11 @@ sleep 2
 
 printf "$BLUE[$GREEN*$BLUE] I requiere Wireshark ... dowloading\e[0m\n"
 sudo apt-get install -y wireshark &>/dev/null
-echo -ne -e '$GREEN#####               (33%)\r\e[0m'
+echo -ne -e '$GREEN #####               (33%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN##########          (66%)\r\e[0m'
+echo -ne -e '$GREEN ##########          (66%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN################## (100%)\r\e[0m\n'
+echo -ne -e '$GREEN ################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Wireshark installed ! \e[0m\n"
 echo -e "$GRENN----------------------------------------\e[0m"
@@ -77,11 +77,11 @@ sleep 2
 
 printf "$BLUE[$GREEN*\$BLUE] I requiere Alien ... downloading\e[0m\n"
 sudo apt-get install -y alien &>/dev/null
-echo -ne -e '$GREEN#####               (33%)\r\e[0m'
+echo -ne -e '$GREEN #####               (33%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN##########          (66%)\r\e[0m'
+echo -ne -e '$GREEN ##########          (66%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN################## (100%)\r\e[0m\n'
+echo -ne -e '$GREEN ################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Alien installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
@@ -89,11 +89,11 @@ sleep 2
 
 printf "$BLUE[$GREEN*$BLUE] I requiere UFW ... downloading\e[0m\n"
 sudo apt-get install -y ufw &>/dev/null
-echo -ne -e '$GREEN#####               (33%)\r\e[0m'
+echo -ne -e '$GREEN #####               (33%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN##########          (66%)\r\e[0m'
+echo -ne -e '$GREEN ##########          (66%)\r\e[0m'
 sleep 1
-echo -ne -e '$GREEN################## (100%)\r\e[0m\n'
+echo -ne -e '$GREEN ################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] UFW installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
