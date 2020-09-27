@@ -63,16 +63,38 @@ sudo /etc/init.d/ssh start &>/dev/null
 printf "$BLUE     [$GREEN*$BLUE] SSH service started at : $GREEN$date $RESETCOLOR \n"
 sleep 1
 
+# Nmap installation, checking in /bin
 printf "$BLUE     [$GREEN*$BLUE] Installing NMAP for you :) $RESETCOLOR \n"
-sudo apt install nmap &>/dev/nul
 if [[ -e /bin/nmap ]]; then
   printf "$BLUE     [$GREEN!$BLUE] Nmap was already installed $RESETCOLOR \n"
   sleep 1
 else
+  sudo apt install -y nmap &>/dev/null
   printf "$BLUE     [$GREEN!$BLUE] Nmap is now installed $RESETCOLOR \n"
   sleep 1
 fi  
 
+# Wireshark installation, checking in /bin
+printf "$BLUE     [$GREEN*$BLUE] Installing Wireshark for you :) $RESETCOLOR \n"
+if [[ -e /bin/wireshark ]]; then
+  printf "$BLUE    [$GREEN*$BLUE] WireShark was already installed $RESETCOLOR \n"
+  sleep 1
+else
+  sudo apt install -y wireshark &>/dev/null
+  printf "$BLUE    [$GREEN*$BLUE] Wireshark is now installed $RESETCOLOR \n"
+  sleep 1
+fi  
+
+# SQLMAP installation, checking in /bin
+printf "$BLUE       [$GREEN*$BLUE] Installing SqlMap for you :) $RESETCOLOR \n"   
+if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
+  printf "$BLUE   [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
+  sleep 1
+else
+  sudo apt install -y sqlmap &>/dev/null
+  printf "$BLUE   [$GREEN*$BLUE] SqlMap is now installed $RESETCOLOR \n"
+  sleep 1
+fi  
 }
 
 __ROOT
