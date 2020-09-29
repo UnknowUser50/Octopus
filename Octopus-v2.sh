@@ -412,6 +412,7 @@ dos=109
 bjnp=110
 fuzz=111
 la=112
+sc_s=113
 ex=999
 
 clear
@@ -438,7 +439,7 @@ printf "$BLUE ----------------------------------------------- \n\E[0m"
 printf "$BLUE | Nmap and NSE                                  \n\E[0m"
 printf "$BLUE ----------------------------------------------- \n\E[0m"
 printf "                                                 \n"
-printf "$GREEN {100}-- $BLUE Furtive scan                            \n\E[0m"
+printf "$GREEN {100}-- $BLUE Furtive scan                                 $GREEN {113}--$BLUE Script scan \n\E[0m"
 printf "$GREEN {101}-- $BLUE 1000 Ports scan                         \n\E[0m"
 printf "$GREEN {102}-- $BLUE TCP scan                                \n\E[0m"
 printf "$GREEN {103}-- $BLUE UDP scan                                \n\E[0m"
@@ -603,6 +604,17 @@ elif [ $nnmap == $la ]; then
 	sleep 2
 	sudo chown $current_user Listing.txt
 	printf "$BLUE [$GREEN+$BLUE] Done !\e[0m"
+	sleep 2
+	mainmenu
+	
+elif [ $nnmap == $sc_s]; then
+	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to script scan, enter an IP : $RESETCOLOR"
+	read ip
+	sudo nmap -sC $ip && sudo nmap -sC $ip >> Script_Scan.txt
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Newtwork-Scan/Script_Scan.txt $RESETCOLOR\n"
+	sleep 2
+	sudo chown $current_user Script_Scan.txt
+	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
 	sleep 2
 	mainmenu
 
