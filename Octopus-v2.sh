@@ -607,7 +607,7 @@ elif [ $nnmap == $la ]; then
 	sleep 2
 	mainmenu
 	
-elif [ $nnmap == $sc_s]; then
+elif [ $nnmap == $sc_s ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to script scan, enter an IP : $RESETCOLOR"
 	read ip
 	sudo nmap -sC $ip && sudo nmap -sC $ip >> Script_Scan.txt
