@@ -866,8 +866,11 @@ elif [ $connexion == $op_nc ]; then
 	mainmenu
 
 elif [ $connexion == $mc_ch ]; then
+	# Fixed MAC ADDRESS before running
 	echo -e -n "$BLUE [$GREEN+$BLUE] On which card do you want to change the MAC address ? \e[0m"
 	read wifi_card
+	sudo macchanger -p $wifi_card >> /home/$current_user/Octopus/Fixed_P_MAC.txt
+	sleep 2
 	echo -e -n "$BLUE [$GREEN+$BLUE] MAC address change frequency :\e[0m "
 	read time
 	printf "$BLUE [$GREEN+$BLUE] Start of macchanger, log file have been created at $GREEN/home/$current_user/Octopus/MAC_logs.txt\e[0m\n"
