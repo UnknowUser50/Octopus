@@ -44,6 +44,7 @@ command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not inst
 
 kill_app() {
 
+clear
 echo -e -n "$BLUE [$GREEN*$BLUE] Killing dangerous application on your computer ... $RESETCOLOR \n"
 sleep 1
 sudo killall -q dropbox chrome thunderbird steam firefox xchat discord chromium &>/dev/null
@@ -51,11 +52,11 @@ sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Dangerous application killed !$RESETCOLOR \n"
 sleep 1
 
-echo -e -n "$BLUE [$GREEN*BLUE] Cleaning cache application ... $RESETCOLOR \n"
+echo -e -n "$BLUE [$GREEN*$BLUE] Cleaning cache application ... $RESETCOLOR \n"
 sleep 1
 beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache &>/dev/null
 sleep 1
-echo -e -n "$BLUE [$GREEN$BLUE] Cache cleaned ! $RESETCOLOR \n"
+echo -e -n "$BLUE [$GREEN*$BLUE] Cache cleaned ! $RESETCOLOR \n"
 sleep 1
 
 }
