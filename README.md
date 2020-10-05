@@ -8,7 +8,7 @@
   * ZenMap
   * WireShark
   * Gobuster/ Dirbuster
-  * wget ( for Zenmap Installation)
+  * wget
 
 For the module connection, SSH services **must be enabled**
 
