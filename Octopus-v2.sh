@@ -61,7 +61,7 @@ sleep 1
 
 echo -e -n "$BLUE [$GREEN*$BLUE] Cleaning cache application ... $RESETCOLOR \n"
 sleep 1
-beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache chromium.cache &>/dev/null
+beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache dropbox.cache &>/dev/null
 sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Cache cleaned ! $RESETCOLOR \n"
 sleep 1
