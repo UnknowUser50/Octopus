@@ -45,6 +45,13 @@ command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not inst
 kill_app() {
 
 clear
+printf "$BLUE -._    _.--'"''--._    _.--'"''--._    _.--'"''--._    _                     $RESETCOLOR \n"
+printf "$BLUE    '-:'.'|'|"':-.  '-:'.'|'|"':-.  '-:'.'|'|"':-.  '.' : '.                  $RESETCOLOR \n"
+printf "$BLUE  '.  '.  | |  | |'.  '.  | |  | |'.  '.  | |  | |'.  '.:   '.  '.            $RESETCOLOR \n"
+printf "$BLUE  : '.  '.| |  | |  '.  '.| |  | |  '.  '.| |  | |  '.  '.  : '.  '.          $RESETCOLOR \n"
+printf "$BLUE  '   '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.'   '.            $RESETCOLOR \n"
+printf "$BLUE         '-..,..-'       '-..,..-'       '-..,..-'       '         '          $RESETCOLOR \n
+
 echo -e -n "$BLUE [$GREEN*$BLUE] Killing dangerous application on your computer ... $RESETCOLOR \n"
 sleep 1
 sudo killall -q dropbox chrome thunderbird steam firefox xchat discord chromium &>/dev/null
