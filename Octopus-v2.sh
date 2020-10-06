@@ -45,8 +45,8 @@ command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not inst
 kill_app() {
 
 clear
-printf "$BLUE -._    _.--'"''--._    _.--'"''--._    _.--'"''--._    _                     $RESETCOLOR \n"
-printf "$BLUE    '-:'.'|'|"':-.  '-:'.'|'|"':-.  '-:'.'|'|"':-.  '.' : '.                  $RESETCOLOR \n"
+printf "$BLUE -._    _.--''''--._    _.--''''--._    _.--''''--._    _                     $RESETCOLOR \n"
+printf "$BLUE    '-:'.'|'|'':-.  '-:'.'|'|'':-.  '-:'.'|'|'':-.  '.' : '.                  $RESETCOLOR \n"
 printf "$BLUE  '.  '.  | |  | |'.  '.  | |  | |'.  '.  | |  | |'.  '.:   '.  '.            $RESETCOLOR \n"
 printf "$BLUE  : '.  '.| |  | |  '.  '.| |  | |  '.  '.| |  | |  '.  '.  : '.  '.          $RESETCOLOR \n"
 printf "$BLUE  '   '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.'   '.            $RESETCOLOR \n"
@@ -61,7 +61,7 @@ sleep 1
 
 echo -e -n "$BLUE [$GREEN*$BLUE] Cleaning cache application ... $RESETCOLOR \n"
 sleep 1
-beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache &>/dev/null
+beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache chromium.cache &>/dev/null
 sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Cache cleaned ! $RESETCOLOR \n"
 sleep 1
