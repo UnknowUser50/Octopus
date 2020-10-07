@@ -37,8 +37,9 @@ if [[ $UID != 0 ]]; then
 	exit 1
 fi	
 #command -v zenmap > /dev/null 2>&1 || { echo >&2 "I requiere ZenMap but it's not installed. Install it."; exit 1; }
-command -v wireshark > /dev/null 2>&1 || { echo >&2 "I requiere WireShark but it's not installed. Install it."; exit 1; }
-command -v ufw > /dev/null 2>&1 || { echo >&2 " I requiere ufw but it's not installed. Install it."; exit 1; }
+command -v wireshark > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED WireShark $BLUE but it's not installed. Install it."; exit 1; }
+command -v ufw > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED ufw $BLUE but it's not installed. Install it."; exit 1; }
+command -v wget > /dev/null 2>&1 || { echo >&2 "$BLUe I requiere $RED wget $BLUE but it's not installed. Install it."; exit 1; }
 
 }
 
