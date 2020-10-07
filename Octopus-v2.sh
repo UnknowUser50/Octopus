@@ -51,6 +51,7 @@ printf "$BLUE  '.  '.  | |  | |'.  '.  | |  | |'.  '.  | |  | |'.  '.:   '.  '. 
 printf "$BLUE  : '.  '.| |  | |  '.  '.| |  | |  '.  '.| |  | |  '.  '.  : '.  '.          $RESETCOLOR \n"
 printf "$BLUE  '   '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.'   '.            $RESETCOLOR \n"
 printf "$BLUE         '-..,..-'       '-..,..-'       '-..,..-'       '         '          $RESETCOLOR \n"
+printf "\n\n"
 
 echo -e -n "$BLUE [$GREEN*$BLUE] Killing dangerous application on your computer ... $RESETCOLOR \n"
 sleep 1
@@ -64,6 +65,8 @@ sleep 1
 beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache dropbox.cache &>/dev/null
 sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Cache cleaned ! $RESETCOLOR \n"
+sleep 1
+echo -e -n "$BLUE [$GREEN*$BLUE] Starting Octopus ... $RESETCOLOR \n"
 sleep 1
 
 }
