@@ -49,7 +49,7 @@ command -v macchanger > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED macc
 kill_app() {
 
 clear
-printf "$BLUE          [$GREEN!$BLUE] Dangerous Killer [$GREEN*$BLUE]                      $RESETCOLOR \n"
+printf "$BLUE                       [$GREEN!$BLUE] Dangerous Killer [$GREEN*$BLUE]         $RESETCOLOR \n\n"
 printf "$BLUE -._    _.--''''--._    _.--''''--._    _.--''''--._    _                     $RESETCOLOR \n"
 printf "$BLUE    '-:'.'|'|'':-.  '-:'.'|'|'':-.  '-:'.'|'|'':-.  '.' : '.                  $RESETCOLOR \n"
 printf "$BLUE  '.  '.  | |  | |'.  '.  | |  | |'.  '.  | |  | |'.  '.:   '.  '.            $RESETCOLOR \n"
