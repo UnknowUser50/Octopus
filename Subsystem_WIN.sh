@@ -42,9 +42,9 @@ printf "$BLUE     ||                                                   ||       
 printf "$BLUE     ||$RED   _   $RED    _--'$GREEN'--_                                $BLUE||           \n"
 printf "$BLUE     ||$RED     ' $RED--''   |$GREEN    |  $RESETCOLOR .--.           |    ||      $BLUE||           \n" 
 printf "$BLUE     ||$RED   ' .  $RED_|     |$GREEN    | $RESETCOLOR |    |          |    ||      $BLUE||           \n"
-printf "$BLUE     ||$RED   _    $RED|  _--'$GREEN'--_| $RESETCOLOR |----| |.-  .-i |.-. ||      $BLUE||           \n"
-printf "$BLUE     ||    ' $BLUE --''   |$YELLOW    |  |$RESETCOLOR    | |    |  | |  |       $BLUE||         \n"
-printf "$BLUE     ||   ' $BLUE. _|     |$YELLOW    |  |$RESETCOLOR    | |     '-( |  | ()    $BLUE||         \n"
+printf "$BLUE     ||$RED   _    $RED|  _--'$GREEN'--_| $RESETCOLOR |----| |.-  .-i |.-. ||      $BLUE ||           \n"
+printf "$BLUE     ||    ' $BLUE --''   |$YELLOW    |  |$RESETCOLOR    | |    |  | |  |       $BLUE ||         \n"
+printf "$BLUE     ||   ' $BLUE. _|     |$YELLOW    |  |$RESETCOLOR    | |     '-( |  | ()    $BLUE ||         \n"
 printf "$BLUE     ||    $BLUE_    |  _--'$YELLOW'--_| $RESETCOLOR              |  |           $BLUE||         \n"
 printf "$BLUE     ||    $BLUE  ' --''                 $RESETCOLOR    '--'              $BLUE||                \n"
 printf "$BLUE     ||                                                   ||                     \n"
@@ -88,7 +88,7 @@ fi
 # SQLMAP installation, checking in /bin
 printf "$BLUE     [$GREEN*$BLUE] Installing SqlMap for you  $RESETCOLOR \n"   
 if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
-  printf "$BLUE    [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
+  printf "$BLUE     [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
   sleep 1
 else
   sudo apt install -y sqlmap &>/dev/null
