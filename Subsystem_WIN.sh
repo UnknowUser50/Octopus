@@ -64,7 +64,7 @@ printf "$BLUE     [$GREEN*$BLUE] SSH service started at : $GREEN$date $RESETCOLO
 sleep 1
 
 # Nmap installation, checking in /bin
-printf "$BLUE     [$GREEN*$BLUE] Installing NMAP for you :) $RESETCOLOR \n"
+printf "$BLUE     [$GREEN*$BLUE] Installing NMAP for you $RESETCOLOR \n"
 if [[ -e /bin/nmap ]]; then
   printf "$BLUE     [$GREEN!$BLUE] Nmap was already installed $RESETCOLOR \n"
   sleep 1
@@ -75,9 +75,9 @@ else
 fi  
 
 # Wireshark installation, checking in /bin
-printf "$BLUE      [$GREEN*$BLUE] Installing Wireshark for you :) $RESETCOLOR \n"
+printf "$BLUE     [$GREEN*$BLUE] Installing Wireshark for you $RESETCOLOR \n"
 if [[ -e /bin/wireshark ]]; then
-  printf "$BLUE    [$GREEN*$BLUE] WireShark was already installed $RESETCOLOR \n"
+  printf "$BLUE     [$GREEN*$BLUE] WireShark was already installed $RESETCOLOR \n"
   sleep 1
 else
   sudo apt install -y wireshark &>/dev/null
@@ -86,9 +86,9 @@ else
 fi  
 
 # SQLMAP installation, checking in /bin
-printf "$BLUE    [$GREEN*$BLUE] Installing SqlMap for you :) $RESETCOLOR \n"   
+printf "$BLUE     [$GREEN*$BLUE] Installing SqlMap for you  $RESETCOLOR \n"   
 if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
-  printf "$BLUE      [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
+  printf "$BLUE    [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
   sleep 1
 else
   sudo apt install -y sqlmap &>/dev/null
