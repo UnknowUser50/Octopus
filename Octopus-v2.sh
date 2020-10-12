@@ -43,6 +43,7 @@ command -v wireshark > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED WireS
 command -v ufw > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED ufw $BLUE but it's not installed. Install it."; exit 1; }
 command -v wget > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED wget $BLUE but it's not installed. Install it."; exit 1; }
 command -v macchanger > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED macchanger $BLUE but it's not installed. Install it."; exit 1; }
+command -v nmap > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED nmap $BLUE but it's not installed. Install it."; exit 1; }
 
 }
 
