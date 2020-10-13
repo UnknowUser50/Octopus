@@ -485,7 +485,7 @@ printf "$GREEN {101}-- $BLUE 1000 Ports scan                              $GREEN
 printf "$GREEN {102}-- $BLUE TCP scan                                     $GREEN {115}--$BLUE Disabling DNS name resolution \n\E[0m"
 printf "$GREEN {103}-- $BLUE UDP scan                                     $GREEN {116}--$BLUE OS and services scan\n\E[0m"
 printf "$GREEN {104}-- $BLUE Aggressive scan                         \n\E[0m"
-printf "$GREEN {105}-- $BLUE Flags scan                                $RED ATTACK - WARNING \n\E[0m"
+printf "$GREEN {105}-- $BLUE Flags scan                                   $RED ATTACK - WARNING \n\E[0m"
 printf "$GREEN {106}-- $BLUE Vulnerabilities scan                         $YELLOW {117}--$RED DOS attack\n\E[0m"
 printf "$GREEN {107}-- $BLUE Trace scan                              \n\E[0m"
 printf "$GREEN {108}-- $BLUE OS detection                            \n\E[0m"
