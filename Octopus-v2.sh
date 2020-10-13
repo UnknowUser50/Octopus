@@ -685,7 +685,7 @@ elif [ $nnmap == $off_dns ]; then
 	sleep 2
 	mainmenu
 	
-elif [ $nnamp == $os_serv ]; then
+elif [ $nnmap == $os_serv ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to OS and services detection, enter the target : $RESETCOLOR"
 	read ip
 	sudo nmap -A -T4 $ip && sudo nmap -A -T4 $ip >> os_serv.txt
