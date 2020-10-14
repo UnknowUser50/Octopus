@@ -110,7 +110,8 @@ sleep 1
 printf "$BLUE[$GREEN!$BLUE] UFW installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
 sleep 1
-printf "\n"
+echo -e "$GREEN----------------------------------------\e[0m"
+sleep 2
 
 # Making directories 
 if [ -d /home/$current_user/Octopus/Network-Infos ]; then
