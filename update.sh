@@ -142,7 +142,7 @@ cd &>/dev/null
 cd Octopus/ &>/dev/null
 
 # Empties the log file in /var/log
-echo "" > /var/log/Octopus-Logs/subsystem.log
+sudo echo "" > /var/log/Octopus-Logs/subsystem.log
 
 }
 
