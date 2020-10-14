@@ -143,7 +143,7 @@ git clone https://github.com/UnknowUser50/Octopus &>/dev/null
 cd /home/$current_user/Octopus/ &>/dev/null
 chmod 755 * 
 if [ -d /home/$current_user/Octopus ]; then
-printf "$BLUE[$GREEN+$BLUE] $GREEN Update is complete : $BLUE$daate\e[0m\n"
+printf "$BLUE[$GREEN+$BLUE]$GREEN Update is complete : $BLUE$daate\e[0m\n"
 exit
 else
 printf "$RED[$YELLOW!$RED] Downloading error, please restart the script ... \e[0m\n"
