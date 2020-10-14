@@ -114,7 +114,23 @@ if [[ -e /bin/nmap ]]; then
 else
   sudo apt install -y nmap &>/dev/null
   printf "$BLUE     [$GREEN!$BLUE] Nmap is now installed $RESETCOLOR \n"
-  sleep 1
+  if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+  	if [[ -e /bin/nmap ]]; then
+		date=$(date +%c)
+		echo "Nmap installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
+	else 
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+  else
+  	if [[ -e /bin/nmap ]]; then
+		date=$(date +%c)
+		echo "Nmap installed at : $date" >> /Octopus-Logs/subsystem.log
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+  fi	
 fi  
 
 # Wireshark installation, checking in /bin
@@ -149,7 +165,23 @@ fi
 printf "$BLUE     [$GREEN*$BLUE] Installing SqlMap for you  $RESETCOLOR \n"   
 if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
   printf "$BLUE     [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
-  sleep 1
+  if [[ -e /var/log/Octopus-Logs/subsytem.log ]]; then
+  	if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
+		date=$(date +%c)
+		echo "SqlMap installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
+	else 
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+   else
+   	if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
+		date=$(date +%c)
+		echo "SqlMap installed at : $date" >> /Octopus-Logs/subsystem.log
+	else 
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+   fi	
 else
   sudo apt install -y sqlmap &>/dev/null
   printf "$BLUE   [$GREEN*$BLUE] SqlMap is now installed $RESETCOLOR \n"
@@ -160,7 +192,23 @@ fi
 printf "$BLUE     [$GREEN*$BLUE] Installating UFW for you $RESETCOLOR \n"
 if [[ -e /bin/ufw ]]; then
   printf "$BLUE [$GREEN*$BLUE] UFW was already installed $RESETCOLOR \n"
-  sleep 1
+  if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+  	if [[ -e /bin/ufw ]]; then
+		date=$(date +%c)
+		echo "UFW installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
+	else 
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+   else
+   	if [[ -e /bin/ufw ]]; then
+		date=$(date +%c)
+		echo "UFW installed at : $date" >> /Octopus-Logs/subsystem.log
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured \n"
+		sleep 1
+	fi
+   fi	
 else
   sudo apt install -y ufw &>/dev/null 
   printf "$BLUE    [$GREEN*$BLUE] UFW is now installed $RESETCOLOR \n"
