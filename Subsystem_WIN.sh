@@ -29,7 +29,7 @@ __ROOT() {
 if [[ $UID != 0 ]]; then
 	printf "$YELLOW[$RED!$YELLOW] Please, run this script as sudo $RESETCOLOR\n"
 	exit 1
-fi	
+fi
 
 }
 
@@ -52,8 +52,40 @@ printf "$BLUE     .=====================================================.       
 printf "\n"
 echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
 read current_user
-sleep 10
-
+sleep 2
+printf "$BLUE [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
+sudo mkdir /var/log/Octopus-Logs
+if [[ -d /var/log/Octopus-Logs ]]; then
+	printf "$BLUE [$GREEN*$BLUE] The directory has been created $RESETCOLOR \n"
+	sleep 2
+	sudo touch /var/logs/Octopus-Logs/subsystem.log
+	echo "SUBSYSTEM - LOGS" >> /var/log/Octopus-Logs/subsystem.log
+	echo "---------------------------------------------------------------" >> /var/log/Octopus-Logs/subsystem.log
+	date=$(date +%c)
+	echo "Making of the main directory : $date" >> /var/log/Octopus-Logs/subsystem.log
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		printf "$BLUE [$GREEN*$BLUE] The log file has been created $RESETCOLOR \n"
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR\n"
+		sleep 1
+	fi
+else 
+	echo -e -n "$RED [$YELLOW!$RED] An error as occured ... Do you want to place logs in Octopus directory ? (Y/n) $RESETCOLOR"
+	read placement
+	if [[ $placement == "Y" || $placement == "y" ]]; then
+		printf "$BLUE [$GREEN*$BLUE] Creation of the directory in Octopus ..."
+		cd /$current_user/Octopus/ &>/dev/null 
+		sudo mkdir Octopus-Logs/ &>/dev/null
+		printf "$BLUE [$GREEN*$BLUE] The directory has been created $RESETCOLOR \n"
+		sleep 2
+		cd Octopus-Logs/ &>/dev/null
+		sudo touch subsystem.log 
+		echo "SUBSYSTEM - LOGS" >> subsystem.log
+		echo "---------------------------------------------------------------"
+		date=$(date +%c)
+		echo "Making of the main directory : $date" >> subsystem.log
+	fi	
 }
 
 global_conf() {
@@ -61,6 +93,12 @@ global_conf() {
 printf "$BLUE     [$GREEN*$BLUE] Starting SSH on subsystem ... $RESETCOLOR \n"
 sudo /etc/init.d/ssh start &>/dev/null
 printf "$BLUE     [$GREEN*$BLUE] SSH service started at : $GREEN$date $RESETCOLOR \n"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+	date=$(date +%c)
+	echo "SSH service start at : $date" >> /var/log/Octopus-Logs/subsystem.log
+else 
+	date=$(date +%c)
+	echo "SSH service start at : $date" >> /Octopus-Logs/subsystem.log
 sleep 1
 
 # Nmap installation, checking in /bin
@@ -82,6 +120,23 @@ if [[ -e /bin/wireshark ]]; then
 else
   sudo apt install -y wireshark &>/dev/null
   printf "$BLUE    [$GREEN*$BLUE] Wireshark is now installed $RESETCOLOR \n"
+  if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+  	if [[ -e /bin/wireshark ]]; then
+  		date=$(date +%c)
+		echo "Wireshark installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+  else
+  	if [[ -e /bin/wiresark ]]; then
+		date=$(date +%c)
+		echo "Wireshark installed at : $date" >> /Octopus-Logs/subsystem.log
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+  fi	
   sleep 1
 fi  
 
