@@ -53,9 +53,9 @@ printf "\n"
 echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 sleep 2
-printf "$BLUE      [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
+printf "$BLUE     [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
 if [[ -d /var/log/Octopus-Logs ]]; then
-	printf "$BLUE      [$GREEN*$BLUE] Directory already exist ! $RESETCOLOR \n"
+	printf "$BLUE     [$GREEN*$BLUE] Directory already exist ! $RESETCOLOR \n"
 else
 	sudo mkdir /var/log/Octopus-Logs &>/dev/null
 fi	
@@ -67,7 +67,7 @@ if [[ -d /var/log/Octopus-Logs ]]; then
 	date=$(date +%c)
 	echo "Making of the main directory : $date" >> /var/log/Octopus-Logs/subsystem.log
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-		printf "$BLUE      [$GREEN*$BLUE] The log file has been created $RESETCOLOR \n"
+		printf "$BLUE     [$GREEN*$BLUE] The log file has been created $RESETCOLOR \n"
 		sleep 1
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR\n"
