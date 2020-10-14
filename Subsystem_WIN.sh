@@ -58,7 +58,7 @@ sudo mkdir /var/log/Octopus-Logs
 if [[ -d /var/log/Octopus-Logs ]]; then
 	printf "$BLUE [$GREEN*$BLUE] The directory has been created $RESETCOLOR \n"
 	sleep 2
-	sudo touch /var/logs/Octopus-Logs/subsystem.log
+	sudo touch /var/log/Octopus-Logs/subsystem.log
 	echo "SUBSYSTEM - LOGS" >> /var/log/Octopus-Logs/subsystem.log
 	echo "---------------------------------------------------------------" >> /var/log/Octopus-Logs/subsystem.log
 	date=$(date +%c)
