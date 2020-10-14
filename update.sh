@@ -154,6 +154,7 @@ cd /home/$current_user/
 rm -r Octopus/
 cd &>/dev/null
 cd Octopus/ &>/dev/null
+printf "\n\n"
 
 }
 
