@@ -94,7 +94,19 @@ else
   sudo apt install -y sqlmap &>/dev/null
   printf "$BLUE   [$GREEN*$BLUE] SqlMap is now installed $RESETCOLOR \n"
   sleep 1
+fi 
+
+# Checking UFW in /bin
+printf "$BLUE     [$GREEN*$BLUE] Installating UFW for you $RESETCOLOR \n"
+if [[ -e /bin/ufw ]]; then
+  printf "$BLUE [$GREEN*$BLUE] UFW was already installed $RESETCOLOR \n"
+  sleep 1
+else
+  sudo apt install -y ufw &>/dev/null 
+  printf "$BLUE    [$GREEN*$BLUE] UFW is now installed $RESETCOLOR \n"
+  sleep 1
 fi  
+
 }
 
 __ROOT
