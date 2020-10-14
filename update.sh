@@ -102,6 +102,8 @@ fi
 
 update() {
 
+sudo echo " " > /var/log/Octopus-Logs/subsystem.log &>/dev/null
+
 if [ -d /home/$current_user/Octopus ]; then
 printf "$RED[$YELLOW!$RED] An old version have been found, we will delete it ... \e[0m\n"
 cd /home/$current_user/Octopus/
@@ -140,9 +142,6 @@ cd /home/$current_user/
 rm -r Octopus/
 cd &>/dev/null
 cd Octopus/ &>/dev/null
-
-# Empties the log file in /var/log
-sudo echo "" > /var/log/Octopus-Logs/subsystem.log
 
 }
 
