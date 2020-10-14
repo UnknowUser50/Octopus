@@ -267,7 +267,7 @@ read choix1
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter a domain name/IP : \e[0m"
 		read dn_ip
 		dig $dn_ip && dig $dn_ip > dig.txt
-		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/dig.txt\e[0m"
+		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/dig.txt \n \e[0m"
 		sleep 2
 		sudo chown $current_user dig.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -278,7 +278,7 @@ read choix1
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter an IP address : \e[0m"
 		read ip
 		whois $ip && whois $ip > whois.txt
-		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/whois.txt\e[0m"
+		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/whois.txt \e[0m\n"
 		sleep 2
 		sudo chown $current_user whois.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -289,7 +289,7 @@ read choix1
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter a domain name/IP : \e[0m"
 		read trc_dn_ip
 		traceroute $trc_dn_ip && traceroute $trc_dn_ip > traceroute.txt
-		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/traceroute.txt\e[0m"
+		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/traceroute.txt \n \e[0m"
 		sleep 2
 		sudo chown $current_user traceroute.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -321,7 +321,7 @@ read choix1
 				if [ $writter == $vim ]; then
 					cd .. && vim /etc/network/interfaces
 					sleep 1
-					printf "$RED [+] Remember to reload your network interface 'sudo ifup {card}' \e[0m\n"
+					printf "$RED [+] Remember to reload your network interface $RED'sudo ifup {card}' $RESETCOLOR \e[0m\n"
 					sleep 5
 					mainmenu
 
