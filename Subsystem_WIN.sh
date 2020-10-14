@@ -54,10 +54,12 @@ echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 sleep 2
 printf "$BLUE [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
-sudo mkdir /var/log/Octopus-Logs
 if [[ -d /var/log/Octopus-Logs ]]; then
-	printf "$BLUE [$GREEN*$BLUE] The directory has been created $RESETCOLOR \n"
-	sleep 2
+	printf "$BLUE [$GREEN*$BLUE] Directory already exist ! $RESETCOLOR \n"
+else
+	sudo mkdir /var/log/Octopus-Logs &>/dev/null
+fi	
+if [[ -d /var/log/Octopus-Logs ]]; then
 	sudo touch /var/log/Octopus-Logs/subsystem.log
 	echo "SUBSYSTEM - LOGS" >> /var/log/Octopus-Logs/subsystem.log
 	echo "---------------------------------------------------------------" >> /var/log/Octopus-Logs/subsystem.log
