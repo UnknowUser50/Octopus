@@ -101,6 +101,7 @@ else
 	date=$(date +%c)
 	echo "SSH service start at : $date" >> /Octopus-Logs/subsystem.log
 sleep 1
+fi
 
 # Nmap installation, checking in /bin
 printf "$BLUE     [$GREEN*$BLUE] Installing NMAP for you $RESETCOLOR \n"
