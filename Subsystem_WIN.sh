@@ -61,6 +61,7 @@ else
 fi	
 if [[ -d /var/log/Octopus-Logs ]]; then
 	sudo touch /var/log/Octopus-Logs/subsystem.log
+	sudo chown $current_user /var/log/Octopus-Logs/subsystem.log &>/dev/null
 	echo "SUBSYSTEM - LOGS" >> /var/log/Octopus-Logs/subsystem.log
 	echo "---------------------------------------------------------------" >> /var/log/Octopus-Logs/subsystem.log
 	date=$(date +%c)
