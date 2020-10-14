@@ -102,8 +102,20 @@ fi
 
 update() {
 
-sudo echo " " > /var/log/Octopus-Logs/subsystem.log &>/dev/null
-
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+	sudo echo " " > /var/log/Octopus-Logs/subsystem.log &>/dev/null
+	printf "$BLUE [$GREEN*$BLUE] The log file have been cleaned $RESETCOLOR \n"
+	sleep 1
+elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+	sudo echo " " > /home/$current_user/Octopus-Logs/subsystem.log &>/dev/null
+	printf "$BLUE [$GREEN*$BLUE] The log file have been cleaned $RESETCOLOR \n"
+	sleep 1
+else
+	printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	printf "$RED [$YELLOW!$RED] Check your log file in $RESETCOLOR /var/log/Octopus-Logs/ $RED or $RESETCOLOR /home/$current_user/Octopus/Octopus-Logs/ $RESETCOLOR \n"
+	sleep 1
+fi
+	
 if [ -d /home/$current_user/Octopus ]; then
 printf "$RED[$YELLOW!$RED] An old version have been found, we will delete it ... \e[0m\n"
 cd /home/$current_user/Octopus/
