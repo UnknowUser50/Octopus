@@ -58,7 +58,7 @@ mv * /home/$current_user/Backup-Octopus/Network-Infos/ &>/dev/null
 printf "$BLUE[$GREEN*$BLUE] File(s) of Network-infos are saved at $GREEN$daate$BLUE ...\n"
 cd && cd /home/$current_user/Octopus/ &>/dev/null
 else
-printf "$RED[$YELLOW!$RED] Unknow directory or non-existant ...\n"
+printf "$RED[$YELLOW!$RED] Unknow directory or non-existant ... (Network-Infos)\n"
 sleep 1
 cd /home/$current_user/Octopus/ &>/dev/null
 fi
@@ -70,7 +70,7 @@ mv * /home/$current_user/Backup-Octopus/Network-Scan/ &>/dev/null
 printf "$BLUE[$GREEN*$BLUE] File(s) of Network-Scan are saved at $GREEN$daate$BLUE ...\n"
 cd && cd /home/$current_user/Octopus/ &>/dev/null
 else
-printf "$RED[$YELLOW!$RED] Unknow directory or non-existant ...\n"
+printf "$RED[$YELLOW!$RED] Unknow directory or non-existant ... (Network-Scan)\n"
 sleep 1
 cd /home/$current_user/Octopus/ &>/dev/null
 fi
@@ -82,7 +82,7 @@ mv * /home/$current_user/Backup-Octopus/Web-Scan/ &>/dev/null
 printf "$BLUE[$GREEN*$BLUE] File(s) of Web-Scan are saved at $GREEN$daate$BLUE ... \n"
 cd
 else
-printf "$RED[$YELLOW!$RED] Unknow directory or non-existant ...\n"
+printf "$RED[$YELLOW!$RED] Unknow directory or non-existant ... (Web-Scan)\n"
 sleep 1
 cd 
 fi
@@ -104,15 +104,15 @@ update() {
 
 if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 	sudo echo " " > /var/log/Octopus-Logs/subsystem.log &>/dev/null
-	printf "$BLUE [$GREEN*$BLUE] The log file have been cleaned $RESETCOLOR \n"
+	printf "$BLUE[$GREEN*$BLUE] The log file have been cleaned $RESETCOLOR \n"
 	sleep 1
 elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 	sudo echo " " > /home/$current_user/Octopus-Logs/subsystem.log &>/dev/null
-	printf "$BLUE [$GREEN*$BLUE] The log file have been cleaned $RESETCOLOR \n"
+	printf "$BLUE[$GREEN*$BLUE] The log file have been cleaned $RESETCOLOR \n"
 	sleep 1
 else
-	printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-	printf "$RED [$YELLOW!$RED] Check your log file in $RESETCOLOR /var/log/Octopus-Logs/ $RED or $RESETCOLOR /home/$current_user/Octopus/Octopus-Logs/ $RESETCOLOR \n"
+	printf "$RED[$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	printf "$RED[$YELLOW!$RED] Check your log file in $RESETCOLOR /var/log/Octopus-Logs/ $RED or $RESETCOLOR /home/$current_user/Octopus/Octopus-Logs/ $RESETCOLOR \n"
 	sleep 1
 fi
 	
