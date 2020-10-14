@@ -87,6 +87,18 @@ printf "$BLUE[$GREEN!$BLUE] Alien installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
 sleep 2
 
+printf "$BLUE[$GREEN*$BLUE] I requiere wget ... downloading\e[0m\n"
+sudo apt-get install -y wget &>/dev/null
+echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
+sleep 1
+echo -ne -e '\033[1;92m##########          (66%)\r\e[0m'
+sleep 1
+echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
+sleep 1
+printf "$BLUE[$GREEN*$BLUE] Wget installed ! \e[0m\n"
+sleep 1
+printf "\n"
+
 printf "$BLUE[$GREEN*$BLUE] I requiere UFW ... downloading\e[0m\n"
 sudo apt-get install -y ufw &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
