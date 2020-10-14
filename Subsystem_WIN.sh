@@ -85,7 +85,8 @@ else
 		echo "---------------------------------------------------------------"
 		date=$(date +%c)
 		echo "Making of the main directory : $date" >> subsystem.log
-	fi	
+	fi
+fi	
 }
 
 global_conf() {
@@ -118,7 +119,7 @@ if [[ -e /bin/wireshark ]]; then
   printf "$BLUE     [$GREEN*$BLUE] WireShark was already installed $RESETCOLOR \n"
   sleep 1
 else
-  sudo apt install -y wireshark &>/dev/null
+  sudo apt install -y wireshark &>/dev/null 
   printf "$BLUE    [$GREEN*$BLUE] Wireshark is now installed $RESETCOLOR \n"
   if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
   	if [[ -e /bin/wireshark ]]; then
