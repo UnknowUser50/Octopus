@@ -53,9 +53,9 @@ printf "\n"
 echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 sleep 2
-printf "$BLUE [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
+printf "$BLUE      [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
 if [[ -d /var/log/Octopus-Logs ]]; then
-	printf "$BLUE [$GREEN*$BLUE] Directory already exist ! $RESETCOLOR \n"
+	printf "$BLUE      [$GREEN*$BLUE] Directory already exist ! $RESETCOLOR \n"
 else
 	sudo mkdir /var/log/Octopus-Logs &>/dev/null
 fi	
@@ -67,7 +67,7 @@ if [[ -d /var/log/Octopus-Logs ]]; then
 	date=$(date +%c)
 	echo "Making of the main directory : $date" >> /var/log/Octopus-Logs/subsystem.log
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-		printf "$BLUE [$GREEN*$BLUE] The log file has been created $RESETCOLOR \n"
+		printf "$BLUE      [$GREEN*$BLUE] The log file has been created $RESETCOLOR \n"
 		sleep 1
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR\n"
@@ -176,7 +176,7 @@ if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
    else
    	if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
 		date=$(date +%c)
-		echo "SqlMap installed at : $date" >> /Octopus-Logs/subsystem.log
+		echo "SqlMap installed at : $date" >> /Octopus-Logs/subsystem.log &>/dev/null
 	else 
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 		sleep 1
@@ -211,7 +211,7 @@ if [[ -e /bin/ufw ]]; then
    fi	
 else
   sudo apt install -y ufw &>/dev/null 
-  printf "$BLUE    [$GREEN*$BLUE] UFW is now installed $RESETCOLOR \n"
+  printf "$BLUE     [$GREEN*$BLUE] UFW is now installed $RESETCOLOR \n"
   sleep 1
 fi  
 
