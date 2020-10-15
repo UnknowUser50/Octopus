@@ -272,6 +272,7 @@ read choix1
 		else 
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 			sleep 1
+		fi	
 		mainmenu
 
 	elif [ $choix1 == $dg ]; then
