@@ -256,7 +256,7 @@ read choix1
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter a domain name : \E[0m"
 		read domain
 		nslookup $domain && nslookup $domain > domain.txt
-		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/domain.txt\e[0m"
+		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/domain.txt\e[0m\n"
 		sleep 2
 		sudo chown $current_user domain.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -284,6 +284,18 @@ read choix1
 		sudo chown $current_user dig.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Dig on $dn_ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Dig on $dn_ip at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+		fi	
 		mainmenu
 
 	elif [ $choix1 == $who ]; then
@@ -295,6 +307,17 @@ read choix1
 		sudo chown $current_user whois.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Whois on $ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Whois on $ip at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+			sleep 1
+		else 
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		fi	
 		mainmenu
 
 	elif [ $choix1 == $trc ]; then
@@ -306,9 +329,33 @@ read choix1
 		sudo chown $current_user traceroute.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+		fi	
 		mainmenu
 
 	elif [ $choix1 == $rc ]; then
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Recon-NG at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of Recon-NG at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+		fi	
 		printf "$GREEN [+] Thinks to load all modules or run this before $RED'marketplace install al' \e[0m\n"
 		sleep 5
 		sudo recon-ng
@@ -316,6 +363,18 @@ read choix1
 		mainmenu
 
 	elif [ $choix1 == $ws ]; then
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of WireShark at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of WireShark at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+		fi	
 		printf "$BLUE [$GREEN+$BLUE] Starting WireShark ... \e[0m\n"
 		sleep 2
 		sudo wireshark &>/dev/null
