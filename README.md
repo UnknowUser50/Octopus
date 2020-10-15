@@ -5,7 +5,6 @@
 * ## Requirements 
 
   * Nmap
-  * ZenMap
   * WireShark
   * Gobuster/ Dirbuster
   * wget
@@ -30,7 +29,7 @@ For the module connection, SSH services **must be enabled**
 
 It is advisable to update Octopus regularly, **at least once a week**. Just run update script :
 
-> sudo ./update
+> sudo ./update.sh
 
 ## Compatible operating system
 
