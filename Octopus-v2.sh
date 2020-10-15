@@ -390,6 +390,18 @@ read choix1
 			echo -e -n "$BLUE [$GREEN+$BLUE] Do you want to use vim(1) or nano (2) : \e[0m"
 			read writter
 				if [ $writter == $vim ]; then
+					if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+						date=$(date +%c)
+						echo "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
+						sleep 1
+					elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+						date=$(date +%c)
+						echo "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+						sleep 1
+					else
+						printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
+						sleep 1
+					fi	
 					cd .. && vim /etc/network/interfaces
 					sleep 1
 					printf "$RED [+] Remember to reload your network interface $RED'sudo ifup {card}' $RESETCOLOR \e[0m\n"
@@ -397,6 +409,18 @@ read choix1
 					mainmenu
 
 				elif [ $writter == $nano ]; then
+					if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+						date=$(date +%c)
+						echo "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
+						sleep 1
+					elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+						date=$(date +%c)
+						echo "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+						sleep 1
+					else
+						printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
+						sleep 1
+					fi	
 					cd .. && sudo nano /etc/network/interfaces
 					sleep 1
 					printf "$GREEN [+] Remember to reload your network interface $GREEN'sudo ifup {card}' \e[0m\n"
@@ -485,10 +509,21 @@ elif [ $choix2 == $zmp ]; then
 
 elif [ $choix2 == $ufw ]; then
 	printf "$BLUE [$GREEN+$BLUE] Starting UFW-Firewall ... \e[0m\n"
-		sudo apt-get install ufw &>/dev/null
 		sudo ufw enable
 		printf "$BLUE [$GREEN+$BLUE] UFW is now activated \e[0m"
 		sleep 2
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of UFW at : $date" >> /var/log/Octopus-Logs/subsystem.log 
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of UFW at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else 
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+		fi	
 		mainmenu
 
 elif [ $choix2 == $ex ]; then
