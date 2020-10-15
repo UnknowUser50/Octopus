@@ -302,17 +302,34 @@ read choix1
 		sudo chown $current_user dig.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
-		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-			date=$(date +%c)
-			echo "Lunch of Dig on $dn_ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+		if [[ -s /home/$current_user/Octopus/Network-Infos/dig.txt ]]; then
+			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
-		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
-			date=$(date +%c)
-			echo "Lunch of Dig on $dn_ip at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c) 
+				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED" >> /home/$current_user/Octopus-Logs/subsystem.log
+				sleep 1
+			else 
+				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+				sleep 1
+			fi	
 		else
-			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo "Lunch of Dig on $dn_ip at : $date --> $GREEN SUCCES" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo "Lunch of Dig on $dn_ip at $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+				sleep 1
+			fi
 		fi	
 		mainmenu
 
@@ -325,16 +342,33 @@ read choix1
 		sudo chown $current_user whois.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
-		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-			date=$(date +%c)
-			echo "Lunch of Whois on $ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+		if [[ -s /home/$current_user/Octopus/Network-Infos/whois.txt ]]; then
+			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
-		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
-			date=$(date +%c)
-			echo "Lunch of Whois on $ip at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
-			sleep 1
-		else 
-			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+				sleep 1
+			fi		
+		else	
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+				sleep 1
+			else 
+				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			fi
 		fi	
 		mainmenu
 
@@ -347,17 +381,34 @@ read choix1
 		sudo chown $current_user traceroute.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
-		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-			date=$(date +%c)
-			echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+		if [[ -s /home/$current_user/Octopus/Network-Infos/traceroute.txt ]]; then
+			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
-		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
-			date=$(date +%c)
-			echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
-		else
-			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+				sleep 1
+			fi
+		else	
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+				sleep 1
+			fi
 		fi	
 		mainmenu
 
