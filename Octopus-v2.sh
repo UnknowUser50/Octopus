@@ -264,15 +264,27 @@ read choix1
 		if [[ -s /home/$current_user/Octopus/Network-Infos/domain.txt ]]; then
 			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c) 
+				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED" >> /home/$current_user/Octopus-Logs/subsystem.log
+				sleep 1
+			else 
+				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+				sleep 1
+			fi	
 			mainmenu
 		else 	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Lunch of NSLOOKUP on $domain at : $date result =$GREEN OK" >> /var/log/Octopus-Logs/subsystem.log 
+				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log 
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Lunch of NSLOOKUP on $domain at : $date resulst =$GREEN OK" >> /home/$current_user/Octopus-Logs/subsystem.log 
+				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus-Logs/subsystem.log 
 				sleep 1
 			else 
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
