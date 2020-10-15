@@ -261,6 +261,17 @@ read choix1
 		sudo chown $current_user domain.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of NSLOOKUP on $domain at : $date" >> /var/log/Octopus-Logs/subsystem.log &>/dev/null
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo "Lunch of NSLOOKUP on $domain at : $date" >> /home/$current_user/Octopus-Logs/subsystem.log &>/dev/null
+			sleep 1
+		else 
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
 		mainmenu
 
 	elif [ $choix1 == $dg ]; then
