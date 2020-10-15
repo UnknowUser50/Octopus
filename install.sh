@@ -97,7 +97,8 @@ echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN*$BLUE] Wget installed ! \e[0m\n"
 sleep 1
-printf "\n"
+echo -e "$GREEN----------------------------------------\e[0m"
+sleep 1
 
 printf "$BLUE[$GREEN*$BLUE] I requiere UFW ... downloading\e[0m\n"
 sudo apt-get install -y ufw &>/dev/null
@@ -110,8 +111,20 @@ sleep 1
 printf "$BLUE[$GREEN!$BLUE] UFW installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
 sleep 1
+
+printf $BLUE [$GREEN*$BLUE] I requiere Nmap ... downloading \e[0m \n"
+sudo apt-get install -y nmap &>/dev/null
+echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
+sleep 1
+echo -ne -e '\033[1;92m##########          (66%)\r\e[0m'
+sleep 1
+echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
+sleep 1
+printf "$BLUE[$GREEN!$BLUE] Nmap installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
-sleep 2
+sleep 1
+printf "\n"
+
 
 # Making directories 
 if [ -d /home/$current_user/Octopus/Network-Infos ]; then
