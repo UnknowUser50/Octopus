@@ -124,7 +124,7 @@ printf "$BLUE[$GREEN!$BLUE] UFW installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
 sleep 1
 
-printf $BLUE [$GREEN*$BLUE] I requiere Nmap ... downloading \e[0m \n"
+printf "$BLUE [$GREEN*$BLUE] I requiere Nmap ... downloading \e[0m \n"
 sudo apt-get install -y nmap &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
 sleep 1
