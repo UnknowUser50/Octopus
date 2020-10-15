@@ -268,11 +268,11 @@ read choix1
 		else 	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of NSLOOKUP on $domain at : $date result =$GREEN OK" >> /var/log/Octopus-Logs/subsystem.log 
+				echo -e "Lunch of NSLOOKUP on $domain at : $date result =$GREEN OK" >> /var/log/Octopus-Logs/subsystem.log 
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of NSLOOKUP on $domain at : $date resulst =$GREEN OK" >> /home/$current_user/Octopus-Logs/subsystem.log 
+				echo -e "Lunch of NSLOOKUP on $domain at : $date resulst =$GREEN OK" >> /home/$current_user/Octopus-Logs/subsystem.log 
 				sleep 1
 			else 
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
