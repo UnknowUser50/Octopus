@@ -205,7 +205,7 @@ if [[ -e /bin/ufw ]]; then
 		date=$(date +%c)
 		echo "UFW installed at : $date" >> /Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured \n"
+		printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
 		sleep 1
 	fi
    fi	
