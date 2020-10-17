@@ -256,7 +256,7 @@ read choix1
 	if [ $choix1 == $nls ]; then
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter a domain name : \E[0m"
 		read domain
-		nslookup $domain && nslookup $domain > domain.txt
+		nslookup $domain && nslookup $domain > /Network-Infos/domain.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/domain.txt\e[0m\n"
 		sleep 2
 		sudo chown $current_user domain.txt
