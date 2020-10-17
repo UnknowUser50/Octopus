@@ -13,6 +13,16 @@ For the module connection, SSH services **must be enabled**
 
 > systemctl start ssh
 
+* ## WARNING 
+
+If you are on a Linux subsystem, you can't use nmap. Here is the solution in order to be able to use it :
+On your Linux, type this command : 
+
+> alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"'
+
+Change the path if necessary, but you must have NMAP on your Windows system
+Link for nmap : https://nmap.org/download.html
+
 * ## Installation
 
 > sudo apt update 
