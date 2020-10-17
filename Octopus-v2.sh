@@ -267,11 +267,11 @@ read choix1
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c) 
-				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED" >> /home/$current_user/Octopus-Logs/subsystem.log
+				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus-Logs/subsystem.log
 				sleep 1
 			else 
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -281,11 +281,11 @@ read choix1
 		else 	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log 
+				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log 
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus-Logs/subsystem.log 
+				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus-Logs/subsystem.log 
 				sleep 1
 			else 
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -308,11 +308,11 @@ read choix1
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c) 
-				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED" >> /home/$current_user/Octopus-Logs/subsystem.log
+				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus-Logs/subsystem.log
 				sleep 1
 			else 
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -321,11 +321,11 @@ read choix1
 		else
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Dig on $dn_ip at : $date --> $GREEN SUCCES" >> /var/log/Octopus-Logs/subsystem.log
+				echo "Lunch of Dig on $dn_ip at : $date --> $GREEN SUCCES $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Dig on $dn_ip at $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				echo "Lunch of Dig on $dn_ip at $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 				sleep 1
 			else
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -348,11 +348,11 @@ read choix1
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 				sleep 1
 			else
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -361,11 +361,11 @@ read choix1
 		else	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
 				sleep 1
 			else 
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -387,11 +387,11 @@ read choix1
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 				sleep 1
 			else
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -400,11 +400,11 @@ read choix1
 		else	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				echo "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Traceroute on $trc_dn_ip at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				echo "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 				sleep 1
 			else
 				printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -420,7 +420,7 @@ read choix1
 			sleep 1
 		elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo "Lunch of Recon-NG at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo "Lunch of Recon-NG at : $date " >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -693,11 +693,11 @@ if [ $nnmap == $fs ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap (-sS) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap (-sS) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap (-sS) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap (-sS) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -706,11 +706,11 @@ if [ $nnmap == $fs ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching an nmap scan with parameter(s) $RED -sS $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching an nmap scan with parameter(s) $RED -sS $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching an nmap scan with parameter(s) $RED -sS $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching an nmap scan with parameter(s) $RED -sS $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -733,11 +733,11 @@ elif [ $nnmap == $ps ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap (-p 1-1000) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap (-p 1-1000) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap (-p 1-1000) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap (-p 1-1000) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -746,11 +746,11 @@ elif [ $nnmap == $ps ]; then
 	else 
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching an nmap scan with parameter(s) $RED -p 1-1000 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching an nmap scan with parameter(s) $RED -p 1-1000 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching an nmap scan with parameter(s) $RED -p 1-1000 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching an nmap scan with parameter(s) $RED -p 1-1000 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -773,11 +773,11 @@ elif [ $nnmap == $ts ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (-sT) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sT) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (-sT) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sT) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -786,11 +786,11 @@ elif [ $nnmap == $ts ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sT $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sT $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sT $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sT $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -813,11 +813,11 @@ elif [ $nnmap == $us ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (-sU) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sU) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (-sU) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sU) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -826,11 +826,11 @@ elif [ $nnmap == $us ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sU $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sU $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sU $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sU $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -853,11 +853,11 @@ elif [ $nnmap == $as ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (-A) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-A) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (-A) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-A) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -866,11 +866,11 @@ elif [ $nnmap == $as ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -A $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -A $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -A $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -A $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -893,11 +893,11 @@ elif [ $nnmap == $fls ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--script banner) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script banner) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--script banner) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script banner) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -906,11 +906,11 @@ elif [ $nnmap == $fls ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script banner $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script banner $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED ---script banner $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED ---script banner $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -933,11 +933,11 @@ elif [ $nnmap == $vs ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--script vuln) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script vuln) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--script vuln) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script vuln) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -946,11 +946,11 @@ elif [ $nnmap == $vs ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script vuln $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script vuln $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script vuln $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script vuln $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -973,11 +973,11 @@ elif [ $nnmap == $trace ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--script-trace) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script-trace) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--script-trace) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script-trace) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -986,11 +986,11 @@ elif [ $nnmap == $trace ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script-trace $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script-trace $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script-trace $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script-trace $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1015,11 +1015,11 @@ elif [ $nnmap == $osc ];  then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--max-os-tries) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--max-os-tries) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--max-os-tries) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--max-os-tries) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1028,11 +1028,11 @@ elif [ $nnmap == $osc ];  then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --max-os-tries $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --max-os-tries $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --max-os-tries $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --max-os-tries $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1054,11 +1054,11 @@ elif [ $nnmap == $dos ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--script=broadcast-avahi-dos) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script=broadcast-avahi-dos) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--script=broadcast-avahi-dos) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script=broadcast-avahi-dos) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1067,11 +1067,11 @@ elif [ $nnmap == $dos ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script=broadcast-avahi-dos $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script=broadcast-avahi-dos $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script=broadcast-avahi-dos $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script=broadcast-avahi-dos $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1096,11 +1096,11 @@ elif [ $nnmap == $bjnp ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--script broadcast-bjnp-discover) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script broadcast-bjnp-discover) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--script broadcast-bjnp-discover) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script broadcast-bjnp-discover) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1109,11 +1109,11 @@ elif [ $nnmap == $bjnp ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script broadcast-bjnp-avahi $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script broadcast-bjnp-avahi $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script broadcast-bjnp-avahi $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script broadcast-bjnp-avahi $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1136,11 +1136,11 @@ elif [ $nnmap == $fuzz ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--script dns-fuzz) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script dns-fuzz) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--script dns-fuzz) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--script dns-fuzz) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1149,11 +1149,11 @@ elif [ $nnmap == $fuzz ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script dns-fuzz $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script dns-fuzz $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --script dns-fuzz $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --script dns-fuzz $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1176,11 +1176,11 @@ elif [ $nnmap == $la ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (-sL) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sL) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (-sL) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sL) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1189,11 +1189,11 @@ elif [ $nnmap == $la ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sL $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sL $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sL $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sL $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1215,11 +1215,11 @@ elif [ $nnmap == $sc_s ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (-sC) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sC) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (-sC) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-sC) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1228,11 +1228,11 @@ elif [ $nnmap == $sc_s ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sC $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sC $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -sC $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -sC $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1258,11 +1258,11 @@ elif [ $nnmap == $top_p ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (--top-ports $nb_p ) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--top-ports $nb_p ) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (--top-ports $nb_p ) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (--top-ports $nb_p ) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1271,11 +1271,11 @@ elif [ $nnmap == $top_p ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --top-ports $nb_p $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --top-ports $nb_p $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED --top-ports $nb_p $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED --top-ports $nb_p $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1300,11 +1300,11 @@ elif [ $nnmap == $off_dns ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (-p $port -n) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-p $port -n) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (-p $port -n) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-p $port -n) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1313,11 +1313,11 @@ elif [ $nnmap == $off_dns ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -p $port -n $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -p $port -n $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -p $port -n $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -p $port -n $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1340,11 +1340,11 @@ elif [ $nnmap == $os_serv ]; then
 		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Trying to use nmap with (-A -T4) on $ip at : $date -->$RED FAILED" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-A -T4) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
-			echo -e "Trying to use nmap with (-A -T4) on $ip at : $date -->$RED FAILED" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Trying to use nmap with (-A -T4) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -1353,11 +1353,11 @@ elif [ $nnmap == $os_serv ]; then
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -A -T4 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -A -T4 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo -e "Launching nmap with parameter(s) $RED -A -T4 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Launching nmap with parameter(s) $RED -A -T4 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
