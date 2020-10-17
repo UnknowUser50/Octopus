@@ -259,10 +259,10 @@ read choix1
 		nslookup $domain && nslookup $domain > /home/$current_user/Octopus/Network-Infos/domain.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/domain.txt\e[0m\n"
 		sleep 2
-		sudo chown $current_user domain.txt
+		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/domain.txt
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 		sleep 2
-		if [[ -s /home/$current_user/Octopus/Network-Infos/domain.txt ]]; then
+		if [[ ! -s /home/$current_user/Octopus/Network-Infos/domain.txt ]]; then
 			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
