@@ -321,7 +321,7 @@ read choix1
 		else
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Dig on $dn_ip at : $date --> $GREEN SUCCES $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+				echo "Lunch of Dig on $dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
