@@ -257,7 +257,7 @@ read choix1
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter a domain name : \E[0m"
 		read domain
 		date=$(date +%c)
-		echo -e "BLUE [$GREEN*$GREEN]$RESETCOLOR Command at :$GREEN $date" >> /home/$current_user/Octopus/Network-Infos/domain.txt
+		echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Infos/domain.txt
 		nslookup $domain && nslookup $domain >> /home/$current_user/Octopus/Network-Infos/domain.txt
 		printf "\n\n\n" >> /home/$current_user/Octopus/Network-Infos/domain.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/domain.txt\e[0m\n"
@@ -301,7 +301,7 @@ read choix1
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter a domain name/IP : \e[0m"
 		read dn_ip
 		date=$(date +%c)
-		echo -e "BLUE [$GREEN*$GREEN]$RESETCOLOR Command at :$GREEN $date" >> /home/$current_user/Octopus/Network-Infos/dig.txt
+		echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Infos/dig.txt
 		dig $dn_ip && dig $dn_ip >> /home/$current_user/Octopus/Network-Infos/dig.txt
 		printf "\n\n\n" >> /home/$current_user/Octopus/Network-Infos/dig.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/dig.txt \n \e[0m"
@@ -343,7 +343,10 @@ read choix1
 	elif [ $choix1 == $who ]; then
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter an IP address : \e[0m"
 		read ip
-		whois $ip && whois $ip > /home/$current_user/Octopus/Network-Infos/whois.txt
+		date=$(date +%c)
+		echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Infos/whois.txt
+		whois $ip && whois $ip >> /home/$current_user/Octopus/Network-Infos/whois.txt
+		printf "\n\n\n" >> /home/$current_user/Octopus/Network-Infos/whois.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/whois.txt \e[0m\n"
 		sleep 2
 		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/whois.txt
@@ -382,7 +385,10 @@ read choix1
 	elif [ $choix1 == $trc ]; then
 		echo -e -n "$BLUE [$GREEN+$BLUE] Enter a domain name/IP : \e[0m"
 		read trc_dn_ip
-		traceroute $trc_dn_ip && traceroute $trc_dn_ip > /home/$current_user/Octopus/Network-Infos/traceroute.txt
+		date=$(date +%c)
+		echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Infos/traceroute.txt
+		traceroute $trc_dn_ip && traceroute $trc_dn_ip >> /home/$current_user/Octopus/Network-Infos/traceroute.txt
+		printf "\n\n\n" >> /home/$current_user/Octopus/Network-Infos/traceroute.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/traceroute.txt \n \e[0m"
 		sleep 2
 		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/traceroute.txt
