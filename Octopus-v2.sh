@@ -718,7 +718,7 @@ elif [ -z $choix2 ]; then
 
 fi
 
-}
+}}
 
 nmap-luncher() {
 
