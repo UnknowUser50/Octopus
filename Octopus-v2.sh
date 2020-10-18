@@ -578,8 +578,47 @@ elif [ $choix2 == $zmp ]; then
 		mainmenu
 
 	elif [ $zenrsp == $Non ]; then
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Beginning of ZenMap installation at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Beginning of ZenMap installation at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else
+			printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
+			sleep 1
+		fi	
 		printf "$BLUE [$GREEN+$BLUE] Starting installation ... \e[0m\n"
-		sudo wget -q https://nmap.org/dist/zenmap-7.80-1.noarch.rmp &>/dev/null
+		sudo wget -q https://nmap.org/dist/zenmap-7.80-1.noarch.rpm &>/dev/null
+		if [[ -e /home/$current_user/zenmap-* || -e /root/zenmap-* ]]; then
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Successful file recovery on $GREEN https://nmap.org/ $RESETCOLOR at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Successful file recovery on $GREEN https://nmap.org/ $RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
+				sleep 1
+			fi
+		else
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Error in file recovery on $RED https://nmap.org/ $RESETCOLOR at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Error in file recovery on $RED https://nmap.org/ $RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
+				sleep 1
+			fi
+		fi	
 		printf "$GREEN [+] Receiving data from nmap.org ... \e[0m\n"
 		sudo apt-get install alien &>/dev/null
 		printf "$GREEN [+] Install alien ... \e[0m\n"
