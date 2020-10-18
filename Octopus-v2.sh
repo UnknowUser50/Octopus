@@ -646,7 +646,8 @@ elif [ $choix2 == $zmp ]; then
 			else
 				printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
 				sleep 1
-			fi	
+			fi
+		fi	
 		printf "$GREEN [+] Install alien ... \e[0m\n"
 		alien zenmap_7.80-1.noarch.rmp &>/dev/null
 		dpkg -i zenmap_7.80-2_all.deb &>/dev/null
