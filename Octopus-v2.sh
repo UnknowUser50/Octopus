@@ -1609,7 +1609,7 @@ printf "                                                             \n"
 echo -e -n "$RED Octopus@Web-Scan$BLUE:~$RESETCOLOR# "
 read choix3
 
-if [[ $choix3 == $nikto ]]; then
+if [ $choix3 == $nikto ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] Starting nikto, target(IP/URL) : \e[0m"
 	read url_ip
 	printf "\n" >> /home/$current_user/Octopus/Web-Scan/nikto_results.txt
@@ -1650,7 +1650,7 @@ if [[ $choix3 == $nikto ]]; then
 	fi		
 	mainmenu
 
-elif [[ $choix3 == $maltego ]]; then
+elif [ $choix3 == $maltego ]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting of Maltego at : $date" >> /var/log/Octopus-Logs/subsystem.log 
