@@ -179,7 +179,7 @@ if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
    else
    	if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
 		date=$(date +%c)
-		echo "SqlMap installed at : $date" >> /Octopus-Logs/subsystem.log &>/dev/null
+		echo "SqlMap installed at : $date" >> var/log/Octopus-Logs/subsystem.log &>/dev/null
 	else 
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 		sleep 1
