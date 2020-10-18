@@ -10,6 +10,8 @@
 #
 # @Release : September 2020
 #
+# WARNING ! Many tools are unstable on subsystem ! 
+#
 ##########################################################################################################################################
 
 # Colors declaration : 
@@ -37,6 +39,7 @@ bannerscreen() {
 
 clear
 printf "\n"
+printf "$RED      { WARNING : Many tools are unstable on Windows subsystem !! } $RESETCOLOR \n\n"
 printf "$BLUE     .=====================================================.                     \n"
 printf "$BLUE     ||                                                   ||                     \n"
 printf "$BLUE     ||$RED   _   $RED    _--'$GREEN'--_                                $BLUE||           \n"
