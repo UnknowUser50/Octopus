@@ -4,7 +4,7 @@
 #
 # @Coded by : UnknowUser50
 #
-# @Version : v1.2 
+# @Version : v1.3 
 #
 # @Multi-ToolBox --> Network Analyser, web scanner, connection support
 #
@@ -146,7 +146,7 @@ printf "$BLUE          $GREEN[$BLUE Host name $GREEN]$BLUE : $hostname    \n"
 printf "$BLUE          $GREEN[$BLUE Date $GREEN]$BLUE : $date		   \n"
 printf "$BLUE	  $GREEN[$BLUE Lunched by $GREEN]$BLUE : $USER		   \n"
 printf "                                                                    \n"
-printf "          $RED{ \033[1;92mBy UnknowUser50 || version 1.2.0 || 2020 $RED}           \n\e[0m"
+printf "          $RED{ \033[1;92mBy UnknowUser50 || version 1.3.0 || 2020 $RED}           \n\e[0m"
 echo "                                                                       "
 
 }
@@ -620,14 +620,70 @@ elif [ $choix2 == $zmp ]; then
 			fi
 		fi	
 		printf "$GREEN [+] Receiving data from nmap.org ... \e[0m\n"
-		sudo apt-get install alien &>/dev/null
+		if [[ -e /usr/bin/alien ]]; then
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Checking Alien ... Already installed on the system at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e  "Checking Alien ... Already installed on the system at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
+				sleep 1
+			fi
+		elif [[ ! -e /usr/bin/alien ]]; then
+			sudo apt-get install alien &>/dev/null
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Alien are not installed ... We install it for you at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Alien are not installed ... We install it for you at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
+				sleep 1
+			fi	
 		printf "$GREEN [+] Install alien ... \e[0m\n"
 		alien zenmap_7.80-1.noarch.rmp &>/dev/null
 		dpkg -i zenmap_7.80-2_all.deb &>/dev/null
 		printf "$BLUE [$GREEN+$BLUE] Unpacking of ZenMap ... soon finishied \e[0m\n"
 		sleep 1
+		if [[ -e /usr/bin/zenmap ]]; then
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "ZenMap is now$GREEN installed$RESETCOLOR at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "ZenMap is now$GREEN installed$RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
+				sleep 1
+			fi
+		elif [[ ! -e /bin/user/zenmap ]]; then
+			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Error installing ZenMap,$RED are you on a subsystem ?$RESETCOLOR Error at : $date" >> /var/log/Octopus-Logs/subsystem.log
+				sleep 1
+			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+				date=$(date +%c)
+				echo -e "Error installing ZenMap,$RED are you on a subsystem ?$RESETCOLOR Error at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				sleep 1
+			else
+				printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
+				sleep 1
+			fi
+		else
+			printf "$RED [$YELLOW!$RED] ZenMap package cannot be found, move it to$YELLOW /usr/bin/ $RESETCOLOR \n"
+			sleep 3
+		fi	
 		printf "$BLUE [$GREEN+$BLUE] Installation complete ... start-up ZenMap as root \e[0m\n"
-		sudo zenmap
+		sudo zenmap 
 		sleep 2
 		mainmenu
 	fi
@@ -1556,15 +1612,57 @@ read choix3
 if [ $choix3 == $nikto ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] Starting nikto, target(IP/URL) : \e[0m"
 	read url_ip
-	nikto -h $url_ip && nikto -h $url_ip > nikto_results.txt
-	sudo chown $current_user nikto-results.txt
+	printf "\n" >> /home/$current_user/Octopus/Web-Scan/nikto_results.txt
+	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at : $date $RESETCOLOR" >> /home/$current_user/Octopus/Web-Scan/nikto_results.txt
+	nikto -h $url_ip && nikto -h $url_ip >> /home/$current_user/Octopus/Web-Scan/nikto_results.txt
+	printf "\n\n\n" >> /home/$current_user/Octopus/Web-Scan/nikto_results.txt
+	sudo chown $current_user /home/$current_user/Octopus/Web-Scan/nikto-results.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Web-Scan/nikto_results.txt\e[0m"
 	sleep 2
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 	sleep 2
+	if [[ ! -s /home/$current_user/Octopus/Web-Scan/nikto_results.txt ]]; then
+		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
+		sleep 1
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Trying to use nikto on $url_ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Trying to use nikto on $url_ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		fi
+	else 
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Launching nikto on $url_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Launching nikto on $url_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+			sleep 1
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+	fi		
 	mainmenu
 
 elif [ $choix3 == $maltego ]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting of Maltego at : $date" >> /var/log/Octopus-Logs/subsystem.log 
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting of Maltego at :$date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting maltego ... \e[0m"
 	maltego
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1572,8 +1670,20 @@ elif [ $choix3 == $maltego ]; then
 	mainmenu
 
 elif [ $choix3 == $zap ]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting of OWASP-Zap at : $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting of OWASP-Zap at :$date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting OWASP-Zap \e[0m"
-	owasp-zap &>/dev/null
+	owasp-zap 
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 	sleep 2
 	mainmenu
@@ -1583,23 +1693,63 @@ elif [ $choix3 == $gobuster ];then
 	read url
 	echo -e -n "$BLUE [$GREEN+$BLUE] Choose the path of your wordlist : \e[0m"
 	read wl
-	sudo gobuster --url $url --wordlist $wl && sudo gobuster --url $url --wordlist $wl > gobuster.txt
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Launching gobuster on $url with the WL $wl at : $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Launching gobuster on $url with the WL $wl at :$date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi	
+	date=$(date +%c)
+	printf "\n" >> /home/$current_user/Octopus/Web-Scan/gobuster.txt
+	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at : $date" >> /home/$current_user/Octopus/Web-Scan/gobuster.txt
+	sudo gobuster --url $url --wordlist $wl && sudo gobuster --url $url --wordlist $wl >> /home/$current_user/Octopus/Web-Scan/gobuster.txt
+	printf "\n\n\n" >> /home/$current_user/Octopus/Web-Scan/gobuster.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Web-Scan/gobuster.txt\e[0m"
 	sleep 2
-	sudo chown $current_user gobuster.txt
+	sudo chown $current_user /home/$current_user/Octopus/Web-Scan/gobuster.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
 	sleep 2
 	mainmenu
 
 elif [ $choix3 == $dirbuster ]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting Dirbuster at : $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting Dirbuster at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting dirbuster \e[0m\n"
-	sudo dirbuster &>/dev/null
+	sudo dirbuster 
 	sleep 2
 	mainmenu
 
 elif [ $choix3 == $legion ]; then
 	version1=1
 	version2=2
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting of Sparta/Legion at : $date" >> /var/log/Octopus-Logs/subsystem.log 
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Starting of Sparta/Legion at : $dare" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An erro as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi	
 	echo -e -n "$BLUE [$GREEN+$BLUE] Which version of Kali do you have ? (<=2019 --> 1 / >=2020 --> 2 ) : \e[0m"
 	read version
 		if [ $version == $version1 ]; then
@@ -1620,7 +1770,6 @@ elif [ $choix3 == $legion ]; then
 elif [ $choix3 == $sql ]; then
 	Yes=1
 	no=2
-	printf "$BLUE [$GREEN+$BLUE] For the moment, it is a test module, it will be improved later ... \e[0m\n"
 	echo -e -n "$BLUE [$GREEN+$BLUE] Enter the url of the target : \e[0m"
 	read target
 	echo -e -n "$BLUE [$GREEN+$BLUE] Do you want to add cookies options ? (1/2) : "
@@ -1646,6 +1795,18 @@ elif [ $choix3 == $sql ]; then
 		printf "$RED [+] You have to fill in the parameters !\e[0m\n"
 		sleep 1
 		mainmenu
+	fi
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Launching SqlMap on $target at : $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Launching SqlMap on $target at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
 	fi	
 		
 
