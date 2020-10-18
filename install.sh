@@ -43,11 +43,11 @@ if [[ -e /usr/bin/git ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] GIT already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] GIT already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] GIT already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] GIT already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -81,11 +81,11 @@ if [[ -e /usr/bin/macchanger ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking macchanger in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Macchanger already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Macchanger already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking macchanger in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Macchanger already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Macchanger already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -120,11 +120,11 @@ if [[ -e /usr/bin/traceroute ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking traceroute in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Traceroute already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Traceroute already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking traceroute in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Traceroute already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Traceroute already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -158,11 +158,11 @@ if [[ -e /usr/bin/wireshark ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking wireshark in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Wireshark already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Wireshark already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking wireshark in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Wireshark already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Wireshark already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -196,11 +196,11 @@ if [[ -e /usr/bin/alien ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking alien in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Alien already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Alien already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking alien in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Alien already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Alien already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -235,11 +235,11 @@ if [[ -e /usr/bin/dpkg ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking dpkg in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Dpkg already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Dpkg already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking dpkg in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Dpkg already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Dpkg already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -274,11 +274,11 @@ if [[ -e /usr/bin/wget ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking wget in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Wget already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Wget already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking wget in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Wget already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Wget already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -313,11 +313,11 @@ if [[ -e /etc/default/ufw ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking ufw in$GREEN /etc/default/$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Ufw already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Ufw already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking ufw in$GREEN /etc/default/$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Ufw already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Ufw already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -351,11 +351,11 @@ if [[ -e /usr/bin/nmap ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking nmap in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Nmap already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Nmap already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking nmap in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE [$GREEN*$BLUE] Nmap already installed $RESETCOLOR \n"
+		printf "$BLUE[$GREEN*$BLUE] Nmap already installed $RESETCOLOR \n"
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi
@@ -419,5 +419,5 @@ printf "$BLUE[$GREEN!$BLUE] Done at $date \e[0m\n"
 fi
 
 sleep 2
-printf "$BLUE[$GREEN+$BLUE] $GREEN Installation complete ! \e[0m\n\n"
+printf "$BLUE[$GREEN+$BLUE]$GREEN Installation complete ! \e[0m\n\n"
 
