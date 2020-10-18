@@ -1647,6 +1647,7 @@ if [ $choix3 == $nikto ]; then
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 			sleep 1
+		fi	
 	fi		
 	mainmenu
 
