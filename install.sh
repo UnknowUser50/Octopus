@@ -39,18 +39,57 @@ printf "$BLUE[$GREEN!$BLUE] System update complete...\e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
 
 # Checking dependencies
-printf "$BLUE[$GREEN*$BLUE] I requiere git ... dowloading\e[0m\n"
-sudo apt-get install -y git &>/dev/null
-echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
-sleep 1
-echo -ne -e '\033[1;92m###########         (66%)\r\e[0m'
-sleep 1
-echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
-sleep 1
-printf "$BLUE[$GREEN!$BLUE] Git installed ! \e[0m\n"
-echo -e "$GREEN----------------------------------------\e[0m"
-sleep 2
+if [[ -e /usr/bin/git ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
+	printf "$BLUE[$GREEN*$BLUE] I requiere git ... dowloading\e[0m\n"
+	sudo apt-get install -y git &>/dev/null
+	echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
+	sleep 1
+	echo -ne -e '\033[1;92m###########         (66%)\r\e[0m'
+	sleep 1
+	echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
+	sleep 1
+	printf "$BLUE[$GREEN!$BLUE] Git installed ! \e[0m\n"
+	echo -e "$GREEN----------------------------------------\e[0m"
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "GIT$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "GIT$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
+	sleep 2	
 
+if [[ -e /usr/bin/macchanger ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking macchanger in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking macchanger in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere macchanger ... downloading\e[0m\n"
 sudo apt-get install -y macchanger &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -61,8 +100,35 @@ echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Macchanger installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Macchanger$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Macchanger$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 2
 
+
+if [[ -e /usr/bin/traceroute ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking traceroute in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking traceroute in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere traceroute ... downloading\e[0m\n"
 sudo apt-get install -y traceroute &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -73,8 +139,34 @@ echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] traceroute installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Traceroute$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Traceroute$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 2
 
+if [[ -e /usr/bin/wireshark ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking wireshark in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking wireshark in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere Wireshark ... dowloading\e[0m\n"
 sudo apt-get install -y wireshark &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -85,8 +177,34 @@ echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Wireshark installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Wireshark$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Wireshark$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 2
 
+if [[ -e /usr/bin/alien ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking alien in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking alien in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere Alien ... downloading\e[0m\n"
 sudo apt-get install -y alien &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -97,8 +215,35 @@ echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Alien installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Alien$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Alien$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 2
 
+
+if [[ -e /usr/bin/dpkg ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking dpkg in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking dpkg in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere Dpkg ... downloading\e[0m\n"
 sudo apt-get install -y dpkg &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -110,8 +255,34 @@ sleep 1
 printf "$BLUE[$GREEN*$BLUE] Dpkg installed ! \e[0m\n"
 sleep 1
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Dpkg$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Dpkg$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 2
 
+if [[ -e /usr/bin/wget ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking wget in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking wget in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere wget ... downloading\e[0m\n"
 sudo apt-get install -y wget &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -123,8 +294,34 @@ sleep 1
 printf "$BLUE[$GREEN*$BLUE] Wget installed ! \e[0m\n"
 sleep 1
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Wget$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Wget$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 2
 
+if [[ -e /etc/default/ufw ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking ufw in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking ufw in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere UFW ... downloading\e[0m\n"
 sudo apt-get install -y ufw &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -135,8 +332,34 @@ echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] UFW installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Ufw$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Ufw$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 1
 
+if [[ -e /usr/bin/nmap ]]; then
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking nmap in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Checking nmap in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+	fi
+else 	
 printf "$BLUE [$GREEN*$BLUE] I requiere Nmap ... downloading \e[0m \n"
 sudo apt-get install -y nmap &>/dev/null
 echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
@@ -147,6 +370,19 @@ echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
 sleep 1
 printf "$BLUE[$GREEN!$BLUE] Nmap installed ! \e[0m\n"
 echo -e "$GREEN----------------------------------------\e[0m"
+if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Nmap$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
+		sleep 1
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "Nmap$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		sleep 1
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		sleep 1
+	fi
+fi	
 sleep 1
 printf "\n"
 
