@@ -1868,7 +1868,7 @@ echo -e -n "$RED Octopus@Connection$BLUE:~$RESETCOLOR# "
 read connexion
 
 if [ $connexion == $ssh ]; then
-	__status=$(ps aux | grep "ssh")
+	__status=$(ps aux | grep ssh)
 	sudo service ssh start &>/dev/null
 	if [[ $__status == true ]]; then
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]];
