@@ -35,9 +35,10 @@ Link for nmap : https://nmap.org/download.html
 
 > sudo ./install.sh
 
-> sudo ./Octopus-v2.sh
+> sudo ./Octopus.sh
 
 It is advisable to update Octopus regularly, **at least once a week**. Just run update script :
+This script will save all files created beforehand, don't worry !
 
 > sudo ./update.sh
 
