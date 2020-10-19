@@ -1796,7 +1796,7 @@ elif [ $choix3 == $sql ]; then
 		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m"
 	elif [[ $resp_cook == $no ]]; then
 		printf "$BLUE [$GREEN+$BLUE] SQL injection without cookie on : $GREEN$target$BLUE\n"
-		sudo sqlmap --$target --dbs && sudo sqlmap --$target --dbs >> sql_results.txt
+		sudo sqlmap -u $target --dbs && sudo sqlmap --$target --dbs >> sql_results.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Web-Scan/sql-results.txt\e[0m"
 		sleep 2
 		printf "$BLUE [$GREEN+$BLUE] Done !\e[0m\n"
