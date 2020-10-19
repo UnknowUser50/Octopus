@@ -25,6 +25,32 @@ printf "\n"
 
 echo -e -n "$BLUE[$GREEN+$BLUE] Enter current user : \e[0m"
 read current_user
+
+# Creation of the log directory & file.
+if [[ -d /var/log/Octopus-Logs/ ]]; then
+	printf "$BLUE[$GREEN*$BLUE] Directory and file already exist $RESETCOLOR \n"
+	sleep 1
+else 
+	sudo mkdir /var/log/Octopus-Logs/ &>/dev/null
+	sleep 1
+	printf "$BLUE[$GREEN*$BLUE] Log directory created $RESETCOLOR \n"
+	sleep 1
+	sudo touch /var/log/Octopus-Logs/subsystem.log 
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		printf "$BLUE[$GREEN*$BLUE] Log file already exist $RESETCOLOR \n"
+		sleep 1
+	else
+		printf "$RED[$YELLOW!$RED] Error in log file creation ... Placement in Octopus/ $RESETCOLOR \n"
+		sleep 1
+		sudo mkdir /home/$current_user/Octopus/Octopus-Logs &>/dev/null
+		sleep 1
+		sudo touch /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+		sleep 1
+		printf "$BLUE[$GREEN*$BLUE] Directory and file in$GREEN /home/$current_user/Octopus/Octopus-Logs/$RESETCOLOR \n"
+	fi
+fi	
+# Enf of creation
+
 echo -e "$GREEN----------------------------------------\e[0m"
 sleep 1
 printf "$BLUE[$GREEN*$BLUE] System update, please wait ... \e[0m\n"
