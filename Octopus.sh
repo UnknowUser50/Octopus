@@ -60,6 +60,7 @@ printf "$BLUE  '   '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.:_ | :_.' '.  '.'   '. 
 printf "$BLUE         '-..,..-'       '-..,..-'       '-..,..-'       '         '          $RESETCOLOR \n"
 printf "\n\n"
 
+# Killing applications 
 echo -e -n "$BLUE [$GREEN*$BLUE] Killing dangerous application on your computer ... $RESETCOLOR \n"
 sleep 1
 sudo killall -q dropbox chrome thunderbird steam firefox xchat discord chromium &>/dev/null
@@ -67,6 +68,7 @@ sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Dangerous application killed !$RESETCOLOR \n"
 sleep 1
 
+# Cleaning application cache
 echo -e -n "$BLUE [$GREEN*$BLUE] Cleaning cache application ... $RESETCOLOR \n"
 sleep 1
 beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache dropbox.cache &>/dev/null
@@ -80,6 +82,7 @@ sleep 1
 
 preface() {
 
+# User identification
 sudo apt-get update &>/dev/null
 echo -e -n "$BLUE          [$GREEN+$BLUE] Enter current user : $RESETCOLOR"
 read current_user
@@ -186,6 +189,7 @@ printf "                                                                      \n
 echo -e -n "$RED Octopus@MainMenu$BLUE:~$RESETCOLOR# "
 read reponse
 
+# Condition for select module
 if [[ $reponse == $ni ]]; then
 	sudo cd /Network-Infos/ &>/dev/null
 	network-information
@@ -203,6 +207,7 @@ elif [[ $reponse == $ex ]]; then
 	printf "$RED [+] Leaving Octopus ... \e[0m\n"
 	sleep 2
 exit
+# If reponse = 0 || reponse != VAR
 elif [[ -z $reponse ]]; then
 	printf "$RED [+] You may choose at least one module ! $RESETCOLOR\n"
 	sleep 3
@@ -569,6 +574,7 @@ if [ $choix2 == $nse ]; then
 elif [ $choix2 == $zmp ]; then
 	Oui=1
 	Non=2
+	# ZenMap installation
 	echo -e -n "$BLUE [$GREEN+$BLUE] ZenMap is install ? (Y=1|N=2) \e[0m"
 	read zenrsp
 	if [ $zenrsp == $Oui ]; then
@@ -578,6 +584,7 @@ elif [ $choix2 == $zmp ]; then
 		mainmenu
 
 	elif [ $zenrsp == $Non ]; then
+		# Writting installation in the log file
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Beginning of ZenMap installation at : $date" >> /var/log/Octopus-Logs/subsystem.log
@@ -590,6 +597,7 @@ elif [ $choix2 == $zmp ]; then
 			printf "$RED [$YELLOW!$RED] Error in log configuration ... $RESETCOLOR \n"
 			sleep 1
 		fi	
+		# Getting data from nmap website
 		printf "$BLUE [$GREEN+$BLUE] Starting installation ... \e[0m\n"
 		sudo wget -q https://nmap.org/dist/zenmap-7.80-1.noarch.rpm &>/dev/null
 		if [[ -e /home/$current_user/zenmap-* || -e /root/zenmap-* ]]; then
@@ -690,6 +698,7 @@ elif [ $choix2 == $zmp ]; then
 	fi
 
 elif [ $choix2 == $ufw ]; then
+	# New options will be available soon 
 	printf "$BLUE [$GREEN+$BLUE] Starting UFW-Firewall ... \e[0m\n"
 		sudo ufw enable
 		printf "$BLUE [$GREEN+$BLUE] UFW is now activated \e[0m"
