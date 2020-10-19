@@ -50,6 +50,7 @@ It is advisable to update Octopus regularly, **at least once a week**. Just run 
   * Parrot
 
 Warning, if you use a system other than Kali Linux, **remember to check if the packages** necessary for the proper functioning of Octopus are installed.  
+#### The install script should install the necessary dependencies. 
 
 ## Presentation
   Octopus is a script writting in bash. I decide to develop a script for all poeple who are new to computer security 
@@ -61,6 +62,10 @@ Warning, if you use a system other than Kali Linux, **remember to check if the p
 * Network Informations 
 * Network Scanning
 * Web Scanning
+
+**Other modules**
+* Connection support
+* Manual module
 
 ## Description of modules
 
@@ -126,6 +131,15 @@ Warning, if you use a system other than Kali Linux, **remember to check if the p
 * SSH for **S**ecure **SH**ell is a secure communication protocol. With Octopus, you just need to enter the session name and the IP address to which you want to establish
 an SSH connection :
 > ssh root@127.0.0.1 
+* Stop the SSH service : 
+> sudo systemctl stop ssh
+
+* If you have a problem, use the log : 
+> sudo journalctl -n 100 
+* You can also use **grep** to find errors : 
+> sudo journalctl -n 100 | grep "error*"
+
+> sudo journalctl -n 100 | grep "failed*"
 
 # DISCLAMER ! 
 Octopus is a tool reserved for **professional** or **educational** use ! Under no circumstances should it be used for the purpose of harming others or a system that does
