@@ -1885,6 +1885,7 @@ if [ $connexion == $ssh ]; then
 	else
 		printf "$RED [$YELLOW!$RED] SSH service cannot start now, please retry later ... $RESETCOLOR \n"
 		printf "$RED [$YELLOW!$RED] Stop SSH ... $RESETCOLOR \n"
+		sleep 3
 		sudo systemctl stop ssh &>/dev/null
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
