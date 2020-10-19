@@ -31,7 +31,7 @@ requirements() {
 
 # Run this script as sudo or end 
 if [[ $UID != 0 ]]; then
-	printf "$YELLOW[$RED!$YELLOW] Please, run this script as $REdsudo$RESETCOLOR\n"
+	printf "$YELLOW[$RED!$YELLOW] Please, run this script as $REDsudo$RESETCOLOR\n"
 	printf "$YELLOW[$RED!$YELLOW] sudo $0 $*\n"
 	# Exit error code
 	exit 1
@@ -39,11 +39,11 @@ fi
 # Checking dependencies
 
 #command -v zenmap > /dev/null 2>&1 || { echo >&2 "I requiere ZenMap but it's not installed. Install it."; exit 1; }
-command -v wireshark > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED WireShark $BLUE but it's not installed. Install it."; exit 1; }
-command -v ufw > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED ufw $BLUE but it's not installed. Install it."; exit 1; }
-command -v wget > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED wget $BLUE but it's not installed. Install it."; exit 1; }
-command -v macchanger > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED macchanger $BLUE but it's not installed. Install it."; exit 1; }
-command -v nmap > /dev/null 2>&1 || { echo >&2 "$BLUE I requiere $RED nmap $BLUE but it's not installed. Install it."; exit 1; }
+command -v wireshark > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
+command -v ufw > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
+command -v wget > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
+command -v macchanger > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
+command -v nmap > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
 
 }
 
@@ -187,13 +187,13 @@ echo -e -n "$RED Octopus@MainMenu$BLUE:~$RESETCOLOR# "
 read reponse
 
 if [[ $reponse == $ni ]]; then
-	sudo cd Network-Infos/
+	sudo cd /Network-Infos/ &>/dev/null
 	network-information
 elif [[ $reponse == $ns ]]; then
-	sudo cd Network-Scan/
+	sudo cd Network-Scan/ &>/dev/null
 	network-scan
 elif [[ $reponse == $ws ]]; then
-	sudo cd Web-Scan/
+	sudo cd Web-Scan/ &>/dev/null
 	web-scan
 elif [[ $reponse ==  $oc ]]; then
 	other-connexion
