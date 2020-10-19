@@ -1869,6 +1869,35 @@ read connexion
 
 if [ $connexion == $ssh ]; then
 	sudo service ssh start &>/dev/null
+	if [[ ps aux | grep "ssh" == true ]]; then
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]];
+			date=$(date +%c)
+			echo -e "SSH service start at : $date by$GREEN $USER$RESETCOLOR --> Status :$GREEN RUNNING $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "SSH service start at : $date by$GREEN $USER$RESETCOLOR --> Status :$GREEN RUNNING $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+		fi
+	else
+		printf "$RED [$YELLOW!$RED] SSH service cannot start now, please retry later ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] Stop SSH ... $RESETCOLOR \n"
+		sudo systemctl stop ssh &>/dev/null
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Attempting to start SSH services ... --> Status$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+			mainmenu
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Attempting to start SSH services ... --> Status$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			mainmenu
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+			sleep 1
+			mainmenu
+		fi
+	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting SSH protocol on port 22 \e[0m\n"
 	sleep 2
 	echo -e -n "$BLUE [$GREEN+$BLUE] Choose the username : \e[0m"
