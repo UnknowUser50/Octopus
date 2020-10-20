@@ -112,7 +112,7 @@ fi
 # Nmap installation, checking in /bin
 printf "$BLUE     [$GREEN*$BLUE] Installing NMAP for you $RESETCOLOR \n"
 if [[ -e /bin/nmap ]]; then
-  printf "$BLUE     [$GREEN!$BLUE] Nmap was already installed $RESETCOLOR \n"
+  printf "$BLUE     [$GREEN*$BLUE] Nmap was already installed $RESETCOLOR \n"
   sleep 1
 else
   sudo apt install -y nmap &>/dev/null
