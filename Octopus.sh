@@ -698,36 +698,106 @@ elif [ $choix2 == $zmp ]; then
 	fi
 
 elif [ $choix2 == $ufw ]; then
-	# New options will be available soon 
-	printf "$BLUE [$GREEN+$BLUE] Starting UFW-Firewall ... \e[0m\n"
-		sudo ufw enable
-		printf "$BLUE [$GREEN+$BLUE] UFW is now activated \e[0m"
-		sleep 2
+
+	# VAR for UFW
+	a_incom=1
+	d_incom=2
+	a_outgo=3
+	d_outgo=4
+	quit=5
+	clear
+	printf "$GREEN {1}-- $BLUE Allow inbound traffic according default rules  $RESETCOLOR \n"
+	printf "$GREEN {2}-- $BLUE Deny incoming traffic according to the default rules $RESETCOLOR \n"
+	printf "$GREEN {3}-- $BLUE Allow outgoing traffic according to the default rules $RESETCOLOR \n"
+	printf "$GREEN {4}-- $BLUE Deny outgoing traffic according to default rules $RESETCOLOR \n"
+	printf "\n"
+	printf "$YELLOW {5}-- $RED exit $RESETCOLOR \n"
+	printf "\n"
+	__Status=$(sudo ufw status | cut -d " " -f 2)
+	printf "$BLUE [$GREEN+$BLUE] Status of UFW :$RESETCOLOR $__Status \n"
+	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "UFW - Actual status of UFW at : $date -->$YELLOW $__Status $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+		date=$(date +%c)
+		echo -e "UFW - Actual status of UFW at : $date -->$YELLOW $__Status $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+	else
+		printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
+	fi	
+	read modif
+	if [[ $modif == $a_incom || $modif == "01" ]]; then
+		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
+		sleep 1
+		sudo ufw default allow 
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo "Lunch of UFW at : $date" >> /var/log/Octopus-Logs/subsystem.log 
-			sleep 1
+			echo -e "UFW - Allow inbound traffic according default rules at :$GREEN $date $RESETCOLOR\n" >> /var/log/Octopus-Logs/subsystem.log
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo "Lunch of UFW at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "UFW - Allow inbound traffic following default rules at :$GREEN $date $RESETCOLOR\n" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
 			sleep 1
-		else 
-			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
-		fi	
+		fi
+	elif [[ $modif == $d_incom || $modif == "02" ]]; then
+		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
+		sleep 1
+		sudo ufw default deny
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "UFW - Deny incoming traffic according default rules at :$GREEN $date $RESETCOLOR\n" >> /var/log/Octopus-Logs/subsystem.log
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "UFW - Deny incoming traffic according default rules at :$GREEN $date $RESETCOLOR\n" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
+		fi
+	elif [[ $modif == $a_outgo || $modif == "03" ]]; then
+		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
+		sleep 1
+		sudo ufw default allow outgoing
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "UFW - Allow outgoing traffic according default rules at :$GREEN $date $RESETCOLOR\n" >> /var/log/Octopus-Logs/subsystem.log
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "UFW - Allow outgoing traffic according default rules at :$GREEN $date $RESETCOLOR\n" >> /home/$current_user/Octopus/Octopus-Logs
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
+		fi
+	elif [[ $modif == $d_outgo || $modif == "04" ]]; then
+		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
+		sleep 1
+		sudo ufw default deny outgoing
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "UFW - Deny outgoing traffic according default route at :$GREEN $date $RESETCOLOR\n" >> /var/log/Octopus-Logs/subsystem.log
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "UFW - Deny outgoing traffic according default route at :$GREEN $date $RESETCOLOR\n" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		else
+			printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
+		fi
+	elif [[ $modif == $quit || $modif == "05" ]]; then
+		printf "$RED [$YELLOW!$RED] Exit menu $RESETCOLOR \n"
+		sleep 1
+		mainmenu
+	elif [[ -z $modif ]]; then
+		printf "$RED [$YELLOW!$RED] You may choose at least one module ! $RESETCOLOR \n"
 		mainmenu
 
-elif [ $choix2 == $ex ]; then
-	printf "$RED [$YELLOW+$RED] Back to main menu ... \e[0m\n"
-	sleep 1
-	mainmenu
+	elif [ $choix2 == $ex ]; then
+		printf "$RED [$YELLOW+$RED] Back to main menu ... \e[0m\n"
+		sleep 1
+		mainmenu
 
-elif [ -z $choix2 ]; then
-	printf "$RED [$YELLOW+$RED] You may choose at least one module ...\e[0m\n"
-	mainmenu
+	elif [ -z $choix2 ]; then
+		printf "$RED [$YELLOW+$RED] You may choose at least one module ...\e[0m\n"
+		mainmenu
 
+	fi
+mainmenu
 fi
-
 }
 
 nmap-luncher() {
