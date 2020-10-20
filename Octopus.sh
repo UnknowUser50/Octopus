@@ -647,8 +647,8 @@ elif [ $choix2 == $zmp ]; then
 			fi
 		fi	
 		printf "$GREEN [+] Install alien ... \e[0m\n"
-		alien /home/$current_user/zenmap_7.80-1.noarch.rmp &>/dev/null
-		dpkg -i zenmap_7.80-2_all.deb &>/dev/null
+		sudo alien /home/$current_user/zenmap_7.80-1.noarch.rmp &>/dev/null
+		sudo dpkg -i zenmap_7.80-2_all.deb &>/dev/null
 		printf "$BLUE [$GREEN+$BLUE] Unpacking of ZenMap ... soon finishied \e[0m\n"
 		sleep 1
 		if [[ -e /usr/bin/zenmap ]]; then
