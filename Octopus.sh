@@ -706,10 +706,10 @@ elif [ $choix2 == $ufw ]; then
 	d_outgo=4
 	quit=5
 	clear
-	printf "$YELLOW     	                      .-.         $RESETCOLOR \n"
-	printf "$YELLOW                              {{#}}        $RESETCOLOR \n"
-	printf "$YELLOW	              {}              8@8         $RESETCOLOR \n"
-	printf "$YELLOW             .::::.            888         $RESETCOLOR \n" 
+	printf "$YELLOW     	                       .-.         $RESETCOLOR \n"
+	printf "$YELLOW                             {{#}}        $RESETCOLOR \n"
+	printf "$YELLOW	         {}              8@8         $RESETCOLOR \n"
+	printf "$YELLOW            .::::.            888         $RESETCOLOR \n" 
 	printf "$YELLOW        @\\/W\/\/W\//@         8@8         $RESETCOLOR \n"            
 	printf "$YELLOW         \\/^\/\/^\//     _    )8(    _    $RESETCOLOR \n"
 	printf "$YELLOW          \_O_{}_O_/     (@)__/8@8\__(@)   $RESETCOLOR \n"
@@ -742,6 +742,7 @@ elif [ $choix2 == $ufw ]; then
 	printf "$GREEN {4}-- $BLUE Deny outgoing traffic according to default rules $RESETCOLOR \n"
 	printf "\n"
 	printf "$YELLOW {5}-- $RED exit $RESETCOLOR \n"
+	printf "\n"
 	printf "$BLUE ######################################################################### $RESETCOLOR \n"
 	printf "\n"
 	__Status=$(sudo ufw status | cut -d " " -f 2)
