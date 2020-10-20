@@ -700,16 +700,17 @@ elif [ $choix2 == $zmp ]; then
 elif [ $choix2 == $ufw ]; then
 
 	# VAR for UFW
-	__UFW_info=$(ufw version | head -n 1) 
+	__UFW_info=$(ufw version | head -n 1)
+	__Status=$(sudo ufw status | cut -d " " -f 2)
 	a_incom=1
 	d_incom=2
 	a_outgo=3
 	d_outgo=4
 	quit=5
 	clear
-	printf "$YELLOW     	                       .-.         $RESETCOLOR \n"
+	printf "$YELLOW     	                      .-.         $RESETCOLOR \n"
 	printf "$YELLOW                             {{#}}        $RESETCOLOR \n"
-	printf "$YELLOW	         {}              8@8         $RESETCOLOR \n"
+	printf "$YELLOW	      {}              8@8         $RESETCOLOR \n"
 	printf "$YELLOW            .::::.            888         $RESETCOLOR \n" 
 	printf "$YELLOW        @\\/W\/\/W\//@         8@8         $RESETCOLOR \n"            
 	printf "$YELLOW         \\/^\/\/^\//     _    )8(    _    $RESETCOLOR \n"
@@ -724,8 +725,8 @@ elif [ $choix2 == $ufw ]; then
 	printf "$YELLOW    |     \   /\   /     |     |.|         $RESETCOLOR \n"
 	printf "$YELLOW    |------\  \/  /------|     |U|         $RESETCOLOR \n"
 	printf "$YELLOW    |       '.__.'       |     |'|  $RED Version : $__UFW_info $RESETCOLOR \n"
-	printf "$YELLOW    |        |  |        |     |.|         $RESETCOLOR \n"
-	printf "$YELLOW    :        |  |        :     |N|         $RESETCOLOR \n"
+	printf "$YELLOW    |        |  |        |     |.|  $RED Lunched by : $USER    $RESETCOLOR \n"
+	printf "$YELLOW    :        |  |        :     |N|  $RED Status : $__Status    $RESETCOLOR \n"
 	printf "$YELLOW     \       |  |       /      |'|         $RESETCOLOR \n"
 	printf "$YELLOW      \<>    |  |    <>/       |.|         $RESETCOLOR \n"
 	printf "$YELLOW       \<>   |  |   <>/        |K|         $RESETCOLOR \n"  
@@ -746,7 +747,6 @@ elif [ $choix2 == $ufw ]; then
 	printf "\n"
 	printf "$BLUE ######################################################################### $RESETCOLOR \n"
 	printf "\n"
-	__Status=$(sudo ufw status | cut -d " " -f 2)
 	printf "$BLUE [$GREEN+$BLUE] Status of UFW :$RESETCOLOR $__Status \n"
 	printf "\n"
 	echo -e -n "$RED Octopus@UFW-Status$BLUE:~$RESETCOLOR# $RESETCOLOR" 
