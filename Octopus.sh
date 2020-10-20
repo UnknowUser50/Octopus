@@ -700,6 +700,7 @@ elif [ $choix2 == $zmp ]; then
 elif [ $choix2 == $ufw ]; then
 
 	# VAR for UFW
+	__UFW_info=$(ufw version | head -n 1) 
 	a_incom=1
 	d_incom=2
 	a_outgo=3
@@ -722,7 +723,7 @@ elif [ $choix2 == $ufw ]; then
 	printf "$YELLOW    |_____| (O\/O) |_____|     |'|         $RESETCOLOR \n"
 	printf "$YELLOW    |     \   /\   /     |     |.|         $RESETCOLOR \n"
 	printf "$YELLOW    |------\  \/  /------|     |U|         $RESETCOLOR \n"
-	printf "$YELLOW    |       '.__.'       |     |'|         $RESETCOLOR \n"
+	printf "$YELLOW    |       '.__.'       |     |'|  $RED Version : $__UFW_info $RESETCOLOR \n"
 	printf "$YELLOW    |        |  |        |     |.|         $RESETCOLOR \n"
 	printf "$YELLOW    :        |  |        :     |N|         $RESETCOLOR \n"
 	printf "$YELLOW     \       |  |       /      |'|         $RESETCOLOR \n"
