@@ -708,12 +708,12 @@ elif [ $choix2 == $ufw ]; then
 	d_outgo=4
 	quit=5
 	clear
-	printf "$YELLOW     	                      .-.         $RESETCOLOR \n"
-	printf "$YELLOW                             {{#}}        $RESETCOLOR \n"
-	printf "$YELLOW	      {}              8@8         $RESETCOLOR \n"
-	printf "$YELLOW            .::::.            888         $RESETCOLOR \n" 
-	printf "$YELLOW        @\\/W\/\/W\//@         8@8         $RESETCOLOR \n"            
-	printf "$YELLOW         \\/^\/\/^\//     _    )8(    _    $RESETCOLOR \n"
+	printf "$YELLOW     	                       .-.         $RESETCOLOR \n"
+	printf "$YELLOW                              {{#}}        $RESETCOLOR \n"
+	printf "$YELLOW	      {}               8@8         $RESETCOLOR \n"
+	printf "$YELLOW            .::::.             888         $RESETCOLOR \n" 
+	printf "$YELLOW        @\\/W\/\/W\//@          8@8         $RESETCOLOR \n"            
+	printf "$YELLOW         \\/^\/\/^\//      _    )8(    _    $RESETCOLOR \n"
 	printf "$YELLOW          \_O_{}_O_/     (@)__/8@8\__(@)   $RESETCOLOR \n"
 	printf "$YELLOW     ____________________ '~'-=):(=-'~'    $RESETCOLOR \n"
 	printf "$YELLOW    |<><><>  |  |  <><><>|     |.|         $RESETCOLOR \n"
