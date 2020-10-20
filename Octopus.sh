@@ -706,6 +706,32 @@ elif [ $choix2 == $ufw ]; then
 	d_outgo=4
 	quit=5
 	clear
+printf "$YELLOW	                          .-.         $RESETCOLOR \n"
+printf "$YELLOW                          {{#}}        $RESETCOLOR \n"
+printf "$YELLOW          {}               8@8         $RESETCOLOR \n"
+printf "$YELLOW        .::::.             888         $RESETCOLOR \n" 
+printf "$YELLOW    @\\/W\/\/W\//@         8@8         $RESETCOLOR \n"            
+printf "$YELLOW     \\/^\/\/^\//     _    )8(    _    $RESETCOLOR \n"
+printf "$YELLOW      \_O_{}_O_/     (@)__/8@8\__(@)   $RESETCOLOR \n"
+printf "$YELLOW ____________________ `~"-=):(=-"~`    $RESETCOLOR \n"
+printf "$YELLOW|<><><>  |  |  <><><>|     |.|         $RESETCOLOR \n"
+printf "$YELLOW|<>      |  |      <>|     |S|         $RESETCOLOR \n"
+printf "$YELLOW|<>      |  |      <>|     |'|         $RESETCOLOR \n"
+printf "$YELLOW|<>   .--------.   <>|     |.|         $RESETCOLOR \n"
+printf "$YELLOW|     |   ()   |     |     |P|         $RESETCOLOR \n"
+printf "$YELLOW|_____| (O\/O) |_____|     |'|         $RESETCOLOR \n"
+printf "$YELLOW|     \   /\   /     |     |.|         $RESETCOLOR \n"
+printf "$YELLOW|------\  \/  /------|     |U|         $RESETCOLOR \n"
+printf "$YELLOW|       '.__.'       |     |'|         $RESETCOLOR \n"
+printf "$YELLOW|        |  |        |     |.|         $RESETCOLOR \n"
+printf "$YELLOW:        |  |        :     |N|         $RESETCOLOR \n"
+printf "$YELLOW \       |  |       /      |'|         $RESETCOLOR \n"
+printf "$YELLOW  \<>    |  |    <>/       |.|         $RESETCOLOR \n"
+printf "$YELLOW   \<>   |  |   <>/        |K|         $RESETCOLOR \n"  
+printf "$YELLOW    `\<> |  | <>/'         |'|         $RESETCOLOR \n"
+printf "$YELLOW      `-.|__|.-`           \ /         $RESETCOLOR \n"
+printf "$YELLOW                            ^          $RESETCOLOR \n"
+printf "\n"
 	printf "$GREEN {1}-- $BLUE Allow inbound traffic according default rules  $RESETCOLOR \n"
 	printf "$GREEN {2}-- $BLUE Deny incoming traffic according to the default rules $RESETCOLOR \n"
 	printf "$GREEN {3}-- $BLUE Allow outgoing traffic according to the default rules $RESETCOLOR \n"
@@ -715,6 +741,8 @@ elif [ $choix2 == $ufw ]; then
 	printf "\n"
 	__Status=$(sudo ufw status | cut -d " " -f 2)
 	printf "$BLUE [$GREEN+$BLUE] Status of UFW :$RESETCOLOR $__Status \n"
+	echo -e -n "$RED Octopus@UFW-Status$BLUE:~$RESETCOLOR# $RESETCOLOR" 
+	read modif
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "UFW - Actual status of UFW at : $date -->$YELLOW $__Status $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
@@ -724,7 +752,6 @@ elif [ $choix2 == $ufw ]; then
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
 	fi	
-	read modif
 	if [[ $modif == $a_incom || $modif == "01" ]]; then
 		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
 		sleep 1
