@@ -600,33 +600,23 @@ elif [ $choix2 == $zmp ]; then
 		# Getting data from nmap website
 		printf "$BLUE [$GREEN+$BLUE] Starting installation ... \e[0m\n"
 		sudo wget -q https://nmap.org/dist/zenmap-7.80-1.noarch.rpm &>/dev/null
-		if [[ -e /home/$current_user/zenmap-* || -e /root/zenmap-* ]]; then
+		sudo mv zenmap-7.80-1.noarch.rpm /home/$current_user/ 
+		# Checking if zenmap are present 
+		if [[ -e /home/$current_user/zenmap-7.80-1.noarch.rpm ]]; then
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Successful file recovery on $GREEN https://nmap.org/ $RESETCOLOR at : $date" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
+				echo -e "ZenMap archive retrieved and moved to$GREEN /home/$current_user/$RESETCOLOR at : $date" >> /var/log/Octopus-Logs/subsystem.log 
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo -e "Successful file recovery on $GREEN https://nmap.org/ $RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
+				echo -e "ZenMap archive retrieved and moved to$GREEN /home/$current_user/$RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			else
-				printf "$RED [$YELLOW-$RED] Error in log configuration ... $RESETCOLOR \n"
+				printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR \n"
 				sleep 1
 			fi
 		else
-			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-				date=$(date +%c)
-				echo -e "Error in file recovery on $RED https://nmap.org/ $RESETCOLOR at : $date" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
-			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
-				date=$(date +%c)
-				echo -e "Error in file recovery on $RED https://nmap.org/ $RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
-			else
-				printf "$RED [$YELLOW-$RED] Error in log configuration ... $RESETCOLOR \n"
-				sleep 1
-			fi
-		fi	
+			printf "$RED [$YELLOW-$RED] Impossible to locate ZenMap archive $RESETCOLOR \n"
+			sleep 1
+		fi
 		printf "$GREEN [+] Receiving data from nmap.org ... \e[0m\n"
 		if [[ -e /usr/bin/alien ]]; then
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -657,7 +647,7 @@ elif [ $choix2 == $zmp ]; then
 			fi
 		fi	
 		printf "$GREEN [+] Install alien ... \e[0m\n"
-		alien zenmap_7.80-1.noarch.rmp &>/dev/null
+		alien /home/$current_user/zenmap_7.80-1.noarch.rmp &>/dev/null
 		dpkg -i zenmap_7.80-2_all.deb &>/dev/null
 		printf "$BLUE [$GREEN+$BLUE] Unpacking of ZenMap ... soon finishied \e[0m\n"
 		sleep 1
