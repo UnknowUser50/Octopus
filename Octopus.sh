@@ -2124,31 +2124,31 @@ echo -e -n "$RED Octopus@Manual$BLUE:~$RESETCOLOR# "
 read mannu
 
 if [ $mannu == $manns ]; then
-	printf "$BLUE [$GREEN+$BLUE] Nslookup manual \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Nslookup manual $RESETCOLOR \n"
 	sleep 3
 	sudo man nslookup
 	mainmenu
 
 elif [ $mannu == $mandg ]; then
-	printf "$BLUE [$GREEN+$BLUE] Dig manual \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Dig manual $RESETCOLOR \n"
 	sleep 3
 	sudo man dig
 	mainmenu
 
 elif [ $mannu == $manwhois ]; then
-	printf "$BLUE [$GREEN+$BLUE] Whois manual \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Whois manual $RESETCOLOR \n"
 	sleep 3
 	sudo man whois
 	mainmenu
 
 elif [ $mannu == $manrecon ]; then
-	printf "$BLUE [$GREEN+$BLUE] Man recon-ng \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Man recon-ng $RESETCOLOR \n"
 	sleep 3
 	sudo man recon-ng
 	mainmenu
 
 elif [ $mannu == $mannmap ]; then
-	printf "$BLUE [$GREEN+$BLUE] Man Nmap \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Man Nmap $RESETCOLOR \n"
 	sleep 3
 	sudo man nmap
 	mainmanu
@@ -2160,24 +2160,24 @@ elif [ $mannu == $manzen ]; then
 	mainmenu
 
 elif [ $mannu == $manufw ]; then
-	printf "$BLUE [$GREEN+$BLUE] Man UFW \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Man UFW $RESETCOLOR \n"
 	sleep 3
 	sudo man ufw
 	mainmenu
 
 elif [ $mannu == $mannikto ]; then
-	printf "$BLUE [$GREEN+$BLUE] Man Nikto \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Man Nikto $RESETCOLOR \n"
 	sleep 3
 	sudo man nikto
 	mainmenu
 
 elif [ $mannu == $ex ]; then
-	printf "$RED [$YELLOW+$RED] Back to main menu ... \e[0m\n"
+	printf "$RED [$YELLOW+$RED] Back to main menu ... $RESETCOLOR \n"
 	sleep 3
 	mainmenu
 
 elif [ -z $mannu ]; then
-	printf "$RED [$YELLOW+$RED] You may choose at least one module ! \e[0m\n"
+	printf "$RED [$YELLOW+$RED] You may choose at least one module ! $RESETCOLOR \n"
 	sleep 3
 	mainmenu
 
