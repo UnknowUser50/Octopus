@@ -11,7 +11,7 @@ preface() {
 
 cd
 command -v git > /dev/null 2>&1 || { echo -e "$RED[$YELLOW!$RED] This script requieres git but it's not installed. Install it"; exit 1; }
-echo -e -n "$BLUE[$GREEN*$BLUE] Enter current user : \e[0m"
+echo -e -n "$BLUE[$GREEN*$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 
 }
@@ -41,21 +41,21 @@ printf "\n"
 backup() {
 
 if [ -d /home/$current_user/Backup-Octopus ]; then
-printf "$RED[$YELLOW!$RED]$RED A backup directory already exist, the script will only moove file ... \e[0m\n"
+printf "$RED[$YELLOW!$RED]$RED A backup directory already exist, the script will only moove file ... $RESETCOLOR \n"
 cd /home/$current_user/Octopus/ &>/dev/null
 
 # Moove old files to a backup directory
 cd /home/$current_user/Octopus/ &>/dev/null
 mv *.txt /home/$current_user/Backup-Octopus/ &>/dev/null
 sleep 1
-printf "$BLUE[$GREEN*$BLUE] External file(s) saved in $GREEN/home/$current_user/Backup-Octopus/$BLUE ...\e[0m\n"
+printf "$BLUE[$GREEN*$BLUE] External file(s) saved in $GREEN/home/$current_user/Backup-Octopus/$BLUE ... $RESETCOLOR \n"
 sleep 1
 
 # Moove file(s) of Network-Infos
 if [ -d /home/$current_user/Octopus/Network-Infos ]; then
 cd Network-Infos/ &>/dev/null
 mv * /home/$current_user/Backup-Octopus/Network-Infos/ &>/dev/null
-printf "$BLUE[$GREEN*$BLUE] File(s) of Network-infos are saved at $GREEN$daate$BLUE ...\n"
+printf "$BLUE[$GREEN*$BLUE] File(s) of Network-infos are saved at $GREEN$daate$BLUE ... $RESETCOLOR\n"
 cd && cd /home/$current_user/Octopus/ &>/dev/null
 else
 printf "$RED[$YELLOW!$RED] Unknow directory or non-existant ... (Network-Infos)\n"
