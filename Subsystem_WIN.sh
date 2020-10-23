@@ -56,6 +56,7 @@ printf "\n"
 echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 sleep 2
+printf "\n\n"
 printf "$BLUE     [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
 if [[ -d /var/log/Octopus-Logs ]]; then
 	printf "$BLUE     [$GREEN*$BLUE] Directory already exist ! $RESETCOLOR \n"
