@@ -78,7 +78,7 @@ if [[ -d /var/log/Octopus-Logs ]]; then
 		sleep 1
 	fi
 else 
-	echo -e -n "$RED [$YELLOW!$RED] An error as occured ... Do you want to place logs in Octopus directory ? (Y/n) $RESETCOLOR"
+	echo -e -n "$RED [$YELLOW!$RED] An error as occured ... Do you want to place logs in Octopus directory ? ([Y]es/[n]o) $RESETCOLOR"
 	read placement
 	if [[ $placement == "Y" || $placement == "y" ]]; then
 		printf "$BLUE [$GREEN*$BLUE] Creation of the directory in Octopus ..."
