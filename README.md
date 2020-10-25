@@ -35,7 +35,7 @@ Link for nmap : https://nmap.org/download.html
 
 if you are on a subsystem, run first : 
 
-> sudo ./Subsystem.sh
+> sudo ./Subsystem_WIN.sh
 
 else : 
 
