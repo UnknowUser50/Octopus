@@ -447,7 +447,7 @@ read choix1
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 			sleep 1
 		fi	
-		printf "$GREEN [+] Thinks to load all modules or run this before $RED'marketplace install al' \e[0m\n"
+		printf "$GREEN [+] Thinks to load all modules or run this before $RED'marketplace install all' \e[0m\n"
 		sleep 5
 		sudo recon-ng
 		sleep 1
