@@ -33,6 +33,12 @@ Link for nmap : https://nmap.org/download.html
 
 > sudo chmod 755 * 
 
+if you are on a subsystem, run first : 
+
+> sudo ./Subsystem.sh
+
+else : 
+
 > sudo ./install.sh
 
 > sudo ./Octopus.sh
