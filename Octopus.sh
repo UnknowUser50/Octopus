@@ -903,7 +903,7 @@ if [ $nnmap == $fs ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/Furtive.txt
 	sudo nmap -sS $ip && sudo nmap -sS $ip >> /home/$current_user/Octopus/Network-Scan/Furtive.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Furtive.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Furtive.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Furtive.txt $RESETCOLOR\n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Furtive.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -947,7 +947,7 @@ elif [ $nnmap == $ps ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/Ports.txt
 	sudo nmap -p 1-1000 $ip && sudo nmap -p 1-1000 $ip >> /home/$current_user/Octopus/Network-Scan/Ports.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Ports.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Ports.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Ports.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Ports.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -991,7 +991,7 @@ elif [ $nnmap == $ts ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/TCP.txt
 	sudo nmap -sT $ip && sudo nmap -sT $ip >> /home/$current_user/Octopus/Network-Scan/TCP.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/TCP.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/TCP.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/TCP.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/TCP.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1035,7 +1035,7 @@ elif [ $nnmap == $us ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/UDP.txt
 	sudo nmap -sU $ip && sudo nmap -sU $ip >> /home/$current_user/Octopus/Network-Scan/UDP.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/UDP.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/UDP.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/UDP.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/UDP.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1079,7 +1079,7 @@ elif [ $nnmap == $as ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/aggressive.txt
 	sudo nmap -A $ip && sudo nmap -A $ip >> /home/$current_user/Octopus/Network-Scan/aggressive.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/aggressive.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/aggressive.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/aggressive.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/aggressive.txt
 	printf "$BLUE [$GREEN+$BLUE] Done !\e[0m\n"
@@ -1123,7 +1123,7 @@ elif [ $nnmap == $fls ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/flags.txt
 	sudo nmap --script-banner $ip && sudo nmap --script banner $ip >> /home/$current_user/Octopus/Network-Scan/flags.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/flags.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/flags.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/flags.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/flags.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1167,7 +1167,7 @@ elif [ $nnmap == $vs ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/vuln.txt
 	sudo nmap --script-vuln $ip && sudo nmap --script vuln $ip >> /home/$current_user/Octopus/Network-Scan/vuln.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/vuln.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/vuln.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/vuln.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/vuln.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1211,7 +1211,7 @@ elif [ $nnmap == $trace ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/trace.txt
 	sudo nmap --script-trace $ip && sudo nmap --script-trace $ip >> /home/$current_user/Octopus/Network-Scan/trace.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/trace.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/trace.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/trace.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/trace.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1257,7 +1257,7 @@ elif [ $nnmap == $osc ];  then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/OS.txt
 	sudo nmap --max-os-tries $os $ip && sudo nmap --max-os-tries $os $ip >> /home/$current_user/Octopus/Network-Scan/OS.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/OS.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/OS.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/OS.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/OS.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1301,7 +1301,7 @@ elif [ $nnmap == $dos ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/DOS.txt
 	sudo nmap --script=broadcast-avahi-dos $ip && sudo nmap --script=broadcast-avahi-dos $ip >> /home/$current_user/Octopus/Network-Scan/DOS.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/DOS.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DOS.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DOS.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chow $current_user /home/$current_user/Octopus/Network-Scan/DOS.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! e[0m\n"
@@ -1346,7 +1346,7 @@ elif [ $nnmap == $bjnp ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/Canon-device.txt
 	sudo nmap --script broadcast-bjnp-discover $ip && sudo nmap --script broadcast-bjnp-discover $ip >> /home/$current_user/Octopus/Network-Scan/Canon-device.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Canon-device.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Canon-device.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Canon-device.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Canon-device.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
@@ -1390,7 +1390,7 @@ elif [ $nnmap == $fuzz ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
 	sudo nmap -sU --script dns-fuzz $ip && sudo nmap -sU --script dns-fuzz $ip >> /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DNS-attack.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DNS-attack.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
 	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m"
@@ -1434,7 +1434,7 @@ elif [ $nnmap == $la ]; then
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
 	sudo nmap -sL $ip | grep -v "for $ip*" && sudo nmap -sL $ip | grep -v "for $ip*" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
-	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Listing.txt\e[0m"
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Listing.txt $RESETCOLOR \n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Listing.txt
 	printf "$BLUE [$GREEN+$BLUE] Done !\e[0m"
