@@ -334,11 +334,11 @@ read choix1
 		else
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Dig on $dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+				echo -e "Lunch of Dig on $dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Dig on $dn_ip at $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				echo -e "Lunch of Dig on $dn_ip at $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
@@ -378,11 +378,11 @@ read choix1
 		else	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+				echo -e "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+				echo -e "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
 				sleep 1
 			else 
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
@@ -421,11 +421,11 @@ read choix1
 		else	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+				echo -e "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
-				echo "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+				echo -e "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
@@ -437,11 +437,11 @@ read choix1
 	elif [ $choix1 == $rc ]; then
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo "Lunch of Recon-NG at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Lunch of Recon-NG at : $date" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo "Lunch of Recon-NG at : $date " >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Lunch of Recon-NG at : $date " >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
@@ -456,11 +456,11 @@ read choix1
 	elif [ $choix1 == $ws ]; then
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo "Lunch of WireShark at : $date" >> /var/log/Octopus-Logs/subsystem.log
+			echo -e "Lunch of WireShark at : $date" >> /var/log/Octopus-Logs/subsystem.log
 			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
-			echo "Lunch of WireShark at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			echo -e "Lunch of WireShark at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
@@ -483,11 +483,11 @@ read choix1
 				if [ $writter == $vim ]; then
 					if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
-						echo "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
+						echo -e "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
 						sleep 1
 					elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
-						echo "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+						echo -e "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 						sleep 1
 					else
 						printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR \n"
@@ -502,11 +502,11 @@ read choix1
 				elif [ $writter == $nano ]; then
 					if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
-						echo "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
+						echo -e "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
 						sleep 1
 					elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
-						echo "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+						echo -e "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 						sleep 1
 					else
 						printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR \n"
