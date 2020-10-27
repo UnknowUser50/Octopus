@@ -119,15 +119,15 @@ else
   sudo apt install -y nmap &>/dev/null
   printf "$BLUE     [$GREEN!$BLUE] Nmap is now installed $RESETCOLOR \n"
   if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-  	if [[ -e /bin/nmap ]]; then
+  	if [[ -e /usr/bin/nmap ]]; then
 		date=$(date +%c)
 		echo "Nmap installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
 	else 
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED     [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 		sleep 1
 	fi
   else
-  	if [[ -e /bin/nmap ]]; then
+  	if [[ -e /usr/bin/nmap ]]; then
 		date=$(date +%c)
 		echo "Nmap installed at : $date" >> /Octopus-Logs/subsystem.log
 	else
@@ -146,7 +146,7 @@ else
   sudo apt install -y wireshark &>/dev/null 
   printf "$BLUE    [$GREEN*$BLUE] Wireshark is now installed $RESETCOLOR \n"
   if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-  	if [[ -e /bin/wireshark ]]; then
+  	if [[ -e /usr/bin/wireshark ]]; then
   		date=$(date +%c)
 		echo "Wireshark installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
 	else
@@ -154,7 +154,7 @@ else
 		sleep 1
 	fi
   else
-  	if [[ -e /bin/wiresark ]]; then
+  	if [[ -e /usr/bin/wiresark ]]; then
 		date=$(date +%c)
 		echo "Wireshark installed at : $date" >> /Octopus-Logs/subsystem.log
 	else
