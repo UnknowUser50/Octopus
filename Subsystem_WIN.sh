@@ -188,7 +188,7 @@ if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
    fi	
 else
   sudo apt install -y sqlmap &>/dev/null
-  printf "$BLUE      [$GREEN*$BLUE] SqlMap is now installed $RESETCOLOR \n"
+  printf "$BLUE     [$GREEN*$BLUE] SqlMap is now installed $RESETCOLOR \n"
   sleep 1
 fi 
 
