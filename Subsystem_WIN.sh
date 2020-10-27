@@ -117,7 +117,7 @@ if [[ -e /bin/nmap ]]; then
   sleep 1
 else
   sudo apt install -y nmap &>/dev/null
-  printf "$BLUE     [$GREEN!$BLUE] Nmap is now installed $RESETCOLOR \n"
+  printf "$BLUE     [$GREEN*$BLUE] Nmap is now installed $RESETCOLOR \n"
   if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
   	if [[ -e /usr/bin/nmap ]]; then
 		date=$(date +%c)
@@ -144,7 +144,7 @@ if [[ -e /bin/wireshark ]]; then
   sleep 1
 else
   sudo apt install -y wireshark &>/dev/null 
-  printf "$BLUE    [$GREEN*$BLUE] Wireshark is now installed $RESETCOLOR \n"
+  printf "$BLUE     [$GREEN*$BLUE] Wireshark is now installed $RESETCOLOR \n"
   if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
   	if [[ -e /usr/bin/wireshark ]]; then
   		date=$(date +%c)
@@ -168,7 +168,7 @@ fi
 # SQLMAP installation, checking in /bin
 printf "$BLUE     [$GREEN*$BLUE] Installing SqlMap for you  $RESETCOLOR \n"   
 if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
-  printf "$BLUE     [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
+  printf "$BLUE       [$GREEN*$BLUE] SqlMap was already installed $RESETCOLOR \n" 
   if [[ -e /var/log/Octopus-Logs/subsytem.log ]]; then
   	if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
 		date=$(date +%c)
