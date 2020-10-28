@@ -23,7 +23,7 @@ printf "$BLUE| | | | \__ \ || (_| | | |  __/ |     \n"
 printf "$BLUE|_|_| |_|___/\__\__,_|_|_|\___|_|     \n"
 printf "\n"
 
-echo -e -n "$BLUE[$GREEN+$BLUE] Enter current user : \e[0m"
+echo -e -n "$BLUE[$GREEN+$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 
 # Creation of the log directory & file.
