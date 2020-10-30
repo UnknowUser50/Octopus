@@ -845,7 +845,8 @@ sc_s=113
 top_p=114
 off_dns=115
 os_serv=116
-dos_atk=117
+int_serv=117
+dos_atk=118
 ex=999
 
 clear
@@ -876,9 +877,9 @@ printf "$GREEN {100}-- $BLUE Furtive scan                                 $GREEN
 printf "$GREEN {101}-- $BLUE 1000 Ports scan                              $GREEN {114}--$BLUE Top ports scan \n\E[0m"
 printf "$GREEN {102}-- $BLUE TCP scan                                     $GREEN {115}--$BLUE Disabling DNS name resolution \n\E[0m"
 printf "$GREEN {103}-- $BLUE UDP scan                                     $GREEN {116}--$BLUE OS and services scan\n\E[0m"
-printf "$GREEN {104}-- $BLUE Aggressive scan                         \n\E[0m"
+printf "$GREEN {104}-- $BLUE Aggressive scan                         	  $GREEN {117}--$BLUE Intensity service detection \n\E[0m"
 printf "$GREEN {105}-- $BLUE Flags scan                                   $RED ATTACK - WARNING \n\E[0m"
-printf "$GREEN {106}-- $BLUE Vulnerabilities scan                         $YELLOW {117}--$RED DOS attack\n\E[0m"
+printf "$GREEN {106}-- $BLUE Vulnerabilities scan                         $YELLOW {118}--$RED DOS attack\n\E[0m"
 printf "$GREEN {107}-- $BLUE Trace scan                              \n\E[0m"
 printf "$GREEN {108}-- $BLUE OS detection                            \n\E[0m"
 printf "$GREEN {109}-- $BLUE Avahi DOS                               \n\E[0m"
@@ -1649,6 +1650,50 @@ elif [ $nnmap == $os_serv ]; then
 		fi
 	fi	
 	mainmenu
+
+elif [[ $nnamp == $int_serv ]]; then
+	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to aggressive service detection, enter target : $RESETCOLOR"
+	read ip
+	date=$(date +%c)
+	printf "\n"	>> /home/$current_user/Octopus/Network-Scan/intense_service.txt
+	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/intense_service.txt 
+	sudo nmap -sV --version-intensity 5 $ip && sudo nmap -sV --version-intensity 5 $ip >> /home/$current_user/Octopus/Network-Scan/intense_service.txt 
+	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/intense_service
+	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/intense_service.txt $RESETCOLOR\n"
+	sleep 2
+	sudo chown $current_user /home/$current_user/Octopus/Network-Info/intense_service &>/dev/null 
+	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR \n"
+	sleep 2
+	if [[ ! -s /home/$current_user/Octopus/Network-Scan/intense_service.txt ]]; then
+		printf "$RED [$YELLOW-$RED] Command error $RESETCOLOR \n"
+		sleep 1
+		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Trying to use nmap with (script intensity) on $ip at :$date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log 
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Trying to use nmap with (script intensity) on $ip at :$date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
+			sleep 1
+		else
+			printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR\n"
+			sleep 1
+		fi
+	else 
+		if [[ -e /var/log/Octopus-Los/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Launching nmap with parameter(s) $RED -sV --version-intensity 5 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+			sleep 1
+		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
+			date=$(date +%c)
+			echo -e "Launching nmap with parameter(s) $RED -sV --version-intensity 5 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+			sleep 1
+		else
+			printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR\n"
+			sleep 1
+		fi
+	fi
+	mainmenu			  					
 	
 elif [ $nnmap == $dos_atk ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] Nmap set to DOS attack, enter target : $RESETCOLOR"
