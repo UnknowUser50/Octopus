@@ -61,6 +61,7 @@ printf "$BLUE         '-..,..-'       '-..,..-'       '-..,..-'       '         
 printf "\n\n"
 
 # Killing applications 
+sleep 2
 echo -e -n "$BLUE [$GREEN*$BLUE] Killing dangerous application on your computer ... $RESETCOLOR \n"
 sudo killall -q dropbox chrome thunderbird steam firefox xchat discord chromium &>/dev/null
 echo -e -n "$BLUE [$GREEN*$BLUE] Dangerous application killed !$RESETCOLOR \n"
@@ -70,6 +71,7 @@ echo -e -n "$BLUE [$GREEN*$BLUE] Cleaning cache application ... $RESETCOLOR \n"
 beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache dropbox.cache &>/dev/null
 echo -e -n "$BLUE [$GREEN*$BLUE] Cache cleaned ! $RESETCOLOR \n"
 echo -e -n "$BLUE [$GREEN*$BLUE] Starting Octopus ... $RESETCOLOR \n"
+sleep 1
 
 }
 
