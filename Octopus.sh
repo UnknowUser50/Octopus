@@ -1370,27 +1370,21 @@ elif [ $nnmap == $off_dns ]; then
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (-p $port -n) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (-p $port -n) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -p $port -n $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -p $port -n $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1404,37 +1398,28 @@ elif [ $nnmap == $os_serv ]; then
 	sudo nmap -A -T4 $ip && sudo nmap -A -T4 $ip >> /home/$current_user/Octopus/Network-Scan/os_serv.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/os_serv.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/os_serv.txt $RESETCOLOR\n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/os_serv.txt &>/dev/null
-	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR\n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/os_serv.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (-A -T4) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (-A -T4) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -A -T4 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -A -T4 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1448,37 +1433,28 @@ elif [[ $nnamp == $int_serv ]]; then
 	sudo nmap -sV --version-intensity 5 $ip && sudo nmap -sV --version-intensity 5 $ip >> /home/$current_user/Octopus/Network-Scan/intense_service.txt 
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/intense_service
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/intense_service.txt $RESETCOLOR\n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Info/intense_service &>/dev/null 
-	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR \n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/intense_service.txt ]]; then
 		printf "$RED [$YELLOW-$RED] Command error $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (script intensity) on $ip at :$date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log 
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (script intensity) on $ip at :$date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR\n"
-			sleep 1
 		fi
 	else 
 		if [[ -e /var/log/Octopus-Los/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sV --version-intensity 5 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sV --version-intensity 5 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR\n"
-			sleep 1
 		fi
 	fi
 	mainmenu			  					
@@ -1489,14 +1465,11 @@ elif [ $nnmap == $dos_atk ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] Select the value of the max parallelism (recommanded value : $RED 800$BLUE ) : $RESETCOLOR"
 	read para
 	sudo nmap $ip -max-parallelism $para -Pn --script http-slowloris --script-args http-slowloris.runforever=true 
-	sleep 1
-	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Attack completed $RESETCOLOR\n"
 	mainmenu
 
 elif [ $nnmap == $ex ]; then
 	printf "$RED [$YELLOW-$RED] Back to network-scan module ... \e[0m\n"
-	sleep 1
 	network-scan
 
 elif [ -z $nnmap ]; then
@@ -1556,20 +1529,15 @@ if [ $choix3 == $nikto ]; then
 	printf "\n\n\n" >> /home/$current_user/Octopus/Web-Scan/nikto_results.txt
 	sudo chown $current_user /home/$current_user/Octopus/Web-Scan/nikto-results.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Web-Scan/nikto_results.txt\e[0m"
-	sleep 2
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Command completed \e[0m\n"
 	if [[ ! -s /home/$current_user/Octopus/Web-Scan/nikto_results.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nikto on $url_ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nikto on $url_ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
 		fi
@@ -1577,14 +1545,11 @@ if [ $choix3 == $nikto ]; then
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nikto on $url_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nikto on $url_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi	
 	fi		
 	mainmenu
@@ -1593,38 +1558,30 @@ elif [ $choix3 == $maltego ]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting of Maltego at : $date" >> /var/log/Octopus-Logs/subsystem.log 
-		sleep 1
 	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting of Maltego at :$date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		sleep 1
 	else
 		printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting maltego ... \e[0m"
 	maltego
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Completed \e[0m\n"
 	mainmenu
 
 elif [ $choix3 == $zap ]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting of OWASP-Zap at : $date" >> /var/log/Octopus-Logs/subsystem.log
-		sleep 1
 	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting of OWASP-Zap at :$date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		sleep 1
 	else
 		printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting OWASP-Zap \e[0m"
 	owasp-zap 
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Completed $RESETCOLOR \n"
 	mainmenu
 
 elif [ $choix3 == $gobuster ];then
@@ -1635,14 +1592,11 @@ elif [ $choix3 == $gobuster ];then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Launching gobuster on $url with the WL $wl at : $date" >> /var/log/Octopus-Logs/subsystem.log
-		sleep 1
 	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Launching gobuster on $url with the WL $wl at :$date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		sleep 1
 	else
 		printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi	
 	date=$(date +%c)
 	printf "\n" >> /home/$current_user/Octopus/Web-Scan/gobuster.txt
@@ -1650,28 +1604,22 @@ elif [ $choix3 == $gobuster ];then
 	sudo gobuster --url $url --wordlist $wl && sudo gobuster --url $url --wordlist $wl >> /home/$current_user/Octopus/Web-Scan/gobuster.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Web-Scan/gobuster.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Web-Scan/gobuster.txt\e[0m"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Web-Scan/gobuster.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Completed $RESETCOLOR \n"
 	mainmenu
 
 elif [ $choix3 == $dirbuster ]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting Dirbuster at : $date" >> /var/log/Octopus-Logs/subsystem.log
-		sleep 1
 	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting Dirbuster at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
-		sleep 1
 	else
 		printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting dirbuster \e[0m\n"
 	sudo dirbuster 
-	sleep 2
 	mainmenu
 
 elif [ $choix3 == $legion ]; then
@@ -1680,14 +1628,11 @@ elif [ $choix3 == $legion ]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting of Sparta/Legion at : $date" >> /var/log/Octopus-Logs/subsystem.log 
-		sleep 1
 	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Starting of Sparta/Legion at : $dare" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		sleep 1
 	else
-		printf "$RED [$YELLOW!$RED] An erro as occured ... $RESETCOLOR \n"
-		sleep 1
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
 	fi	
 	echo -e -n "$BLUE [$GREEN+$BLUE] Which version of Kali do you have ? (<=2019 --> 1 / >=2020 --> 2 ) : \e[0m"
 	read version
@@ -1695,14 +1640,11 @@ elif [ $choix3 == $legion ]; then
 			printf "$BLUE [$GREEN+$BLUE] Starting sparta \e[0m\n"
 			sudo sparta &>/dev/null
 			printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-			sleep 2
 			mainmenu
 		elif [ $version == $version2 ]; then
 			printf "$BLUE [$GREEN+$BLUE] Starting legion \e[0m\n"
 			sudo legion &>/dev/null
-			sleep 1
 			printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-			sleep 2
 			mainmenu
 		fi
 
@@ -1716,48 +1658,37 @@ elif [ $choix3 == $sql ]; then
 	if [[ $resp_cook == $Yes ]]; then
 		echo -n -e "$BLUE [$GREEN+$BLUE] Enter cookies here : \e[0m"
 		read cookies
-		sleep 2
 		printf "$BLUE [$GREEN+$BLUE] SQL injection on $GREEN$target$BLUE with cookie : $GREEN$cookies$BLUE !\n"
-		sleep 1
 		sqlmap -u $target --cookie="$cookie" --dbs
-		sleep 1
-		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m"
+		printf "$BLUE [$GREEN+$BLUE] Injection completed $RESETCOLOR \n"
 	elif [[ $resp_cook == $no ]]; then
 		printf "$BLUE [$GREEN+$BLUE] SQL injection without cookie on : $GREEN$target$BLUE\n"
 		sudo sqlmap -u $target --dbs && sudo sqlmap --$target --dbs >> sql_results.txt
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Web-Scan/sql-results.txt\e[0m"
-		sleep 2
-		printf "$BLUE [$GREEN+$BLUE] Done !\e[0m\n"
-		sleep 2
+		printf "$BLUE [$GREEN+$BLUE] Injection completede $RESETCOLOR \n"
 		mainmenu
 	elif [[ -z $resp_cook ]]; then
 		printf "$RED [-] You have to fill in the parameters !\e[0m\n"
-		sleep 1
 		mainmenu
 	fi
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Launching SqlMap on $target at : $date" >> /var/log/Octopus-Logs/subsystem.log
-		sleep 1
 	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Launching SqlMap on $target at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		sleep 1
 	else
 		printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi	
 		
 
 elif [ $choix3 == $ex ]; then
 	printf "$RED [$YELLOW+$RED] Back to main menu ... \e[0m\n"
-	sleep 1
 	mainmenu
 
 elif [ -z $choix3 ]; then
 	printf "$RED [$YELLOW-$RED] You may choose at least one module ! \e[0m\n"
 	mainmenu
-
 fi
 
 }
@@ -1812,7 +1743,7 @@ if [ $connexion == $ssh ]; then
 		fi
 	else
 		printf "$RED [$YELLOW!$RED] SSH service cannot start now, please retry later ... $RESETCOLOR \n"
-		printf "$RED [$YELLOW!$RED] Stop SSH ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] Stop SSH service ... $RESETCOLOR \n"
 		sleep 3
 		sudo systemctl stop ssh &>/dev/null
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1825,19 +1756,16 @@ if [ $connexion == $ssh ]; then
 			mainmenu
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 			mainmenu
 		fi
 	fi	
 	printf "$BLUE [$GREEN+$BLUE] Starting SSH protocol on port 22 \e[0m\n"
-	sleep 2
 	echo -e -n "$BLUE [$GREEN+$BLUE] Choose the username : \e[0m"
 	read username
 	echo -e -n "$BLUE [$GRENN+$BLUE] Choose the IP address :\e[0m"
 	read ip_net
 	printf "$BLUE [$GREEN+$BLUE] Starting connexion on $username@$ip_net \e[0m\n"
 	sudo ssh $username@$ip_net
-	sleep 2
 	printf "$BLUE [$GRENN+$BLUE] Thanks to uses Octopus \e[0m\n"
 	sudo service ssh stop &>/dev/null
 	mainmenu
@@ -1847,7 +1775,6 @@ elif [ $connexion == $nc ]; then
 	Yes=1
 	No=2
 	printf "$BLUE [$GREEN+$BLUE] Starting Netcat \e[0m\n"
-	sleep 2
 	echo -e -n "$BLUE [$GREEN+$BLUE] Enter the destination port : \e[0m\n"
 	read port
 	echo -e -n "$BLUE [$GREEN+$BLUE] Enter the IP address : \e[0m\n"
@@ -1856,7 +1783,6 @@ elif [ $connexion == $nc ]; then
 	read arg
 		if [ $arg == $No ]; then
 			printf "$BLUE [$GREEN+$BLUE] Start Netcat on $ip on port $port \e[0m\n"
-			sleep 2
 			sudo nc -nv $ip $port
 			printf "$BLUE [$GREEN+$BLUE] Thanks to uses Octopus \e[0m\n"
 			mainmenu
@@ -1884,26 +1810,21 @@ elif [ $connexion == $mc_ch ]; then
 	echo -e -n "$BLUE [$GREEN+$BLUE] On which card do you want to change the MAC address ? \e[0m"
 	read wifi_card
 	sudo macchanger -p $wifi_card >> /home/$current_user/Octopus/Fixed_P_MAC.txt
-	sleep 2
 	echo -e -n "$BLUE [$GREEN+$BLUE] MAC address change frequency :\e[0m "
 	read time
 	printf "$BLUE [$GREEN+$BLUE] Start of macchanger, log file have been created at $GREEN/home/$current_user/Octopus/MAC_logs.txt\e[0m\n"
 	cd /home/$current_user/Octopus &>/dev/null
 	touch MAC_logs.txt 
-	sleep 1
 	sudo macchanger -r $wifi_card >> /home/$current_user/Octopus/MAC_logs.txt
 	sleep $time
-	sleep 1
 	mainmenu
 
 elif [ $connexion == $ex ]; then
 	printf "$RED [$YELLOW-$RED] Back to main menu ... \e[0m\n"
-	sleep 2
 	mainmenu
 
 elif [ -z $connexion ]; then
 	printf "$RED [$YELLOW-$RED] You may choose at least one module ! \e[0m\n"
-	sleep 5
 	mainmenu
 
 fi
@@ -1958,60 +1879,50 @@ read mannu
 
 if [ $mannu == $manns ]; then
 	printf "$BLUE [$GREEN+$BLUE] Nslookup manual $RESETCOLOR \n"
-	sleep 3
 	sudo man nslookup
 	mainmenu
 
 elif [ $mannu == $mandg ]; then
 	printf "$BLUE [$GREEN+$BLUE] Dig manual $RESETCOLOR \n"
-	sleep 3
 	sudo man dig
 	mainmenu
 
 elif [ $mannu == $manwhois ]; then
 	printf "$BLUE [$GREEN+$BLUE] Whois manual $RESETCOLOR \n"
-	sleep 3
 	sudo man whois
 	mainmenu
 
 elif [ $mannu == $manrecon ]; then
 	printf "$BLUE [$GREEN+$BLUE] Man recon-ng $RESETCOLOR \n"
-	sleep 3
 	sudo man recon-ng
 	mainmenu
 
 elif [ $mannu == $mannmap ]; then
 	printf "$BLUE [$GREEN+$BLUE] Man Nmap $RESETCOLOR \n"
-	sleep 3
 	sudo man nmap
 	mainmanu
 
 elif [ $mannu == $manzen ]; then
 	printf "$BLUE [$GREEN+$BLUE] Man ZenMap $RESETCOLOR\n"
-	sleep 3
 	sudo man zenmap
 	mainmenu
 
 elif [ $mannu == $manufw ]; then
 	printf "$BLUE [$GREEN+$BLUE] Man UFW $RESETCOLOR \n"
-	sleep 3
 	sudo man ufw
 	mainmenu
 
 elif [ $mannu == $mannikto ]; then
 	printf "$BLUE [$GREEN+$BLUE] Man Nikto $RESETCOLOR \n"
-	sleep 3
 	sudo man nikto
 	mainmenu
 
 elif [ $mannu == $ex ]; then
 	printf "$RED [$YELLOW+$RED] Back to main menu ... $RESETCOLOR \n"
-	sleep 3
 	mainmenu
 
 elif [ -z $mannu ]; then
 	printf "$RED [$YELLOW+$RED] You may choose at least one module ! $RESETCOLOR \n"
-	sleep 3
 	mainmenu
 
 fi
