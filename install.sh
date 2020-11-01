@@ -103,45 +103,6 @@ else
 fi	
 	sleep 2	
 
-if [[ -e /usr/bin/macchanger ]]; then
-	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-		date=$(date +%c)
-		echo -e "Checking macchanger in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE[$GREEN*$BLUE] Macchanger already installed $RESETCOLOR \n"
-	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
-		date=$(date +%c)
-		echo -e "Checking macchanger in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE[$GREEN*$BLUE] Macchanger already installed $RESETCOLOR \n"
-	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-	fi
-else 	
-printf "$BLUE[$GREEN*$BLUE] I requiere macchanger ... downloading\e[0m\n"
-sudo apt-get install -y macchanger &>/dev/null
-echo -ne -e '\033[1;92m#####               (33%)\r\e[0m'
-sleep 1
-echo -ne -e '\033[1;92m###########         (66%)\r\e[0m'
-sleep 1
-echo -ne -e '\033[1;92m################## (100%)\r\e[0m\n'
-sleep 1
-printf "$BLUE[$GREEN!$BLUE] Macchanger installed ! \e[0m\n"
-echo -e "$GREEN----------------------------------------\e[0m"
-if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-		date=$(date +%c)
-		echo -e "Macchanger$GREEN installed$RESETCOLOR at $date" >> /var/log/Octopus-Logs/subsystem.log
-		sleep 1
-	elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
-		date=$(date +%c)
-		echo -e "Macchanger$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		sleep 1
-	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
-	fi
-fi	
-sleep 2
-
-
 if [[ -e /usr/bin/traceroute ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
