@@ -62,21 +62,14 @@ printf "\n\n"
 
 # Killing applications 
 echo -e -n "$BLUE [$GREEN*$BLUE] Killing dangerous application on your computer ... $RESETCOLOR \n"
-sleep 1
 sudo killall -q dropbox chrome thunderbird steam firefox xchat discord chromium &>/dev/null
-sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Dangerous application killed !$RESETCOLOR \n"
-sleep 1
 
 # Cleaning application cache
 echo -e -n "$BLUE [$GREEN*$BLUE] Cleaning cache application ... $RESETCOLOR \n"
-sleep 1
 beachbit -c adobe_reader.cache chromium.cache thunderbird.cache firefox.cache xchat.cache dropbox.cache &>/dev/null
-sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Cache cleaned ! $RESETCOLOR \n"
-sleep 1
 echo -e -n "$BLUE [$GREEN*$BLUE] Starting Octopus ... $RESETCOLOR \n"
-sleep 1
 
 }
 
@@ -249,7 +242,7 @@ printf "$GREEN {3}-- $BLUE Use Whois                                      \n\E[0
 printf "$GREEN {4}-- $BLUE Use Traceroute                                 \n\E[0m"
 printf "$GREEN {5}-- $BLUE Use Recon-ng                                   \n\E[0m"
 printf "$GREEN {6}-- $BLUE Use WireShark                                  \n\E[0m"
-printf "$GREEN {7}-- $BLUE Edit network interfaces                        \n\E[0m"
+printf "$GREEN {7}-- $BLUE Edit network interfaces (Debian/Live Raizo)                       \n\E[0m"
 printf "                                                           \n"
 printf "$RED {99}-- Back                                          \n\E[0m"
 printf "                                                           \n"
@@ -269,36 +262,28 @@ read choix1
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/domain.txt\e[0m\n"
 		sleep 2
 		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/domain.txt
-		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-		sleep 2
+		printf "$BLUE [$GREEN+$BLUE] Command completed \e[0m\n"
 		if [[ ! -s /home/$current_user/Octopus/Network-Infos/domain.txt ]]; then
 			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c) 
 				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Trying to start NSLOOKUP on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus-Logs/subsystem.log
-				sleep 1
 			else 
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-				sleep 1
 			fi	
 			mainmenu
 		else 	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log 
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of NSLOOKUP on $domain at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus-Logs/subsystem.log 
-				sleep 1
 			else 
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		fi	
 		mainmenu
@@ -314,35 +299,28 @@ read choix1
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/dig.txt \n \e[0m"
 		sleep 2
 		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/dig.txt
-		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-		sleep 2
+		printf "$BLUE [$GREEN+$BLUE] Command completed \e[0m\n"
 		if [[ ! -s /home/$current_user/Octopus/Network-Infos/dig.txt ]]; then
 			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c) 
 				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Trying to start Dig on $domain at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus-Logs/subsystem.log
-				sleep 1
 			else 
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-				sleep 1
 			fi	
 		else
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of Dig on $dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of Dig on $dn_ip at $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		fi	
 		mainmenu
@@ -358,32 +336,26 @@ read choix1
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/whois.txt \e[0m\n"
 		sleep 2
 		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/whois.txt
-		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-		sleep 2
+		printf "$BLUE [$GREEN+$BLUE] Command completed \e[0m\n"
 		if [[ ! -s /home/$current_user/Octopus/Network-Infos/whois.txt ]]; then
 			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Trying to start Whois on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-				sleep 1
 			fi		
 		else	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of Whois on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log 
-				sleep 1
 			else 
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
 			fi
@@ -401,35 +373,28 @@ read choix1
 		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/traceroute.txt \n \e[0m"
 		sleep 2
 		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/traceroute.txt
-		printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-		sleep 2
+		printf "$BLUE [$GREEN+$BLUE] Command competed \e[0m\n"
 		if [[ ! -s /home/$current_user/Octopus/Network-Infos/traceroute.txt ]]; then
 			printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 			sleep 1
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Trying to start traceroute on $trc_dn_ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		else	
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Lunch of Traceroute on $trc_dn_ip at : $date -->$GREEN $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		fi	
 		mainmenu
@@ -438,57 +403,44 @@ read choix1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Lunch of Recon-NG at : $date" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Lunch of Recon-NG at : $date " >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi	
-		printf "$GREEN [+] Thinks to load all modules or run this before $RED'marketplace install all' \e[0m\n"
+		printf "$GREEN [+] Thinks to load all modules or run this before $RED'marketplace install all' $RESETCOLOR \n"
 		sleep 5
 		sudo recon-ng
-		sleep 1
 		mainmenu
 
 	elif [ $choix1 == $ws ]; then
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Lunch of WireShark at : $date" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Lunch of WireShark at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi	
 		printf "$BLUE [$GREEN+$BLUE] Starting WireShark ... \e[0m\n"
-		sleep 2
 		sudo wireshark &>/dev/null
-		sleep 1
 		mainmenu
 
 		elif [ $choix1 == $nint ]; then
 			# Var
-			vim=1
-			nano=2
-			printf "$BLUE [$GREEN+$BLUE] Go to /etc/newtork/interfaces \e[0m\n"
+			printf "$BLUE [$GREEN+$BLUE] Go to /etc/newtork/interfaces $RESETCOLOR \n"
 			sleep 1
-			echo -e -n "$BLUE [$GREEN+$BLUE] Do you want to use vim(1) or nano (2) : \e[0m"
+			echo -e -n "$BLUE [$GREEN+$BLUE] Do you want to use vim(1) or nano(2) : $RESETCOLOR"
 			read writter
-				if [ $writter == $vim ]; then
+				if [ $writter == "vim" ] || [ $writter == "Vim" ]]; then
 					if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
 						echo -e "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
-						sleep 1
 					elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
 						echo -e "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-						sleep 1
 					else
 						printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR \n"
 						sleep 1
@@ -499,21 +451,17 @@ read choix1
 					sleep 5
 					mainmenu
 
-				elif [ $writter == $nano ]; then
+				elif [ $writter == "nano" ] || [ $writter = "Nano" ]; then
 					if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
 						echo -e "Editing the network card file with $writter at : $date" >> /var/log/Octopus-Logs/subsystem.log
-						sleep 1
 					elif [[-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 						date=$(date +%c)
 						echo -e "Editing the network card file with $writter at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-						sleep 1
 					else
 						printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR \n"
-						sleep 1
 					fi	
 					cd .. && sudo nano /etc/network/interfaces
-					sleep 1
 					printf "$GREEN [+] Remember to reload your network interface $GREEN'sudo ifup {card}' \e[0m\n"
 					sleep 5
 					mainmenu
@@ -525,7 +473,6 @@ read choix1
 
 	elif [ $choix1 == $quit ]; then
 		printf "$RED [-] Back to main menu ... \e[0m\n"
-		sleep 2
 		mainmenu
 
 	elif [ -z $choix1 ]; then
@@ -572,30 +519,24 @@ if [ $choix2 == $nse ]; then
 	nmap-luncher
 
 elif [ $choix2 == $zmp ]; then
-	Oui=1
-	Non=2
 	# ZenMap installation
-	echo -e -n "$BLUE [$GREEN+$BLUE] ZenMap is install ? (Y=1|N=2) \e[0m"
+	echo -e -n "$BLUE [$GREEN+$BLUE] ZenMap is install ? ([Y]es/[N]o) \e[0m"
 	read zenrsp
-	if [ $zenrsp == $Oui ]; then
-		printf "$BLUE [$GREEN+$BLUE] Starting ZenMap as root ... \e[0m\n"
+	if [ $zenrsp == "Y" ] || [ $zenrsp = "y" ]; then
+		printf "$BLUE [$GREEN+$BLUE] Starting ZenMap $RESETCOLOR \n"
 		sudo zenmap
-		sleep 2
 		mainmenu
 
-	elif [ $zenrsp == $Non ]; then
+	elif [ $zenrsp == "N" ] || [ $zenrsp = "n" ]; then
 		# Writting installation in the log file
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Beginning of ZenMap installation at : $date" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Beginning of ZenMap installation at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] Error in log configuration ... $RESETCOLOR \n"
-			sleep 1
 		fi	
 		# Getting data from nmap website
 		printf "$BLUE [$GREEN+$BLUE] Starting installation ... \e[0m\n"
@@ -611,71 +552,57 @@ elif [ $choix2 == $zmp ]; then
 				echo -e "ZenMap archive retrieved and moved to$GREEN /home/$current_user/$RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 			else
 				printf "$RED [$YELLOW-$RED] An error as occured $RESETCOLOR \n"
-				sleep 1
 			fi
 		else
 			printf "$RED [$YELLOW-$RED] Impossible to locate ZenMap archive $RESETCOLOR \n"
 			sleep 1
 		fi
-		printf "$GREEN [+] Receiving data from nmap.org ... \e[0m\n"
+		printf "$GREEN [+] Receiving data from nmap.org ... $RESETCOLOR\n"
 		if [[ -e /usr/bin/alien ]]; then
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Checking Alien ... Already installed on the system at : $date" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e  "Checking Alien ... Already installed on the system at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] Error in log configuration ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		elif [[ ! -e /usr/bin/alien ]]; then
 			sudo apt-get install alien &>/dev/null
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Alien are not installed ... We install it for you at : $date" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Alien are not installed ... We install it for you at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] Error in log configuration ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		fi	
 		printf "$GREEN [+] Install alien ... \e[0m\n"
 		sudo alien /home/$current_user/zenmap_7.80-1.noarch.rmp &>/dev/null
 		sudo dpkg -i zenmap_7.80-2_all.deb &>/dev/null
 		printf "$BLUE [$GREEN+$BLUE] Unpacking of ZenMap ... soon finishied \e[0m\n"
-		sleep 1
 		if [[ -e /usr/bin/zenmap ]]; then
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "ZenMap is now$GREEN installed$RESETCOLOR at : $date" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "ZenMap is now$GREEN installed$RESETCOLOR at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] Error in log configuration ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		elif [[ ! -e /bin/user/zenmap ]]; then
 			if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Error installing ZenMap,$RED are you on a subsystem ?$RESETCOLOR Error at : $date" >> /var/log/Octopus-Logs/subsystem.log
-				sleep 1
 			elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 				date=$(date +%c)
 				echo -e "Error installing ZenMap,$RED are you on a subsystem ?$RESETCOLOR Error at : $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-				sleep 1
 			else
 				printf "$RED [$YELLOW-$RED] Error in log configuration ... $RESETCOLOR \n"
-				sleep 1
 			fi
 		else
 			printf "$RED [$YELLOW!$RED] ZenMap package cannot be found, move it to$YELLOW /usr/bin/ $RESETCOLOR \n"
@@ -683,7 +610,6 @@ elif [ $choix2 == $zmp ]; then
 		fi	
 		printf "$BLUE [$GREEN+$BLUE] Installation complete ... start-up ZenMap as root \e[0m\n"
 		sudo zenmap 
-		sleep 2
 		mainmenu
 	fi
 
@@ -752,7 +678,6 @@ elif [ $choix2 == $ufw ]; then
 	fi	
 	if [[ $modif == $a_incom || $modif == "01" ]]; then
 		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
-		sleep 1
 		sudo ufw default allow 
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
@@ -766,7 +691,6 @@ elif [ $choix2 == $ufw ]; then
 		fi
 	elif [[ $modif == $d_incom || $modif == "02" ]]; then
 		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
-		sleep 1
 		sudo ufw default deny
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
@@ -779,7 +703,6 @@ elif [ $choix2 == $ufw ]; then
 		fi
 	elif [[ $modif == $a_outgo || $modif == "03" ]]; then
 		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
-		sleep 1
 		sudo ufw default allow outgoing
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
@@ -792,7 +715,6 @@ elif [ $choix2 == $ufw ]; then
 		fi
 	elif [[ $modif == $d_outgo || $modif == "04" ]]; then
 		printf "$BLUE [$GREEN*$BLUE] Operation in progress, please wait $RESETCOLOR \n"
-		sleep 1
 		sudo ufw default deny outgoing
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
@@ -805,7 +727,6 @@ elif [ $choix2 == $ufw ]; then
 		fi
 	elif [[ $modif == $quit || $modif == "05" ]]; then
 		printf "$RED [$YELLOW!$RED] Exit menu $RESETCOLOR \n"
-		sleep 1
 		mainmenu
 	elif [[ -z $modif ]]; then
 		printf "$RED [$YELLOW!$RED] You may choose at least one module ! $RESETCOLOR \n"
@@ -813,7 +734,6 @@ elif [ $choix2 == $ufw ]; then
 
 	elif [ $choix2 == $ex ]; then
 		printf "$RED [$YELLOW-$RED] Back to main menu ... \e[0m\n"
-		sleep 1
 		mainmenu
 
 	elif [ -z $choix2 ]; then
@@ -907,35 +827,28 @@ if [ $nnmap == $fs ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Furtive.txt $RESETCOLOR\n"
 	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Furtive.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	sleep 2
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Furtive.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap (-sS) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap (-sS) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching an nmap scan with parameter(s) $RED -sS $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching an nmap scan with parameter(s) $RED -sS $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -949,37 +862,28 @@ elif [ $nnmap == $ps ]; then
 	sudo nmap -p 1-1000 $ip && sudo nmap -p 1-1000 $ip >> /home/$current_user/Octopus/Network-Scan/Ports.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Ports.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Ports.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Ports.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed \e[0m\n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Ports.txt ]]; then
-		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
+		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap (-p 1-1000) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap (-p 1-1000) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else 
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching an nmap scan with parameter(s) $RED -p 1-1000 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching an nmap scan with parameter(s) $RED -p 1-1000 $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -993,37 +897,28 @@ elif [ $nnmap == $ts ]; then
 	sudo nmap -sT $ip && sudo nmap -sT $ip >> /home/$current_user/Octopus/Network-Scan/TCP.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/TCP.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/TCP.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/TCP.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/TCP.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (-sT) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (-sT) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sT $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sT $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1037,37 +932,28 @@ elif [ $nnmap == $us ]; then
 	sudo nmap -sU $ip && sudo nmap -sU $ip >> /home/$current_user/Octopus/Network-Scan/UDP.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/UDP.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/UDP.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/UDP.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/UDP.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (-sU) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (-sU) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sU $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sU $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1081,37 +967,28 @@ elif [ $nnmap == $as ]; then
 	sudo nmap -A $ip && sudo nmap -A $ip >> /home/$current_user/Octopus/Network-Scan/aggressive.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/aggressive.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/aggressive.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/aggressive.txt
-	printf "$BLUE [$GREEN+$BLUE] Done !\e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/aggressive.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (-A) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (-A) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -A $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -A $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1125,37 +1002,28 @@ elif [ $nnmap == $fls ]; then
 	sudo nmap --script-banner $ip && sudo nmap --script banner $ip >> /home/$current_user/Octopus/Network-Scan/flags.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/flags.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/flags.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/flags.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed \e[0m\n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/flags.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--script banner) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--script banner) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script banner $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED ---script banner $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1169,37 +1037,28 @@ elif [ $nnmap == $vs ]; then
 	sudo nmap --script-vuln $ip && sudo nmap --script vuln $ip >> /home/$current_user/Octopus/Network-Scan/vuln.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/vuln.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/vuln.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/vuln.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/vuln.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--script vuln) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--script vuln) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script vuln $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script vuln $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1213,37 +1072,28 @@ elif [ $nnmap == $trace ]; then
 	sudo nmap --script-trace $ip && sudo nmap --script-trace $ip >> /home/$current_user/Octopus/Network-Scan/trace.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/trace.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/trace.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/trace.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/trace.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--script-trace) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--script-trace) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script-trace $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script-trace $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1259,37 +1109,28 @@ elif [ $nnmap == $osc ];  then
 	sudo nmap --max-os-tries $os $ip && sudo nmap --max-os-tries $os $ip >> /home/$current_user/Octopus/Network-Scan/OS.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/OS.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/OS.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/OS.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/OS.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--max-os-tries) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--max-os-tries) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --max-os-tries $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --max-os-tries $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1303,36 +1144,28 @@ elif [ $nnmap == $dos ]; then
 	sudo nmap --script=broadcast-avahi-dos $ip && sudo nmap --script=broadcast-avahi-dos $ip >> /home/$current_user/Octopus/Network-Scan/DOS.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/DOS.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DOS.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chow $current_user /home/$current_user/Octopus/Network-Scan/DOS.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! e[0m\n"
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/DOS.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--script=broadcast-avahi-dos) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--script=broadcast-avahi-dos) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script=broadcast-avahi-dos $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script=broadcast-avahi-dos $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	sleep 2
@@ -1348,37 +1181,28 @@ elif [ $nnmap == $bjnp ]; then
 	sudo nmap --script broadcast-bjnp-discover $ip && sudo nmap --script broadcast-bjnp-discover $ip >> /home/$current_user/Octopus/Network-Scan/Canon-device.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Canon-device.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Canon-device.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Canon-device.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed \$RESETCOLOR n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Canon-device.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--script broadcast-bjnp-discover) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--script broadcast-bjnp-discover) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script broadcast-bjnp-avahi $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script broadcast-bjnp-avahi $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1392,37 +1216,28 @@ elif [ $nnmap == $fuzz ]; then
 	sudo nmap -sU --script dns-fuzz $ip && sudo nmap -sU --script dns-fuzz $ip >> /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DNS-attack.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! \e[0m"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/DNS-attack.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--script dns-fuzz) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--script dns-fuzz) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script dns-fuzz $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --script dns-fuzz $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu 
@@ -1436,37 +1251,28 @@ elif [ $nnmap == $la ]; then
 	sudo nmap -sL $ip | grep -v "for $ip*" && sudo nmap -sL $ip | grep -v "for $ip*" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Listing.txt $RESETCOLOR \n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Listing.txt
-	printf "$BLUE [$GREEN+$BLUE] Done !\e[0m"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Listing.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (-sL) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (-sL) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sL $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sL $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
@@ -1480,39 +1286,30 @@ elif [ $nnmap == $sc_s ]; then
 	sudo nmap -sC $ip && sudo nmap -sC $ip >> /home/$current_user/Octopus/Network-Scan/Script_Scan.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Script_Scan.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Newtwork-Scan/Script_Scan.txt $RESETCOLOR\n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Script_Scan.txt
-	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR\n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Script_Scan.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (-sC) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (-sC) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sC $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED -sC $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
-	sleep 2
 	mainmenu
 	
 elif [ $nnmap == $top_p ]; then
@@ -1526,37 +1323,28 @@ elif [ $nnmap == $top_p ]; then
 	sudo nmap --top-ports $nb_p $ip && sudo nmap --top-ports $nb_p $ip >> /home/$current_user/Octopus/Network-Scan/top-ports.txt 
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/top-ports.txt 
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/top-ports.txt $RESETCOLOR\n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/top-ports.txt &>/dev/null
-	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
-	sleep 2
+	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR\n"
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/top-ports ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
-		sleep 1
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Trying to use nmap with (--top-ports $nb_p ) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c) 
 			echo -e "Trying to use nmap with (--top-ports $nb_p ) on $ip at : $date -->$RED FAILED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	else
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --top-ports $nb_p $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-			sleep 1
 		elif [[ -e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 			date=$(date +%c)
 			echo -e "Launching nmap with parameter(s) $RED --top-ports $nb_p $RESETCOLOR on $ip at : $date -->$GREEN SUCCESS $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-			sleep 1
 		else
 			printf "$RED [$YELLOW-$RED] An error as occured ... $RESETCOLOR \n"
-			sleep 1
 		fi
 	fi	
 	mainmenu
