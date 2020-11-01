@@ -55,7 +55,6 @@ printf "$BLUE     .=====================================================.       
 printf "\n"
 echo -e -n "     $BLUE[$GREEN!$BLUE] Enter current user : $RESETCOLOR"
 read current_user
-sleep 2
 printf "\n\n"
 printf "$BLUE     [$GREEN*$BLUE] Making Logs directory in$GREEN /var/log/$BLUE ... $RESETCOLOR \n"
 if [[ -d /var/log/Octopus-Logs ]]; then
@@ -66,16 +65,12 @@ fi
 if [[ -d /var/log/Octopus-Logs ]]; then
 	sudo touch /var/log/Octopus-Logs/subsystem.log
 	sudo chown $current_user /var/log/Octopus-Logs/subsystem.log &>/dev/null
-	echo "SUBSYSTEM - LOGS" >> /var/log/Octopus-Logs/subsystem.log
-	echo "---------------------------------------------------------------" >> /var/log/Octopus-Logs/subsystem.log
 	date=$(date +%c)
 	echo "Making of the main directory : $date" >> /var/log/Octopus-Logs/subsystem.log
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		printf "$BLUE     [$GREEN*$BLUE] The log file has been created $RESETCOLOR \n"
-		sleep 1
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR\n"
-		sleep 1
 	fi
 else 
 	echo -e -n "$RED [$YELLOW!$RED] An error as occured ... Do you want to place logs in Octopus directory ? ([Y]es/[n]o) $RESETCOLOR"
@@ -85,11 +80,8 @@ else
 		cd /$current_user/Octopus/ &>/dev/null 
 		sudo mkdir Octopus-Logs/ &>/dev/null
 		printf "$BLUE [$GREEN*$BLUE] The directory has been created $RESETCOLOR \n"
-		sleep 2
 		cd Octopus-Logs/ &>/dev/null
 		sudo touch subsystem.log 
-		echo "SUBSYSTEM - LOGS" >> subsystem.log
-		echo "---------------------------------------------------------------"
 		date=$(date +%c)
 		echo "Making of the main directory : $date" >> subsystem.log
 	fi
@@ -107,14 +99,12 @@ if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 else 
 	date=$(date +%c)
 	echo "SSH service start at : $date" >> /Octopus-Logs/subsystem.log
-sleep 1
 fi
 
 # Nmap installation, checking in /bin
 printf "$BLUE     [$GREEN*$BLUE] Installing NMAP for you $RESETCOLOR \n"
 if [[ -e /bin/nmap ]]; then
   printf "$BLUE     [$GREEN*$BLUE] Nmap was already installed $RESETCOLOR \n"
-  sleep 1
 else
   sudo apt install -y nmap &>/dev/null
   printf "$BLUE     [$GREEN*$BLUE] Nmap is now installed $RESETCOLOR \n"
@@ -124,7 +114,6 @@ else
 		echo "Nmap installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
 	else 
 		printf "$RED     [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi
   else
   	if [[ -e /usr/bin/nmap ]]; then
@@ -132,7 +121,6 @@ else
 		echo "Nmap installed at : $date" >> /Octopus-Logs/subsystem.log
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi
   fi	
 fi  
@@ -141,7 +129,6 @@ fi
 printf "$BLUE     [$GREEN*$BLUE] Installing Wireshark for you $RESETCOLOR \n"
 if [[ -e /bin/wireshark ]]; then
   printf "$BLUE     [$GREEN*$BLUE] WireShark was already installed $RESETCOLOR \n"
-  sleep 1
 else
   sudo apt install -y wireshark &>/dev/null 
   printf "$BLUE     [$GREEN*$BLUE] Wireshark is now installed $RESETCOLOR \n"
@@ -151,7 +138,6 @@ else
 		echo "Wireshark installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi
   else
   	if [[ -e /usr/bin/wiresark ]]; then
@@ -159,10 +145,8 @@ else
 		echo "Wireshark installed at : $date" >> /Octopus-Logs/subsystem.log
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi
   fi	
-  sleep 1
 fi  
 
 # SQLMAP installation, checking in /bin
@@ -175,7 +159,6 @@ if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
 		echo "SqlMap installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
 	else 
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi
    else
    	if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
@@ -183,13 +166,11 @@ if [[ -e /bin/sqlmap && -e /bin/sqlmapapi ]]; then
 		echo "SqlMap installed at : $date" >> /var/log/Octopus-Logs/subsystem.log &>/dev/null
 	else 
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi
    fi	
 else
   sudo apt install -y sqlmap &>/dev/null
   printf "$BLUE     [$GREEN*$BLUE] SqlMap is now installed $RESETCOLOR \n"
-  sleep 1
 fi 
 
 # Checking UFW in /bin
@@ -202,7 +183,6 @@ if [[ -e /bin/ufw ]]; then
 		echo "UFW installed at : $date" >> /var/log/Octopus-Logs/subsystem.log
 	else 
 		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
-		sleep 1
 	fi
    else
    	if [[ -e /bin/ufw ]]; then
@@ -210,13 +190,11 @@ if [[ -e /bin/ufw ]]; then
 		echo "UFW installed at : $date" >> /Octopus-Logs/subsystem.log
 	else
 		printf "$RED [$YELLOW!$RED] An error as occured $RESETCOLOR \n"
-		sleep 1
 	fi
    fi	
 else
   sudo apt install -y ufw &>/dev/null 
   printf "$BLUE     [$GREEN*$BLUE] UFW is now installed $RESETCOLOR \n"
-  sleep 1
 fi  
 
 }
