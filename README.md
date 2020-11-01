@@ -8,10 +8,8 @@
   * WireShark
   * Gobuster/ Dirbuster
   * wget
-
-For the module connection, SSH services **must be enabled**
-
-> systemctl start ssh
+  * dpkg
+  * Alien
 
 * ## WARNING 
 
