@@ -186,7 +186,7 @@ read reponse
 
 # Condition for select module
 if [[ $reponse == $ni ]]; then
-	sudo cd /Network-Infos/ &>/dev/null
+	sudo cd Network-Infos/ &>/dev/null
 	network-information
 elif [[ $reponse == $ns ]]; then
 	sudo cd Network-Scan/ &>/dev/null
