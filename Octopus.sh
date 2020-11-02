@@ -827,10 +827,10 @@ if [ $nnmap == $fs ]; then
 	sudo nmap -sS $ip && sudo nmap -sS $ip >> /home/$current_user/Octopus/Network-Scan/Furtive.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Furtive.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Furtive.txt $RESETCOLOR\n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Furtive.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
-	sleep 2
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Furtive.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -866,6 +866,8 @@ elif [ $nnmap == $ps ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Ports.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Ports.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed \e[0m\n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Ports.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -901,6 +903,8 @@ elif [ $nnmap == $ts ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/TCP.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/TCP.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/TCP.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -936,6 +940,8 @@ elif [ $nnmap == $us ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/UDP.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/UDP.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/UDP.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -971,6 +977,8 @@ elif [ $nnmap == $as ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/aggressive.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/aggressive.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/aggressive.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1006,6 +1014,8 @@ elif [ $nnmap == $fls ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/flags.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/flags.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed \e[0m\n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/flags.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1041,6 +1051,8 @@ elif [ $nnmap == $vs ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/vuln.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/vuln.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/vuln.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1076,6 +1088,8 @@ elif [ $nnmap == $trace ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/trace.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/trace.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/trace.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1113,6 +1127,8 @@ elif [ $nnmap == $osc ];  then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/OS.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/OS.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/OS.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1148,6 +1164,8 @@ elif [ $nnmap == $dos ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DOS.txt $RESETCOLOR \n"
 	sudo chow $current_user /home/$current_user/Octopus/Network-Scan/DOS.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/DOS.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1185,6 +1203,8 @@ elif [ $nnmap == $bjnp ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Canon-device.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Canon-device.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed \$RESETCOLOR n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Canon-device.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1220,6 +1240,8 @@ elif [ $nnmap == $fuzz ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/DNS-attack.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/DNS-attack.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/DNS-attack.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1255,6 +1277,8 @@ elif [ $nnmap == $la ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Listing.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Listing.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Listing.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1290,6 +1314,8 @@ elif [ $nnmap == $sc_s ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Newtwork-Scan/Script_Scan.txt $RESETCOLOR\n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Script_Scan.txt
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR\n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/Script_Scan.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1327,6 +1353,8 @@ elif [ $nnmap == $top_p ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/top-ports.txt $RESETCOLOR\n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/top-ports.txt &>/dev/null
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR\n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/top-ports ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1362,10 +1390,10 @@ elif [ $nnmap == $off_dns ]; then
 	sudo nmap -p $port -n $ip && sudo nmap -p $port -n $target >> /home/$current_user/Octopus/Network-Scan/off_dns_resolv.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/off_dns_resolv.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/off_dns_resolv.txt $RESETCOLOR\n"
-	sleep 2
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/off_dns_resolv.txt &>/dev/null
 	printf "$BLUE [$GREEN+$BLUE] Done ! $RESETCOLOR\n"
-	sleep 2
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/off_dns_resolv.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		sleep 1
@@ -1402,6 +1430,8 @@ elif [ $nnmap == $os_serv ]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/os_serv.txt $RESETCOLOR\n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/os_serv.txt &>/dev/null
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR\n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/os_serv.txt ]]; then
 		printf "$RED [$YELLOW!$RED] Command error ... $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1437,6 +1467,8 @@ elif [[ $nnamp == $int_serv ]]; then
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/intense_service.txt $RESETCOLOR\n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Info/intense_service &>/dev/null 
 	printf "$BLUE [$GREEN+$BLUE] Scan completed $RESETCOLOR \n"
+	# See results in console
+	sleep 4
 	if [[ ! -s /home/$current_user/Octopus/Network-Scan/intense_service.txt ]]; then
 		printf "$RED [$YELLOW-$RED] Command error $RESETCOLOR \n"
 		if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
@@ -1468,6 +1500,8 @@ elif [ $nnmap == $dos_atk ]; then
 	read para
 	sudo nmap $ip -max-parallelism $para -Pn --script http-slowloris --script-args http-slowloris.runforever=true 
 	printf "$BLUE [$GREEN+$BLUE] Attack completed $RESETCOLOR\n"
+	# See results in console
+	sleep 4
 	mainmenu
 
 elif [ $nnmap == $ex ]; then
