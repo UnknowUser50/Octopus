@@ -30,12 +30,8 @@ country=`wget -qO- https://api.myip.com/ | tr -d '{}"' | cut -d "," -f 2 |cut -d
 requirements() {
 
 # Run this script as sudo or end 
-if [[ $UID != 0 ]]; then
-	printf "$YELLOW[$RED!$YELLOW] Please, run this script as $REDsudo$RESETCOLOR\n"
-	printf "$YELLOW[$RED!$YELLOW] sudo $0 $*\n"
-	# Exit error code
-	exit 1
-fi	
+(( ${EUID} > "0" )) && printf '%s\n' "$RED[$YELLOW!$RED] You must have S.U rights to run Octopus $RESETCOLOR" && exit 1
+
 # Checking dependencies
 
 #command -v zenmap > /dev/null 2>&1 || { echo >&2 "I requiere ZenMap but it's not installed. Install it."; exit 1; }
