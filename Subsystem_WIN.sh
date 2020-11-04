@@ -28,10 +28,7 @@ date=$(date +%c)
 
 __ROOT() {
 
-if [[ $UID != 0 ]]; then
-	printf "$YELLOW[$RED!$YELLOW] Please, run this script as sudo $RESETCOLOR\n"
-	exit 1
-fi
+(( ${EUID} > "0" )) && printf "$RED[$YELLOW!$RED] You must have S.U rights to run Octopus $RESETCOLOR\n" && exit 1
 
 }
 
