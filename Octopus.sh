@@ -30,7 +30,7 @@ country=`wget -qO- https://api.myip.com/ | tr -d '{}"' | cut -d "," -f 2 |cut -d
 requirements() {
 
 # Run this script as sudo or end 
-(( ${EUID} > "0" )) && printf '%s\n' "$RED[$YELLOW!$RED] You must have S.U rights to run Octopus $RESETCOLOR" && exit 1
+(( ${EUID} > "0" )) && printf "$RED[$YELLOW!$RED] You must have S.U rights to run Octopus $RESETCOLOR" && exit 1
 
 # Checking dependencies
 
