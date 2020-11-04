@@ -1983,6 +1983,7 @@ fi
 luncher () {
 
 # Lunch control
+requirements
 kill_app
 bannerscreen
 preface
