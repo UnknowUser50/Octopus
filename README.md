@@ -54,6 +54,9 @@ This script will save all files created beforehand, don't worry !
   * Kali 
   * Parrot
 
+* Windows
+  * Linux subsytem is requiered
+
 Warning, if you use a system other than Kali Linux, **remember to check if the packages** necessary for the proper functioning of Octopus are installed.  
 #### The install script should install the necessary dependencies. 
 
