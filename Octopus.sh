@@ -34,8 +34,7 @@ requirements() {
 
 # Checking dependencies
 
-#command -v zenmap > /dev/null 2>&1 || { echo >&2 "I requiere ZenMap but it's not installed. Install it."; exit 1; }
-command -v wireshark > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
+#command -v wireshark > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
 command -v ufw > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
 command -v wget > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
 command -v macchanger > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
