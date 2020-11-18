@@ -293,7 +293,7 @@ read choix1
 		echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Infos/dig.txt
 		dig $dn_ip && dig $dn_ip >> /home/$current_user/Octopus/Network-Infos/dig.txt
 		printf "\n\n\n" >> /home/$current_user/Octopus/Network-Infos/dig.txt
-		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/dig.txt \n \e[0m"
+		printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Infos/dig.txt \n $RESETCOLOR"
 		sleep 2
 		sudo chown $current_user /home/$current_user/Octopus/Network-Infos/dig.txt
 		printf "$BLUE [$GREEN+$BLUE] Command completed \e[0m\n"
