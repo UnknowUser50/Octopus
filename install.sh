@@ -6,13 +6,9 @@ export RED='\033[1;91m'
 export YELLOW='\033[1;93m'
 export RESETCOLOR='\033[1;00m'
 
-# sudo ./install.sh
-if [[ $UID != 0 ]]; then
-	printf "$RED[$YELLOW!$RED] Please, run this script as $REDsudo\n"
-	printf "$RED[$YELLOW!$RED] sudo $0 $*\n"
-	# Exit 
-	exit 1
-fi	
+# S.U ex
+(( ${EUID} > "0" )) && echo -e "${RED}[${YELLOW}!${RED}] You must have S.U rights to run Octopus" && exit 1
+
 date=$(date +%c)
 clear
 printf "$BLUE _           _        _ _             \n"
@@ -28,7 +24,7 @@ read current_user
 
 # Creation of the log directory & file.
 if [[ -d /var/log/Octopus-Logs/ ]] && [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
-	printf "$BLUE[$GREEN*$BLUE] Directory and file already exist $RESETCOLOR \n"
+	echo "" &>/dev/null
 else 
 	sudo mkdir /var/log/Octopus-Logs/ &>/dev/null
 	printf "$BLUE[$GREEN*$BLUE] Log directory created $RESETCOLOR \n"
@@ -53,13 +49,11 @@ if [[ -e /usr/bin/git ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
-		printf "$BLUE[$GREEN*$BLUE] GIT already installed $RESETCOLOR \n"
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
-		printf "$BLUE[$GREEN*$BLUE] GIT already installed $RESETCOLOR \n"
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 else 	
 	printf "$BLUE[$GREEN!$BLUE] I requiere git ... dowloading $RESETCOLOR \n"
@@ -72,7 +66,7 @@ else
 		date=$(date +%c)
 		echo -e "GIT$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 fi	
 
@@ -86,7 +80,7 @@ if [[ -e /usr/bin/traceroute ]]; then
 		echo -e "Checking traceroute in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 		printf "$BLUE[$GREEN*$BLUE] Traceroute already installed $RESETCOLOR \n"
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 else 	
 printf "$BLUE[$GREEN!$BLUE] I requiere traceroute ... downloading $RESETCOLOR \n"
@@ -99,7 +93,7 @@ if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Traceroute$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 fi	
 
@@ -113,7 +107,7 @@ if [[ -e /usr/bin/alien ]]; then
 		echo -e "Checking alien in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 		printf "$BLUE[$GREEN*$BLUE] Alien already installed $RESETCOLOR \n"
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere Alien ... downloading$RESETCOLOR \n"
@@ -126,7 +120,7 @@ if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Alien$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 fi	
 
@@ -140,7 +134,7 @@ if [[ -e /usr/bin/dpkg ]]; then
 		echo -e "Checking dpkg in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 		printf "$BLUE[$GREEN*$BLUE] Dpkg already installed $RESETCOLOR \n"
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere Dpkg ... downloading\e[0m\n"
@@ -153,7 +147,7 @@ if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Dpkg$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 fi	
 
@@ -167,7 +161,7 @@ if [[ -e /usr/bin/wget ]]; then
 		echo -e "Checking wget in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 		printf "$BLUE[$GREEN*$BLUE] Wget already installed $RESETCOLOR \n"
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere wget ... downloading $RESETCOLOR \n"
@@ -180,7 +174,7 @@ if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Wget$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 fi	
 
@@ -194,7 +188,7 @@ if [[ -e /etc/default/ufw ]]; then
 		echo -e "Checking ufw in$GREEN /etc/default/$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 		printf "$BLUE[$GREEN*$BLUE] Ufw already installed $RESETCOLOR \n"
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 else 	
 printf "$BLUE[$GREEN*$BLUE] I requiere UFW ... downloading\e[0m\n"
@@ -207,7 +201,7 @@ if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Ufw$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 fi	
 
@@ -221,7 +215,7 @@ if [[ -e /usr/bin/nmap ]]; then
 		echo -e "Checking nmap in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 		printf "$BLUE[$GREEN*$BLUE] Nmap already installed $RESETCOLOR \n"
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 else 	
 printf "$BLUE [$GREEN*$BLUE] I requiere Nmap ... downloading $RESETCOLOR \n"
@@ -234,7 +228,7 @@ if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
 		echo -e "Nmap$GREEN installed$RESETCOLOR at $date" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
-		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n"
+		printf "$RED [$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
 fi	
 printf "\n"
