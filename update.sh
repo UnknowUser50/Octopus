@@ -58,7 +58,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 
 # Moove file(s) of Network-Scan
 	if [ -d ${path}/Backup-Octopus/Network-Scan ]; then
-		sudo cp -r Network-Scan ${path]/Backup-Octopus/ 
+		sudo cp -r Network-Scan ${path}/Backup-Octopus/ 
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
 		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
