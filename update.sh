@@ -6,7 +6,7 @@ export GREEN='\033[1;92m'
 export RED='\033[1;91m'
 export YELLOW='\033[1;93m'
 export RESETCOLOR='\033[1;00m'
-path="/home/${USER}/"
+path="/home/${USER}"
 
 preface() {
 
@@ -56,8 +56,8 @@ if [ -d ${path}/Backup-Octopus ]; then
 # Moove file(s) of Network-Scan
 	if [ -d ${path}/Backup-Octopus/Network-Scan ]; then
 		cd Network-Scan/ &>/dev/null
-		sudo mv * /home/$current_user/Backup-Octopus/Network-Scan/ &>/dev/null
-		cd && cd /home/$current_user/Octopus/ &>/dev/null
+		sudo mv * ${path}/Backup-Octopus/Network-Scan/ &>/dev/null
+		cd && cd ${path}/Octopus/ &>/dev/null
 	else
 		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
 	fi
@@ -65,7 +65,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 # Moove file(s) of Web-Scan
 	if [ -d ${path}/Backup-Octopus/Web-Scan ]; then
 		cd Web-Scan/ &>/dev/null
-		sudo mv * /home/$current_user/Backup-Octopus/Web-Scan/ &>/dev/null 
+		sudo mv * ${path}/Backup-Octopus/Web-Scan/ &>/dev/null 
 		cd
 	else
 		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
