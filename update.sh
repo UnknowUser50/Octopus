@@ -42,6 +42,7 @@ backup() {
 # Check backup dir.
 if [ -d ${path}/Backup-Octopus ]; then
 	echo -e "${RED}[${YELLOW}+${RED}] A backup directory already exist, the script will only moove file ... ${RESETCOLOR}"
+	sudo mkdir ${path}/Backup-Octopus/Network-Infos/ &>/dev/null ; sudo mkdir ${path}/Backup-Octopus/Network-Scan/ &>/dev/null ; sudo mkdir ${path}/Backup-Octopus/Web-Scan/ &>/dev/null
 	cd ${path}/Octopus/ &>/dev/null
 
 	# Moove old files .txt to a backup directory
@@ -50,7 +51,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 
 	# Moove file(s) of Network-Infos
 	if [ -d ${path}/Octopus/Network-Infos ]; then
-		sudo cp -r Network-Infos ${back_path}
+		cd ${path}/Octopus/Network-Infos/ ; mv * ${path}/Backup-Octopus/Network-Infos/ &>/dev/null
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
 		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
@@ -58,7 +59,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 
 	# Moove file(s) of Network-Scan
 	if [ -d ${path}/Backup-Octopus/Network-Scan ]; then
-		sudo cp -r Network-Scan ${back_path}
+		cd ${path}/Octopus/Network-Scan/ ; mv * ${path}/Backup-Octopus/Network-Scan/ &>/dev/null
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
 		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
@@ -66,8 +67,8 @@ if [ -d ${path}/Backup-Octopus ]; then
 
 	# Moove file(s) of Web-Scan
 	if [ -d ${path}/Octopus/Web-Scan ]; then
-		sudo cp -r Web-Scan ${back_path}
-		cd
+		cd ${path}/Octopus/Web-Scan/ ; mv * ${path}/Backup-Octopus/Web-Scan/ &>/dev/null
+		cd ${path}/
 	else
 		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 	fi
