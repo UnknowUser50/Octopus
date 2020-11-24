@@ -59,7 +59,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 
 	# Moove file(s) of Network-Scan
 	if [ -d ${path}/Backup-Octopus/Network-Scan ]; then
-		cd ${path}/Octopus/Network-Scan/ ; mv * ${path}/Backup-Octopus/Network-Scan/ &>/dev/null
+		cd ${path}/Octopus/Network-Scan/ &>/dev/null ; mv * ${path}/Backup-Octopus/Network-Scan/ &>/dev/null
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
 		echo -e "${YELLOW}[${RED}!${YELLOW}] $basename$0 : No directory named 'Network-Scan' found ! ${RESETCOLOR}" 
