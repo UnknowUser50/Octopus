@@ -63,7 +63,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 	fi
 
 # Moove file(s) of Web-Scan
-	if [ -d ${path}/Backup-Octopus/Web-Scan ]; then
+	if [ -d ${path}/Octopus/Web-Scan ]; then
 		cd Web-Scan/ &>/dev/null
 		sudo mv * ${path}/Backup-Octopus/Web-Scan/ &>/dev/null 
 		cd
@@ -72,7 +72,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 	fi
 
 else
-	mkdir -p ${path}/Backup-Octopus &>/dev/null
+	mkdir -p ${path}/Octopus &>/dev/null
 	cd ${path}/Octopus/ &>/dev/null
 	mv Network-Infos/ ${path}/Backup-Octopus/ &>/dev/null 
 	mv Network-Scan/ ${path}/Backup-Octopus/ &>/dev/null
