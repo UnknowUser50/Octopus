@@ -73,7 +73,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 	fi
 
 else
-	mkdir -p ${path}/Octopus &>/dev/null
+	mkdir ${path}/Octopus &>/dev/null
 	cd ${path}/Octopus/ &>/dev/null
 	mv Network-Infos/ ${path}/Backup-Octopus/ &>/dev/null 
 	mv Network-Scan/ ${path}/Backup-Octopus/ &>/dev/null
