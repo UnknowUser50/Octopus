@@ -48,28 +48,28 @@ if [ -d ${path}/Backup-Octopus ]; then
 	cd ${path}/Octopus/ &>/dev/null
 	mv *.txt ${path}/Backup-Octopus/ &>/dev/null
 
-# Moove file(s) of Network-Infos
+	# Moove file(s) of Network-Infos
 	if [ -d ${path}/Octopus/Network-Infos ]; then
-		sudo cp -r Network-Infos ${path}/Backup-Octopus/
+		sudo cp -r Network-Infos ${back_path}
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
+		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 	fi
 
-# Moove file(s) of Network-Scan
+	# Moove file(s) of Network-Scan
 	if [ -d ${path}/Backup-Octopus/Network-Scan ]; then
-		sudo cp -r Network-Scan ${path}/Backup-Octopus/ 
+		sudo cp -r Network-Scan ${back_path}
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
+		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 	fi
 
-# Moove file(s) of Web-Scan
+	# Moove file(s) of Web-Scan
 	if [ -d ${path}/Octopus/Web-Scan ]; then
-		sudo cp -r Web-Scan ${path}/Backup-Octopus/
+		sudo cp -r Web-Scan ${back_path}
 		cd
 	else
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
+		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 	fi
 
 else
@@ -83,9 +83,9 @@ fi
 
 update() {
 
-cd ${path}/ &>/dev/null
+cd ${path}/ 
 if [ -d ${path}/Octopus ]; then
-	printf "$RED[$YELLOW!$RED] An old version have been found, we will delete it ... \e[0m\n"
+	echo -e "${RED}[${YELLOW}!${RED}] An old version have been found, we will delete it ... ${RESETCOLOR}"
 	sudo rm -rf Octopus/ &>/dev/null
 
 	if [ -d ${path}/Octopus ]; then
@@ -96,7 +96,7 @@ if [ -d ${path}/Octopus ]; then
 
 	# Download from github
 	git clone https://github.com/UnknowUser50/Octopus &>/dev/null
-	cd ${path}/Octopus/ && chmod 755 * 
+	cd ${path}/Octopus/ ; sudo chmod 755 * 
 else
 	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 fi
