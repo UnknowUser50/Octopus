@@ -92,14 +92,15 @@ if [ -d ${path}/Octopus ]; then
 	# Download from github
 	git clone https://github.com/UnknowUser50/Octopus &>/dev/null
 	cd ${path}/Octopus/ ; sudo chmod 755 *
-	
-	text='Octopus is updated ! Thanks you.'
-	sleep='0.15'
+
+	text='--> Octopus is updated ! Thanks you :)'
+	sleep='0.05'
 	printf '%0s'
 	for slide in $(seq 0 $(expr length "${text}")); do
 		echo -e -n "${BLUE}${text:$slide:1}"
 		sleep "${sleep}"
 	done	
+	echo " "
 else
 	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 fi
