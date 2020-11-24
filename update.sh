@@ -54,7 +54,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 		cd ${path}/Octopus/Network-Infos/ ; mv * ${path}/Backup-Octopus/Network-Infos/ &>/dev/null
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
+		echo -e "${YELLOW}[${RED}!${YELLOW}] $basename$0 : No directory named 'Network-Infos' found ! ${RESETCOLOR}" 
 	fi
 
 	# Moove file(s) of Network-Scan
@@ -62,7 +62,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 		cd ${path}/Octopus/Network-Scan/ ; mv * ${path}/Backup-Octopus/Network-Scan/ &>/dev/null
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
+		echo -e "${YELLOW}[${RED}!${YELLOW}] $basename$0 : No directory named 'Network-Scan' found ! ${RESETCOLOR}" 
 	fi
 
 	# Moove file(s) of Web-Scan
@@ -70,7 +70,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 		cd ${path}/Octopus/Web-Scan/ ; mv * ${path}/Backup-Octopus/Web-Scan/ &>/dev/null
 		cd ${path}/
 	else
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
+		echo -e "${YELLOW}[${RED}!${YELLOW}] $basename$0 : No directory named 'Web-Scan' found ! ${RESETCOLOR}" 
 	fi
 
 else
