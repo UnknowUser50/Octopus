@@ -93,7 +93,13 @@ if [ -d ${path}/Octopus ]; then
 	git clone https://github.com/UnknowUser50/Octopus &>/dev/null
 	cd ${path}/Octopus/ ; sudo chmod 755 *
 	
-	echo -e "${BLUE}[${GREEN}+${BLUE}] Octopus is updated ${RESETCOLOR}"
+	text='Octopus is updated ! Thanks you.'
+	sleep='0.15'
+	printf '%0s'
+	for slide in $(seq 0 $(expr length "${text}")); do
+		echo -e -n "${BLUE}${text:$slide:1}"
+		sleep "${sleep}"
+	done	
 else
 	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 fi
