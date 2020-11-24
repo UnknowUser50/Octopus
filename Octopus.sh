@@ -58,7 +58,7 @@ printf "\n\n"
 # Killing applications 
 sleep 2
 echo -e -n "$BLUE [$GREEN*$BLUE] Killing dangerous application on your computer ... $RESETCOLOR \n"
-sudo killall -q dropbox chrome thunderbird steam firefox xchat discord chromium &>/dev/null
+sudo killall -q dropbox chrome thunderbird steam xchat discord chromium &>/dev/null
 echo -e -n "$BLUE [$GREEN*$BLUE] Dangerous application killed !$RESETCOLOR \n"
 
 # Cleaning application cache
@@ -78,21 +78,21 @@ echo -e -n "$BLUE          [$GREEN+$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 # Making directory Network-Infos/
 if [ -d "/$current_user/Octopus/Network-Infos" ]; then
-	echo -e "$RED[$YELLOW+$REd] The directory : Network-Infos already exists ! $RESETCOLOR" &>/dev/null
+	echo "" &>/dev/null
 elif [ ! -d "/$current_user/Octopus/Network-Infos" ]; then
 	sudo mkdir Network-Infos/ &>/dev/null
 	sudo chown $current_user Network-Infos/
 fi
 # Making directory Network-Scan/
 if [ -d "/$current_user/Octopus/Network-Scan" ]; then
-	echo -e "$RED[$YELLOW+$RED] The directory : Network-Scan already exists ! $RESETCOLOR" &>/dev/null
+	echo "" &>/dev/null
 elif [ ! -d "/$current_user/Ocotpus/Network-Scan" ]; then
 	sudo mkdir Network-Scan/ &>/dev/null
 	sudo chown $current_user Network-Scan/
 fi
 # Making directory Web-Scan
 if [ -d "/$current_user/Octopus/Web-Scan" ];then
-	echo -e "$RED[$YELLOW+$REd] The directory : Web-Scan already exists ! $RESETCOLOR" &>/dev/null
+	echo "" &>/dev/null
 elif [ ! -d "/$current_user/Octopus/Web-scan" ];then
 	sudo mkdir Web-Scan/ &>/dev/null
 	sudo chown $current_user Web-Scan/
@@ -147,9 +147,6 @@ echo "                                                                       "
 mainmenu() {
 
 # Main var
-ni=1000
-ns=1001
-ws=1010
 oc=1011
 doc=1100
 ex=1111
@@ -180,14 +177,14 @@ echo -e -n "$RED Octopus@MainMenu$BLUE:~$RESETCOLOR# "
 read reponse
 
 # Condition for select module
-if [[ $reponse == $ni ]]; then
-	sudo cd Network-Infos/ &>/dev/null
+if [[ $reponse = "1000" ]]; then
+	cd Network-Infos/ &>/dev/null
 	network-information
-elif [[ $reponse == $ns ]]; then
-	sudo cd Network-Scan/ &>/dev/null
+elif [[ $reponse = "1001" ]]; then
+	cd Network-Scan/ &>/dev/null
 	network-scan
-elif [[ $reponse == $ws ]]; then
-	sudo cd Web-Scan/ &>/dev/null
+elif [[ $reponse = "1010" ]]; then
+	cd Web-Scan/ &>/dev/null
 	web-scan
 elif [[ $reponse ==  $oc ]]; then
 	other-connexion
