@@ -91,14 +91,14 @@ if [ -d ${path}/Octopus ]; then
 	if [ -d ${path}/Octopus ]; then
 		echo -e "${BLUE}[${GREEN}+${BLUE}] All files & directories saved ${RESETCOLOR}"
 	else
-		cho -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
+		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 	fi
 
 	# Download from github
 	git clone https://github.com/UnknowUser50/Octopus &>/dev/null
 	cd ${path}/Octopus/ && chmod 755 * 
 else
-	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
+	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 fi
 
 }
