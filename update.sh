@@ -36,6 +36,7 @@ printf "\n"
 
 backup() {
 
+# Check backup dir.
 if [ -d ${path}/Backup-Octopus ]; then
 	echo -e "${RED}[${YELLOW}+${RED}] A backup directory already exist, the script will only moove file ... ${RESETCOLOR}"
 	cd ${path}/Octopus/ &>/dev/null
@@ -84,15 +85,16 @@ fi
 }
 
 update() {
-	
+
+cd ${path}/ &>/dev/null
 if [ -d ${path}/Octopus ]; then
 	printf "$RED[$YELLOW!$RED] An old version have been found, we will delete it ... \e[0m\n"
 	rm -rf Octopus/ &>/dev/null
 
 	if [ -d ${path}/Octopus ]; then
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
-	else
 		echo -e "${BLUE}[${GREEN}+${BLUE}] All files & directories saved ${RESETCOLOR}"
+	else
+		cho -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" && exit 1
 	fi
 
 	# Download from github
