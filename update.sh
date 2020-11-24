@@ -89,15 +89,11 @@ if [ -d ${path}/Octopus ]; then
 	echo -e "${RED}[${YELLOW}!${RED}] An old version have been found, we will delete it ... ${RESETCOLOR}"
 	sudo rm -rf Octopus/ &>/dev/null
 
-	if [ -d ${path}/Octopus ]; then
-		echo -e "${BLUE}[${GREEN}+${BLUE}] All files & directories saved ${RESETCOLOR}"
-	else
-		echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
-	fi
-
 	# Download from github
 	git clone https://github.com/UnknowUser50/Octopus &>/dev/null
-	cd ${path}/Octopus/ ; sudo chmod 755 * 
+	cd ${path}/Octopus/ ; sudo chmod 755 *
+	
+	echo -e "${BLUE}[${GREEN}+${BLUE}] Octopus is updated ${RESETCOLOR}"
 else
 	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : internal error ! ${RESETCOLOR}" 
 fi
