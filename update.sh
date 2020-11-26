@@ -16,6 +16,11 @@ if [[ -e /usr/bin/git ]]; then
 else
 	sudo apt install -y git &>/dev/null
 fi	
+# network test 
+sudo ping -c 1 google.com
+if [ "$?" -gt "0" ]; then
+	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : Network error ! Please check your internet connexion ! ${RESETCOLOR}" && exit 1
+fi
 
 }
 
