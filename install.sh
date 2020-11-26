@@ -6,7 +6,7 @@ export RED='\033[1;91m'
 export YELLOW='\033[1;93m'
 export RESETCOLOR='\033[1;00m'
 
-# S.U ex
+# S.U execution : 'sudo' 
 (( ${EUID} > "0" )) && echo -e "${RED}[${YELLOW}!${RED}] You must have S.U rights to run Octopus" && exit 1
 
 date=$(date +%c)
@@ -23,7 +23,7 @@ echo -e -n "$BLUE[$GREEN+$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 
 # Creation of the log directory & file.
-if [[ -d /var/log/Octopus-Logs/ ]] && [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
+if [[ -d /var/log/Octopus-Logs/ ]] && [[ -e /var/log/Octopus-Logs/Octopus.log ]]; then
 	echo "" &>/dev/null
 else 
 	sudo mkdir /var/log/Octopus-Logs/ &>/dev/null
@@ -47,7 +47,8 @@ printf '%0s'
 for slide in $(seq 0 $(expr length "${text}")); do
 	echo -e -n "${BLUE}${text:$slide:1}"
 	sleep ${sleep}
-done	
+done
+printf "\n\n"
 sudo apt-get update &>/dev/null
 
 # Checking dependencies
