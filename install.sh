@@ -41,7 +41,13 @@ else
 fi	
 # Enf of creation
 
-printf "$BLUE[$GREEN!$BLUE] System update $RESETCOLOR\n"
+text='[+] System update, please wait'
+sleep='0.05'
+printf '%0s'
+for slide in $(seq 0 $(exprlength "${text}")); do
+	echo -e -n "${BLUE}${text:$slide:1}"
+	sleep ${sleep}
+done	
 sudo apt-get update &>/dev/null
 
 # Checking dependencies
