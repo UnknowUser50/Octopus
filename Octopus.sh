@@ -34,10 +34,9 @@ requirements() {
 
 # Checking dependencies
 
-#command -v wireshark > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
 command -v ufw > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
 command -v wget > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
-command -v macchanger > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
+command -v macchanger > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] run 'sudo apt install macchanger' ! $RESETCOLOR"; exit 1; }
 command -v nmap > /dev/null 2>&1 || { echo -e >&2 "$RED [$YELLOW!$RED] Run the installation script ! Dependencies are not installed ! $RESETCOLOR"; exit 1; }
 
 }
