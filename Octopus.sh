@@ -146,8 +146,6 @@ echo "                                                                       "
 mainmenu() {
 
 # Main var
-oc=1011
-doc=1100
 ex=1111
 
 clear
@@ -167,7 +165,7 @@ printf "$GREEN {1001}-- $BLUE Network scanning                           \E[0m  
 printf "$GREEN {1010}-- $BLUE Web scanning                               \E[0m      \n"
 printf "$GREEN {1011}-- $BLUE Others connection                           \E[0m      \n"
 printf "$GREEN {1100}-- $BLUE Manual/Documentation                       \E[0m      \n"
-printf "$GREEN {....}-- $BLUE SOON AVAILABLE				\E[0m\n"
+printf "$GREEN {....}-- $BLUE SOON AVAILABLE (Reverse Shell)		\E[0m\n"
 printf "$BLUE                                                     \E[0m      \n"
 printf "$RED {1111}-- Exit Octopus                               \E[0m      \n"
 printf "                                                                      \n"
@@ -186,11 +184,11 @@ elif [[ $reponse = "1001" ]]; then
 elif [[ $reponse = "1010" ]]; then
 	cd Web-Scan/ &>/dev/null
 	web-scan
-elif [[ $reponse ==  $oc ]]; then
+elif [[ $reponse ==  "1011" ]]; then
 	other-connexion
-elif [[ $reponse == $doc ]]; then
+elif [[ $reponse == "1100" ]]; then
 	documentation
-elif [[ $reponse == $ex ]]; then
+elif [[ $reponse == "1111" ]]; then
 	printf "$RED [+] Leaving Octopus ... \e[0m\n"
 	sleep 2
 exit
