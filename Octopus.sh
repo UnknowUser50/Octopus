@@ -165,7 +165,6 @@ printf "$GREEN {1001}-- $BLUE Network scanning                           \E[0m  
 printf "$GREEN {1010}-- $BLUE Web scanning                               \E[0m      \n"
 printf "$GREEN {1011}-- $BLUE Others connection                           \E[0m      \n"
 printf "$GREEN {1100}-- $BLUE Manual/Documentation                       \E[0m      \n"
-printf "$GREEN {....}-- $BLUE Reverse shell (php, powershell)		\E[0m\n"
 printf "$BLUE                                                     \E[0m      \n"
 printf "$RED {1111}-- Exit Octopus                               \E[0m      \n"
 printf "                                                                      \n"
