@@ -61,7 +61,7 @@ if [ -d ${path}/Backup-Octopus ]; then
 	fi
 
 	# Moove file(s) of Network-Scan
-	if [ -d ${path}/Backup-Octopus/Network-Scan ]; then
+	if [ -d ${path}/Octopus/Network-Scan ]; then
 		cd ${path}/Octopus/Network-Scan/ ; mv * ${path}/Backup-Octopus/Network-Scan/ &>/dev/null
 		cd && cd ${path}/Octopus/ &>/dev/null
 	else
