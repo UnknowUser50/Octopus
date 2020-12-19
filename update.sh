@@ -11,9 +11,7 @@ back_path="/home/${USER}/Backup-Octopus/"
 preface() {
 
 cd
-if [[ -e /usr/bin/git ]]; then
-	echo "" &>/dev/null
-else
+if [[ ! -e /usr/bin/git ]]; then
 	sudo apt install -y git &>/dev/null
 fi	
 # network test 
