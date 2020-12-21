@@ -10,12 +10,15 @@ back_path="/home/${USER}/Backup-Octopus/"
 
 preface() {
 
+(( ${EUID} > "0" )) && echo -e "${RED}[${YELLOW}!${RED}] You must have S.U rights to run Octopus" && exit 1
+
+
 cd
 if [[ ! -e /usr/bin/git ]]; then
 	sudo apt install -y git &>/dev/null
 fi	
 # network test 
-sudo ping -c 1 google.com &>/dev/null
+ping -c 1 google.com &>/dev/null
 if [ "$?" -gt "0" ]; then
 	echo -e "${RED}[${YELLOW}!${RED}] $basename$0 : Network error ! Please check your internet connexion ! ${RESETCOLOR}" && exit 1
 fi
