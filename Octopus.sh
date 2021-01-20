@@ -1998,16 +1998,23 @@ help() {
 clear
 printf "$RED [$YELLOW*$RED] Command : Octopus help $RESETCOLOR \n"
 printf "$BLUE [$GREEN+$BLUE] In first you may have to run the$YELLOW install.sh$BLUE script $RESETCOLOR \n"
-printf "$BLUE [$GREEN+$BLUE] If you are on a subsystem, run :$YELLOW ./Subsystem_WIN.sh$BLUE script $RESETCOLOR \n\n"
+printf "$BLUE [$GREEN+$BLUE] If you are on a subsystem, run :$YELLOW ./Subsystem_WIN.sh$BLUE script $RESETCOLOR \n"
+printf "$BLUE [$GREEN+$BLUE] Start Octopus directly with a module :$YELLOW sudo ./Octopus.sh <module_name> (network-info - network-scan - web-scan) $RESETCOLOR \n"
 printf "$YELLOW [$GREEN+$YELLOW] For informations about tools, go to Octopus manual $RESETCOLOR \n"
 
 exit
 
 }
 
-if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]] || [[ "$1" == "help" ]]; then
+if [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ "$1" == "help" ]; then
 	help
 	exit
+elif [ "$1" == "network-info" ]; then
+	network-information
+elif [ "$1" == "network-scan" ]; then
+	network-scan
+elif [ "$1" == "web-scan" ]; then
+	web-scan
 fi
 
 
