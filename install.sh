@@ -39,7 +39,12 @@ else
 		printf "$BLUE[$GREEN*$BLUE] Directory and file created in$GREEN /home/$current_user/Octopus/Octopus-Logs/$RESETCOLOR \n"
 	fi
 fi	
-# Enf of creation
+# End of creation
+
+# Rights placement
+# - 'chown' : in order to be able to write in the file
+# - 'chmod' : all for owner ; read only for other (group(s) & user(s))
+sudo chown ${USER} /var/log/Octopus-Logs/subsystem.log && sudo chmod 744 /var/log/Octopus-Log/subsystem.log &>/dev/null
 
 text='[+] System update, please wait'
 sleep='0.05'
