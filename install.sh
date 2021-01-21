@@ -60,10 +60,10 @@ sudo apt-get update &>/dev/null
 if [[ -e /usr/bin/git ]]; then
 	if [[ -e /var/log/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
-		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
+		echo -e "[${GREEN}+${RESETCOLOR}]Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /var/log/Octopus-Logs/subsystem.log
 	elif [[	-e /home/$current_user/Octopus/Octopus-Logs/subsystem.log ]]; then
 		date=$(date +%c)
-		echo -e "Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
+		echo -e "[${GREEN}+${RESETCOLOR}]Checking git in$GREEN /usr/bin$RESETCOLOR at : $date -->$GREEN INSTALLED $RESETCOLOR" >> /home/$current_user/Octopus/Octopus-Logs/subsystem.log
 	else
 		printf "$RED[$YELLOW!$RED] An error as occured ... $RESETCOLOR \n" && exit 1
 	fi
