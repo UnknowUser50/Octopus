@@ -2008,7 +2008,7 @@ exit
 
 author() {
 
-cat EOF << 
+cat "EOF" << 
 
 			- English Version - 2021 
 			------------------------
