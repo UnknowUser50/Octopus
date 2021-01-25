@@ -2006,6 +2006,42 @@ exit
 
 }
 
+author() {
+
+cat EOF << 
+
+			- English Version - 2021 
+			------------------------
+	Octopus is a script writting in bash. I decide to develop 
+	a script for all poeple who are new to computer security 
+	to make it easier for them. Each script output/results 
+	will also be written to a text file. Octopus using existing
+	tools, it only takes their use. These tools do not belong 
+	to me and I do not give them the rights. Today, Octopus has
+	3 analysis modules and one for connection. The modules 
+	are as follow : 
+	1) Network Analyzer
+	2) Network Scan
+	3) Web Scan
+	
+			- Version Française - 2021
+			--------------------------
+	Octopus est un script écrit en bash. J\'ai décidé d\'écrire
+	ce script pour toutes les personnes qui débute dans le monde
+	de la sécurité informatique afin que cela soit plus simple pour
+	eux. Chaque résultat d\'éxecution est écrit dans un fichier .txt.
+	Octopus utilise des outils déjà existant, je reprend seulement leur
+	usage et ces outils ne m\'appartiennent en aucun cas. Aujourd\'hui, 
+	Octopus possède 3 modules principaux, ils sont les suivants : 
+	1) Analyse de réseau
+	2) Scan de réseau
+	3) Scan de site/serveur web
+	
+
+EOF
+
+}
+
 if [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ "$1" == "help" ]; then
 	help
 	exit
@@ -2015,7 +2051,9 @@ elif [ "$1" == "network-scan" ]; then
 	network-scan
 elif [ "$1" == "web-scan" ]; then
 	web-scan
-fi
+elif [ "$1" == "--author" ] || [ "$1" == "-author" ] || [ "$1" == "-a" ]; then
+	author
+fi	
 
 
 # Function for global script : DON'T TOUCH 
