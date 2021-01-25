@@ -114,11 +114,10 @@ fi
 }
 
 if [ "$1" == "--purge" ] || [ "$1" == "-purge" ] || [ "$1" == "-p" ]; then
-	cd &>/dev/null
-	rm -rf Backup-Octopus/ &>/dev/null
+	cd &>/dev/null ; rm -rf Backup-Octopus/ &>/dev/null
 	echo -e "${BLUE}[${GREEN}+${BLUE}] Backup directory are deleted ${RESETCOLOR}"
 	ls -a | grep "Backup-Octopus" 
-	if [ "$?" -gt "0" ]; then
+	if [ ! "$?" -gt "0" ]; then
 		echo -e "${RED}[${YELLOW}!${RED}] Octopus can't remove Backup directory ${RESETCOLOR}" ; exit 1
 	fi
 	echo -e "${BLUE}[${GREEN}+${BLUE}] Octopus cleared ${RESETCOLOR}"
