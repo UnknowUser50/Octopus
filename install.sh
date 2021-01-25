@@ -256,7 +256,7 @@ printf "$BLUE[$GREEN!$BLUE] Directory created : $date $RESETCOLOR \n"
 fi
 
 if [ -d /home/$current_user/Octopus/Network-Scan ]; then
-printf "$RED[$YELLOW!$RED] Directory $YELLOW'Network-Scan'$RED already exist ! \$RESETCOLOR \n"
+printf "$RED[$YELLOW!$RED] Directory $YELLOW'Network-Scan'$RED already exist ! $RESETCOLOR \n"
 else
 printf "$BLUE[$GREEN*$BLUE] Making of $GREEN'Network-Scan'$BLUE ... $RESETCOLOR\n"
 cd /home/$current_user/Octopus/ &>/dev/null
