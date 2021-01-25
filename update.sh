@@ -114,7 +114,7 @@ fi
 }
 
 if [ "$1" == "--purge" ] || [ "$1" == "-purge" ] || [ "$1" == "-p" ]; then
-	cd &>/dev/null ; rm -rf Backup-Octopus/ &>/dev/null
+	cd &>/dev/null ; sudo rm -rf Backup-Octopus/ &>/dev/null
 	echo -e "${BLUE}[${GREEN}+${BLUE}] Backup directory are deleted ${RESETCOLOR}"
 	ls -a | grep "Backup-Octopus" 
 	if [ ! "$?" -gt "0" ]; then
