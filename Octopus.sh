@@ -2050,6 +2050,9 @@ EOF
 if [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ "$1" == "help" ]; then
 	help
 	exit
+elif [ "$1" == "--author" ] || [ "$1" == "-a" ] || [ "$1" == "--a" ]; then
+	author
+	exit
 elif [ "$1" == "network-info" ]; then
 	network-information
 elif [ "$1" == "network-scan" ]; then
