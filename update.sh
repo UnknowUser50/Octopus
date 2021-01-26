@@ -114,15 +114,14 @@ fi
 }
 
 if [ "$1" == "--purge" ] || [ "$1" == "-purge" ] || [ "$1" == "-p" ]; then
-	cd &>/dev/null ; sudo rm -rf Backup-Octopus/ &>/dev/null
-	echo -e "${BLUE}[${GREEN}+${BLUE}] Backup directory are deleted ${RESETCOLOR}" ; sleep 1
-	ls -a | grep "Backup-Octopus" 
+	sudo rm -rf /var/log/Octopus-Logs/subsystem.log
 	if [ ! "$?" -gt "0" ]; then
-		echo -e "${RED}[${YELLOW}!${RED}] Octopus can't remove Backup directory ${RESETCOLOR}" ; exit 1
-		sleep 1
+		echo -e "${RED}[${YELLOW}!${RED}]$basename$0 : internal error : can't remove subsystem.log ${RESETCOLOR}"
 	fi
-	echo -e "${BLUE}[${GREEN}+${BLUE}] Octopus cleared ${RESETCOLOR}"
-	sleep 1
+	cd /home/${USER}/ ; sudo rm -rf Backup-Octopus/
+	if [ ! "$?" -gt "0" ]; then
+		echo -e "${RED}[${YELLOW}!${RED}]$basename$0 : internal error : cant't remove Backup-Octopus directory ${RESETCOLOR}"
+	fi
 fi	
 
 banner
