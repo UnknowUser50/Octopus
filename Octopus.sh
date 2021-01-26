@@ -2006,6 +2006,46 @@ exit
 
 }
 
+author() {
+
+cat << "EOF"
+
+		         - English version -
+	--------------------------------------------------------
+	Octopus is a script writting in bash. I decide to develop
+	a script for all poeple who are new to computer security 
+	to make it easier for them. Each script output/results will
+	also be written to a text file. Octopus using existing tools,
+	it only takes their use. These tools do not belong to me and
+	I do not give them the rights. Today, Octopus has 3 analysis
+	modules and one for connection. The modules are as follow :
+	1) Network informations
+	2) Network Scanning
+	3) Web scanning
+	-
+	4) Connection support
+	
+			- Version française -
+	---------------------------------------------------------
+	Octopus est un script écrit en Bash. J\'ai décidé de 
+	développer ce script pour toutes les personnes qui 
+	débuteraient dans le monde de la sécurité informatique.
+	Chaque sortie d\'exécution est également placée dans un
+	fichier texte. Octopus utilise des outils déjà existant,
+	je reprend simplement leur usage et en aucun cas ces
+	outils ne m\'appartiennent. Pour le moment Octopus a 
+	3 modules principaux avec un module de support de connexion
+	ils sont les suivants :
+	1) Informatique réseau
+	2) Scanning réseau
+	3) Scan serveur/site web
+	-
+	4) Support de connexion
+	
+EOF
+
+}
+
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ "$1" == "help" ]; then
 	help
