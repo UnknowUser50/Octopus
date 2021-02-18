@@ -114,14 +114,11 @@ fi
 }
 
 if [ "$1" == "--purge" ] || [ "$1" == "-purge" ] || [ "$1" == "-p" ]; then
-	sudo rm -rf /var/log/Octopus-Logs/subsystem.log
-	if [ ! "$?" -gt "0" ]; then
-		echo -e "${RED}[${YELLOW}!${RED}]$basename$0 : internal error : can't remove subsystem.log ${RESETCOLOR}" ; sleep 1
-	fi
-	cd /home/${USER}/ ; sudo rm -rf Backup-Octopus/
-	if [ ! "$?" -gt "0" ]; then
-		echo -e "${RED}[${YELLOW}!${RED}]$basename$0 : internal error : cant't remove Backup-Octopus directory ${RESETCOLOR}" ; sleep 1
-	fi
+	cd ; cd /var/log/Octopus-Logs/ ; chmod 755 *
+	rm -rf subsystem.log &>/dev/null
+	if [ "$?" -gt "0" ]; then
+		echo "${RED}[${YELLOW}!${RED}] $basename$0 : internal error, impossible to delete the targeted element, check the path ${RESETCOLOR}'/var/log/Octopus-Logs"
+	fi	
 fi	
 
 banner
