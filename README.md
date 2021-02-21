@@ -16,35 +16,52 @@
 If you are on a Linux subsystem, you can't use nmap. Here is the solution in order to be able to use it :
 On your Linux, type this command : 
 
-> alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"'
+```bash
+root@Debian:~# alias nmap='"/mnt/c/Program Files (x86)/Nmap/nmap.exe"'
+```
 
 Change the path if necessary, but you must have NMAP on your Windows system
 Link for nmap : https://nmap.org/download.html
 
 * ## Installation
 
-> sudo apt update 
+```bash
+root@Debian:~# sudo apt update
+```
 
-> git clone https://github.com/UnknowUser50/Octopus
+```bash
+root@Debian:~# git clone https://github.com/UnknowUser50/Octopus
+```
 
-> cd Octopus/
-
-> sudo chmod 755 * 
+```bash
+root@Debian:~# cd Octopus/
+```
+```bash
+root@Debian:~# sudo chmod 755 * 
+```
 
 if you are on a subsystem, run first : 
 
-> sudo ./Subsystem_WIN.sh
+```bash
+root@Debian:~# sudo ./Subsystem_WIN.sh
+```
 
 else : 
 
-> sudo ./install.sh
+```bash
+root@Debian:~# sudo ./install.sh
+```
 
-> sudo ./Octopus.sh
+```bash
+root@Debian:~# sudo ./Octopus.sh
+```
 
 It is advisable to update Octopus regularly, **at least once a week**. Just run update script :
 This script will save all files created beforehand, don't worry !
 
-> sudo ./update.sh
+```bash
+root@Debian:~# sudo ./update.sh
+```
 
 ## Compatible operating system
 
@@ -138,16 +155,26 @@ Warning, if you use a system other than Kali Linux, **remember to check if the p
 ### SSH connection
 * SSH for **S**ecure **SH**ell is a secure communication protocol. With Octopus, you just need to enter the session name and the IP address to which you want to establish
 an SSH connection :
-> ssh root@127.0.0.1 
-* Stop the SSH service : 
-> sudo systemctl stop ssh
+```bash
+root@Debian:~# ssh root@127.0.0.1
+```
+* Stop the SSH service :
+```bash 
+root@Debian:~# sudo systemctl stop ssh
+```
 
 * If you have a problem, use the log : 
-> sudo journalctl -n 100 
+```bash
+root@Debian:~# sudo journalctl -n 100
+```
 * You can also use **grep** to find errors : 
-> sudo journalctl -n 100 | grep "error*"
+```bash
+root@Debian:~# sudo journalctl -n 100 | grep "error*"
+```
 
-> sudo journalctl -n 100 | grep "failed*"
+```bash
+root@Debian:~# sudo journalctl -n 100 | grep "failed*"
+```
 
 # DISCLAMER ! 
 Octopus is a tool reserved for **professional** or **educational** use ! Under no circumstances should it be used for the purpose of harming others or a system that does
