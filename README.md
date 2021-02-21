@@ -110,8 +110,10 @@ Warning, if you use a system other than Kali Linux, **remember to check if the p
 * Recon-ng :
   * Recon-ng is a powerfull tool that can be further explored by viewing throught the list of module. Before using it, you are going to need to install somes packages
   . First, lunch recon-ng with 
-    * > recon-ng
-    * > marketplace install all 
+     ```bash
+     > recon-ng
+     > marketplace install all
+     ``` 
 * WireShark : 
   * WireShark is a tool for scanning and analyzing requests, protocol analyzer on a network card that you choose beforehand.
 
@@ -141,7 +143,9 @@ Warning, if you use a system other than Kali Linux, **remember to check if the p
    You can find wordlists here :
    * /usr/share/wordlists/
    I advise you to use this wordlists which is very complete :
+    ```bash
     > /usr/sahre/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+    ```
 * DirBuster : 
   * Dirbuster is the graphical version of Gobuster, it allows you to perform the same actions as Dirbuster.
 * SPARTA / Legion : 
