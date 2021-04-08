@@ -23,9 +23,9 @@ echo -e -n "$BLUE[$GREEN+$BLUE] Enter current user : $RESETCOLOR"
 read current_user
 
 # alias 
-sudo alias Octopus="sudo bash /home/${current_user}/Octopus/Octopus.sh"
-sudo alias Octopus-Update="sudo bash /home/${current_user}/Octopus/update.sh"
-sudo alias Octopus-Install="sudo bash /home/${current_user}/Octopus/install.sh"
+alias Octopus="sudo bash /home/${current_user}/Octopus/Octopus.sh"
+alias Octopus-Update="sudo bash /home/${current_user}/Octopus/update.sh"
+alias Octopus-Install="sudo bash /home/${current_user}/Octopus/install.sh"
 
 # Creation of the log directory & file.
 if [[ -d /var/log/Octopus-Logs/ ]] && [[ -e /var/log/Octopus-Logs/Octopus.log ]]; then
