@@ -792,7 +792,7 @@ printf "$GREEN {103}-- $BLUE UDP scan                                     $GREEN
 printf "$GREEN {104}-- $BLUE Aggressive scan                              $GREEN {117}--$BLUE Intensity service detection \n\E[0m"
 printf "$GREEN {105}-- $BLUE Flags scan                                   $GREEN {118}--$BLUE Only open port(s) \n\e[0m"
 printf "$GREEN {106}-- $BLUE Vulnerabilities scan                         $RED ATTACK - WARNING \n\e[0m"
-printf "$GREEN {107}-- $BLUE Trace scan                                   $YELLOW {118}--$RED DOS attack\n\E[0m"
+printf "$GREEN {107}-- $BLUE Trace scan                                   $YELLOW {119}--$RED DOS attack\n\E[0m"
 printf "$GREEN {108}-- $BLUE OS detection                            \n\e[0m"
 printf "$GREEN {109}-- $BLUE Avahi DOS                               \n\e[0m"
 printf "$GREEN {110}-- $BLUE Canon devices scan                      \n\e[0m"
