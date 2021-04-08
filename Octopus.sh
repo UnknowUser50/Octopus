@@ -1262,7 +1262,7 @@ elif [ $nnmap == $la ]; then
 	date=$(date +%c)
 	printf "\n" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
 	echo -e "$BLUE [$GREEN*$BLUE]$RESETCOLOR Command at :$GREEN $date $RESETCOLOR" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
-	sudo nmap -sL $ip | grep -v "for $ip*" && sudo nmap -sL $ip | grep -v "for $ip*" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
+	sudo nmap -sP $ip >> /home/$current_user/Octopus/Network-Scan/Listing.txt
 	printf "\n\n\n" >> /home/$current_user/Octopus/Network-Scan/Listing.txt
 	printf "$BLUE [$GREEN+$BLUE] Your results have been saved here : $GREEN/home/$current_user/Octopus/Network-Scan/Listing.txt $RESETCOLOR \n"
 	sudo chown $current_user /home/$current_user/Octopus/Network-Scan/Listing.txt
